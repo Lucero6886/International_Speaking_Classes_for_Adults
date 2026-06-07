@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤝 Workplace Problem Solving | Lucero English System</title>
+    <style>
+        :root {
+            --primary: #1E3A8A; /* Navy Blue - Professional & Trustworthy */
+            --primary-light: #60A5FA; /* Blue */
+            --secondary: #0F766E; /* Teal */
+            --secondary-light: #5EEAD4;
+            --bg-color: #F1F5F9; /* Slate 100 */
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A; /* Slate 900 */
+            --text-light: #475569; /* Slate 600 */
+            --success: #059669;
+            --warning: #DC2626;
+            --b1-color: #8B5CF6; /* Purple for B1 */
+            --b2-color: #F59E0B; /* Amber for B2 */
+            --font-ui: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+            --font-heading: "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow-wrap: break-word;
+        }
+
+        body {
+            font-family: var(--font-ui);
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(226, 232, 240, 0.8) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(226, 232, 240, 0.8) 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 18px; 
+            padding-bottom: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        /* Sticky Progress Header with Branding */
+        #progress-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .brand-title {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .progress-bar-container {
+            flex-grow: 1;
+            background: #E2E8F0;
+            height: 10px;
+            border-radius: 10px;
+            margin: 0 25px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        #progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Toast Notification */
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text-main);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            border-left: 5px solid var(--primary-light);
+        }
+
+        #toast-container.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1050px; 
+            margin: 90px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Sections and Cards */
+        section {
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid var(--primary);
+        }
+
+        .hero-section {
+            text-align: center;
+            background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%);
+            border-top: 6px solid var(--primary);
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .pill {
+            background: var(--card-bg);
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #CBD5E1;
+        }
+
+        .flow-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 20px;
+            text-align: left;
+            border: 1px solid #E2E8F0;
+        }
+
+        .flow-box ul, .flow-box ol {
+            margin-left: 20px;
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+
+        .flow-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-left: 0;
+        }
+
+        .flow-box li {
+            background: var(--card-bg);
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            border-left: 4px solid var(--primary-light);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        /* Buttons */
+        button {
+            cursor: pointer;
+            font-family: var(--font-heading);
+            border: none;
+            border-radius: 6px; /* Professional square-ish corners */
+            padding: 12px 24px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1E40AF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #0F766E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(15, 118, 110, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Interactive Elements */
+        .question-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .question-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-color: var(--primary-light);
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #CBD5E1;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .hidden-content.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .answer-b1, .answer-b2 {
+            padding: 15px 18px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .answer-b1 {
+            background: #F5F3FF;
+            border-left: 4px solid var(--b1-color);
+        }
+
+        .answer-b2 {
+            background: #FFFBEB;
+            border-left: 4px solid var(--b2-color);
+        }
+
+        .tag-b1 { background: var(--b1-color); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 8px;}
+        .tag-b2 { background: var(--b2-color); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 8px;}
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .vocab-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-color: var(--primary-light);
+        }
+
+        .vocab-word {
+            font-size: 1.35rem;
+            font-family: var(--font-heading);
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vocab-icon { font-size: 1.2rem; }
+
+        /* Flashcards (Fluency Builder) */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background: #F8FAFC; 
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #CBD5E1;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .flashcard:hover { border-color: var(--primary); box-shadow: 0 4px 8px rgba(0,0,0,0.06); }
+
+        .flashcard-back {
+            display: none;
+            font-size: 1rem;
+            margin-top: 15px;
+            border-top: 1px solid #E2E8F0;
+            padding-top: 15px;
+            color: var(--text-main);
+        }
+
+        .flashcard.flipped { background: #EFF6FF; border-color: var(--primary-light); }
+        .flashcard.flipped .flashcard-front { display: none; }
+        .flashcard.flipped .flashcard-back { display: block; animation: fadeIn 0.3s; }
+
+        /* Review Game */
+        #game-container {
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .game-option {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            width: 100%;
+            margin: 10px 0;
+            padding: 16px;
+            font-size: 1.15rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .game-option:hover:not(:disabled) { background: rgba(255,255,255,0.2); }
+        .game-option.correct { background: var(--success); border-color: #059669; font-weight: bold;}
+        .game-option.wrong { background: var(--warning); border-color: #BE123C; opacity: 0.7;}
+        .game-option:disabled { cursor: not-allowed; }
+
+        /* Checkboxes & Reflection */
+        .tracker-list { list-style: none; margin-bottom: 20px; }
+        .tracker-list li {
+            margin: 12px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            border: 1px solid #E2E8F0;
+            transition: background 0.2s;
+        }
+        .tracker-list li:hover { background: #F8FAFC; }
+        
+        .tracker-checkbox {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Facilitator Support */
+        .teacher-box {
+            background: #F0F9FF;
+            border-left: 4px solid #0EA5E9;
+            border-radius: 6px;
+            padding: 25px;
+        }
+
+        .zoom-tip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #E2E8F0;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-box {
+            background: #0F172A;
+            color: #E2E8F0;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: "Courier New", Courier, monospace;
+            margin: 15px 0;
+            position: relative;
+            white-space: pre-wrap;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+        .instruction {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Branding */
+        .lesson-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            background: var(--text-main);
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .lesson-footer h3 {
+            color: var(--primary-light);
+            margin-bottom: 10px;
+            font-family: var(--font-heading);
+        }
+
+        .lesson-footer p {
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            section { padding: 25px 20px; }
+            .pill { font-size: 0.85rem; padding: 5px 12px; }
+            h2 { font-size: 1.6rem; }
+            .brand-title span { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Notification -->
+    <div id="toast-container">Message</div>
+
+    <!-- Sticky Progress Header -->
+    <div id="progress-header">
+        <div class="brand-title">🌐 <span>Lucero English</span></div>
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <span id="progress-text" style="font-weight: 700; color: var(--primary); font-size: 1rem;">0%</span>
+    </div>
+
+    <div class="container">
+
+        <!-- SECTION 1: HERO OVERVIEW -->
+        <section class="hero-section" id="section-1">
+            <h1>🤝 Professional Problem Solving</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 25px; color: var(--text-light);">Mastering effective communication, conflict resolution, and teamwork in the modern workplace.</p>
+            
+            <div class="pill-container">
+                <span class="pill">💼 Working Adults</span>
+                <span class="pill">📊 Mixed B1-B2</span>
+                <span class="pill">⏱️ 60 Minutes</span>
+                <span class="pill">💻 Online Class</span>
+            </div>
+
+            <div class="flow-box">
+                <h3>🎯 Session Objectives (Today, we will...):</h3>
+                <ol style="font-size: 1.05rem;">
+                    <li><strong>Describe</strong> past workplace challenges and how they were resolved.</li>
+                    <li><strong>Propose</strong> logical solutions to common professional problems using constructive language.</li>
+                    <li><strong>Role-play</strong> a business negotiation to reach a compromise politely.</li>
+                </ol>
+            </div>
+
+            <div class="flow-box" style="background: rgba(255,255,255,0.6);">
+                <h3>⏱️ Teaching Flow:</h3>
+                <ul>
+                    <li>1. Career Check-in (5 min)</li>
+                    <li>2. Business Vocabulary (8 min)</li>
+                    <li>3. Guided Frameworks (8 min)</li>
+                    <li>4. Case Study Discussion (15 min)</li>
+                    <li>5. Negotiation Role-play (12 min)</li>
+                    <li>6. Knowledge Check (5 min)</li>
+                    <li>7. Professional Reflection (5 min)</li>
+                    <li>8. Wrap-up (2 min)</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 35px;">
+                <button class="btn-primary" style="font-size: 1.2rem; padding: 15px 35px;" onclick="document.getElementById('section-2').scrollIntoView({behavior: 'smooth'})">🚀 Begin Session</button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: WARM-UP -->
+        <section id="section-2">
+            <h2>☕ 1. Warm-up: Career Check-In</h2>
+            <p class="instruction"><span class="zoom-tip">🎤 FACILITATOR TIP</span> Ask participants to type a quick word in the chat, then invite 2-3 professionals to share their experiences on mic.</p>
+            
+            <div class="question-card">
+                <div class="question-text">1. What is the most challenging part of your current job? 🏢</div>
+                <button class="btn-secondary" onclick="toggleReveal('wu-1')">👀 View Examples</button>
+                <div id="wu-1" class="hidden-content">
+                    <div class="answer-b1"><span class="tag-b1">B1 Core</span> The hardest part is dealing with angry customers. It can be very stressful.</div>
+                    <div class="answer-b2"><span class="tag-b2">B2 Extended</span> For me, the main challenge is cross-departmental collaboration. Ensuring everyone is aligned on the same goals requires a lot of communication.</div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">2. How do you usually handle a missed deadline? ⏰</div>
+                <button class="btn-secondary" onclick="toggleReveal('wu-2')">👀 View Examples</button>
+                <div id="wu-2" class="hidden-content">
+                    <div class="answer-b1"><span class="tag-b1">B1 Core</span> I usually tell my manager immediately and try to finish the work as fast as I can.</div>
+                    <div class="answer-b2"><span class="tag-b2">B2 Extended</span> I proactively communicate the delay to stakeholders, explain the reason, and propose a realistic new timeline to manage their expectations.</div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">3. Do you prefer working independently or in a team? Why? 🤝</div>
+                <button class="btn-secondary" onclick="toggleReveal('wu-3')">👀 View Examples</button>
+                <div id="wu-3" class="hidden-content">
+                    <div class="answer-b1"><span class="tag-b1">B1 Core</span> I prefer working in a team because we can share ideas and help each other.</div>
+                    <div class="answer-b2"><span class="tag-b2">B2 Extended</span> It depends on the task. For brainstorming and complex problem-solving, I thrive in a team environment. However, for deep focus work like data analysis, I prefer working independently.</div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">4. Have you ever experienced a miscommunication at work? What happened? 🗣️</div>
+                <button class="btn-secondary" onclick="toggleReveal('wu-4')">👀 View Examples</button>
+                <div id="wu-4" class="hidden-content">
+                    <div class="answer-b1"><span class="tag-b1">B1 Core</span> Yes. I sent an email to a colleague, but they misunderstood my tone and got upset. We had to call each other to fix it.</div>
+                    <div class="answer-b2"><span class="tag-b2">B2 Extended</span> Absolutely. Last year, vague instructions led our team to work on the wrong project requirements for a week. Since then, I always clarify expectations in writing after a meeting.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: VOCABULARY INPUT -->
+        <section id="section-3">
+            <h2>📚 2. Business Vocabulary</h2>
+            <p class="instruction"><span class="zoom-tip">🗣️ FACILITATOR TIP</span> Read the word clearly. Ask participants to read the example sentences to practice pronunciation in context.</p>
+            
+            <div class="vocab-grid">
+                <!-- Word 1 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Miscommunication <span class="vocab-icon">📵</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(mis-kuh-myoo-ni-KAY-shun) - Noun</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> Failure to communicate clearly, leading to a mistake or misunderstanding.</p>
+                    <span class="tag-b1">B1</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-1')">Show Example</button>
+                    <div id="v-1" class="hidden-content" style="font-size: 0.95rem;">"A simple <strong>miscommunication</strong> caused a one-week delay in our project."</div>
+                </div>
+
+                <!-- Word 2 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Collaborate <span class="vocab-icon">🧩</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(kuh-LAB-uh-rate) - Verb</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> To work together with someone to achieve a goal or produce something.</p>
+                    <span class="tag-b1">B1</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-2')">Show Example</button>
+                    <div id="v-2" class="hidden-content" style="font-size: 0.95rem;">"Our marketing team needs to <strong>collaborate</strong> closely with the sales department."</div>
+                </div>
+
+                <!-- Word 3 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Compromise <span class="vocab-icon">⚖️</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(KOM-pruh-mize) - Noun/Verb</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> An agreement reached where both sides give up something they wanted.</p>
+                    <span class="tag-b2">B2</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-3')">Show Example</button>
+                    <div id="v-3" class="hidden-content" style="font-size: 0.95rem;">"We couldn't agree on the budget, so we had to find a <strong>compromise</strong>."</div>
+                </div>
+
+                <!-- Word 4 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Clarify <span class="vocab-icon">🔎</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(KLAR-ih-fy) - Verb</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> To make something easier to understand by explaining it in more detail.</p>
+                    <span class="tag-b1">B1</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-4')">Show Example</button>
+                    <div id="v-4" class="hidden-content" style="font-size: 0.95rem;">"Could you please <strong>clarify</strong> what you meant in the second paragraph of your email?"</div>
+                </div>
+
+                <!-- Word 5 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Propose <span class="vocab-icon">💡</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(pruh-POZE) - Verb</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> To suggest a plan, idea, or solution for people to consider.</p>
+                    <span class="tag-b2">B2</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-5')">Show Example</button>
+                    <div id="v-5" class="hidden-content" style="font-size: 0.95rem;">"I would like to <strong>propose</strong> a new strategy to increase our quarterly sales."</div>
+                </div>
+
+                <!-- Word 6 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Escalate <span class="vocab-icon">📈</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(ES-kuh-late) - Verb</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> To involve someone more senior (like a manager) to help resolve a difficult issue.</p>
+                    <span class="tag-b2">B2</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-6')">Show Example</button>
+                    <div id="v-6" class="hidden-content" style="font-size: 0.95rem;">"If the client remains unhappy, we will need to <strong>escalate</strong> the issue to the director."</div>
+                </div>
+
+                <!-- Word 7 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Constructive feedback <span class="vocab-icon">📝</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(kun-STRUK-tiv FEED-bak) - Noun Phrase</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> Useful comments or suggestions intended to help someone improve.</p>
+                    <span class="tag-b2">B2</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-7')">Show Example</button>
+                    <div id="v-7" class="hidden-content" style="font-size: 0.95rem;">"A good manager provides <strong>constructive feedback</strong> rather than just criticizing."</div>
+                </div>
+
+                <!-- Word 8 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Take initiative <span class="vocab-icon">🚀</span></div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">(take ih-NISH-uh-tiv) - Verb Phrase</div>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Meaning:</strong> To assess and start things independently without needing to be told.</p>
+                    <span class="tag-b2">B2</span>
+                    <button class="btn-outline" style="width:100%; font-size: 0.9rem; padding: 8px;" onclick="toggleReveal('v-8')">Show Example</button>
+                    <div id="v-8" class="hidden-content" style="font-size: 0.95rem;">"Employers love employees who <strong>take initiative</strong> and solve problems proactively."</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CONTROLLED SPEAKING PRACTICE -->
+        <section id="section-4">
+            <h2>🧩 3. Corporate Speaking Frameworks</h2>
+            <p class="instruction">Use these professional structures to communicate effectively in meetings.</p>
+            
+            <div class="question-card">
+                <h3>Level 1: Identifying Issues (B1)</h3>
+                <p style="font-size: 1.2rem; margin: 15px 0; padding: 20px; background: #F5F3FF; border-radius: 6px; border-left: 4px solid var(--b1-color);">
+                    "The main problem seems to be <strong>[Noun/V-ing]</strong>, which means that <strong>[Negative Result]</strong>."
+                </p>
+                <p style="font-size: 1rem; color: var(--text-light);"><em>Example: "The main problem seems to be a lack of communication, which means that we are missing our deadlines."</em></p>
+                <div style="margin-top: 20px;">
+                    <strong>Your turn! Use these ideas:</strong> 
+                    <div class="pill-container" style="justify-content: flex-start; margin-top: 10px;">
+                        <span class="pill">low budget</span> <span class="pill">unclear instructions</span> <span class="pill">we cannot hire more staff</span> <span class="pill">the client is confused</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h3>Level 2: Proposing Solutions (B2)</h3>
+                <p style="font-size: 1.2rem; margin: 15px 0; padding: 20px; background: #FFFBEB; border-radius: 6px; border-left: 4px solid var(--b2-color);">
+                    "I highly recommend that we <strong>[Action]</strong>, otherwise <strong>[Negative Consequence]</strong>."
+                </p>
+                <p style="font-size: 1rem; color: var(--text-light);"><em>Example: "I highly recommend that we clarify the project scope today, otherwise the client will lose trust in us."</em></p>
+                <div style="margin-top: 20px;">
+                    <strong>Your turn! Use these ideas:</strong> 
+                    <div class="pill-container" style="justify-content: flex-start; margin-top: 10px;">
+                        <span class="pill">schedule a meeting</span> <span class="pill">extend the deadline</span> <span class="pill">the project will fail</span> <span class="pill">employees will burn out</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: MAIN SPEAKING QUESTIONS -->
+        <section id="section-5">
+            <h2>🎤 4. Case Study Discussion</h2>
+            <p class="instruction"><span class="zoom-tip">💬 FACILITATOR TIP</span> Ask participants to choose one question to answer. Encourage them to draw on real workplace experiences.</p>
+
+            <!-- Q1 -->
+            <div class="question-card">
+                <div class="question-text">1. Describe a time you successfully collaborated with a difficult coworker. How did you do it? 🤝</div>
+                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
+                    <span class="tag-b1">B1 Core</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">listened to them</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">set clear rules</span>
+                </div>
+                <button class="btn-secondary" onclick="toggleReveal('mq-1')">View Sample Answers</button>
+                <div id="mq-1" class="hidden-content">
+                    <div class="answer-b1"><strong>B1:</strong> I had a coworker who always interrupted me. I decided to schedule a 1-on-1 meeting. I listened to his ideas first, and then he was more willing to listen to mine.</div>
+                    <div class="answer-b2"><strong>B2:</strong> I once worked with a colleague who was very resistant to change. Instead of arguing, I took the initiative to ask for their feedback on my proposal. By making them feel valued, we were able to compromise and collaborate smoothly.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-card">
+                <div class="question-text">2. How do you handle receiving negative or constructive feedback from a manager? 📝</div>
+                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
+                    <span class="tag-b2">B2 Extended</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">don't take it personally</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">ask for examples</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">improve performance</span>
+                </div>
+                <button class="btn-secondary" onclick="toggleReveal('mq-2')">View Sample Answers</button>
+                <div id="mq-2" class="hidden-content">
+                    <div class="answer-b1"><strong>B1:</strong> It is hard at first, but I try to stay calm. I ask my manager to clarify what I did wrong so I can fix it next time.</div>
+                    <div class="answer-b2"><strong>B2:</strong> I view constructive feedback as a tool for professional growth. While it can be uncomfortable, I try not to take it personally. I usually ask for specific examples so I can take initiative and improve my performance immediately.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-card">
+                <div class="question-text">3. "The customer is always right." Do you agree with this statement in modern business? Why or why not? 💼</div>
+                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
+                    <span class="tag-b2">B2 Challenge</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">set boundaries</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">protect employees</span>
+                    <span class="pill" style="font-size:0.85rem; padding: 4px 10px;">find a compromise</span>
+                </div>
+                <button class="btn-secondary" onclick="toggleReveal('mq-3')">View Sample Answers</button>
+                <div id="mq-3" class="hidden-content">
+                    <div class="answer-b1"><strong>B1:</strong> I don't agree completely. Sometimes customers are rude or ask for impossible things. We should respect them, but we must protect our staff too.</div>
+                    <div class="answer-b2"><strong>B2:</strong> I disagree. While exceptional customer service is crucial, blindly believing the customer is always right can lead to toxic situations for employees. We should listen to their concerns and try to find a compromise, but we must also set professional boundaries when a customer is unreasonable.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: IDEA BANK -->
+        <section id="section-6">
+            <h2>💡 5. Professional Idea Bank</h2>
+            <p class="instruction">Use these categorized concepts to build stronger arguments.</p>
+            
+            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.1rem;" onclick="toggleReveal('ib-1')">➕ Soft Skills (Interpersonal)</button>
+            <div id="ib-1" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 6px; font-size: 1rem; line-height: 2;">
+                <strong>Active listening, empathy, adaptability, emotional intelligence, time management, negotiation, leadership.</strong>
+            </div>
+
+            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.1rem;" onclick="toggleReveal('ib-2')">➕ Common Workplace Problems</button>
+            <div id="ib-2" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 6px; font-size: 1rem; line-height: 2;">
+                <strong>Unrealistic deadlines, micromanagement, lack of resources, toxic workplace culture, poor communication, technical failures.</strong>
+            </div>
+
+            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.1rem;" onclick="toggleReveal('ib-3')">➕ Action-Oriented Solutions</button>
+            <div id="ib-3" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 6px; font-size: 1rem; line-height: 2;">
+                <strong>Schedule a brainstorming session, propose a revised timeline, delegate tasks, escalate to upper management, ask for clarification.</strong>
+            </div>
+        </section>
+
+        <!-- SECTION 7: ROLE PLAY -->
+        <section id="section-7">
+            <h2>🎭 6. Negotiation Role-Play</h2>
+            <p class="instruction"><span class="zoom-tip">👥 FACILITATOR TIP</span> Divide into pairs in breakout rooms for 10 minutes. Encourage professional tone and polite phrasing.</p>
+            
+            <div class="question-card" style="border-top: 4px solid var(--primary);">
+                <h3 style="color: var(--primary); font-size: 1.4rem;">🛑 Situation: The Unrealistic Deadline</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 20px;"><strong>Context:</strong> A Project Manager has just assigned a massive presentation to a Team Member, due tomorrow morning. It is impossible to finish without working all night.</p>
+                
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; background: #F8FAFC; padding: 20px; border-radius: 6px; border: 1px solid #E2E8F0;">
+                        <h4 style="font-size: 1.1rem; color: var(--secondary);">👔 Role A (Project Manager)</h4>
+                        <ul style="margin-left: 20px; font-size: 1rem; margin-top: 15px;">
+                            <li>Explain that the CEO suddenly requested this presentation.</li>
+                            <li>Acknowledge it's short notice, but insist it's high priority.</li>
+                            <li>Ask the Team Member what they need to get it done tonight.</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: #F0FDF4; padding: 20px; border-radius: 6px; border: 1px solid #BBF7D0;">
+                        <h4 style="font-size: 1.1rem; color: var(--success);">💼 Role B (Team Member)</h4>
+                        <ul style="margin-left: 20px; font-size: 1rem; margin-top: 15px;">
+                            <li>Express concern about the quality of work if rushed.</li>
+                            <li>Politely set a boundary (you cannot work all night).</li>
+                            <li>Propose a compromise (e.g., deliver a summary tomorrow, full report by Friday).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="btn-secondary" style="margin-top: 25px; width: 100%;" onclick="toggleReveal('rp-hint')">💬 View Dialogue Hints / Useful Phrases</button>
+                <div id="rp-hint" class="hidden-content" style="background: white; padding: 20px; border-radius: 6px; font-size: 1.05rem;">
+                    <p style="margin-bottom: 10px;"><strong>Manager:</strong> "I know it's a tight turnaround, but the CEO needs this by 9 AM tomorrow. Can you make it happen?"</p>
+                    <p style="margin-bottom: 10px;"><strong>Team Member:</strong> "I understand it's urgent. However, doing a full 50-page analysis tonight will compromise the quality and accuracy of the data."</p>
+                    <p style="margin-bottom: 10px;"><strong>Manager:</strong> "What if I get someone from IT to help you gather the data?"</p>
+                    <p><strong>Team Member:</strong> "That helps, but I'd like to propose a compromise. I can deliver a 5-page executive summary for the 9 AM meeting, and provide the detailed report by Thursday. Does that work?"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: FLUENCY BUILDER -->
+        <section id="section-8">
+            <h2>⚡ 7. Business Discourse Markers (Click to flip!)</h2>
+            <p class="instruction">Use these phrases to sound more diplomatic and professional in meetings.</p>
+            
+            <div class="flashcard-grid">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <h3 style="font-size: 1.2rem;">Let's look at the bigger picture...</h3>
+                        <p style="font-size: 0.9rem; color: var(--primary); margin-top: 10px;">(Click to flip)</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <strong style="color:var(--text-main);">Function:</strong> Refocusing the team on the main goal rather than small details.<br><br>
+                        <strong style="color:var(--text-main);">Example:</strong> "Instead of arguing about the font color, let's look at the bigger picture: what does the client want?"
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <h3 style="font-size: 1.2rem;">I see where you're coming from, but...</h3>
+                        <p style="font-size: 0.9rem; color: var(--primary); margin-top: 10px;">(Click to flip)</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <strong style="color:var(--text-main);">Function:</strong> Disagreeing politely by validating their opinion first.<br><br>
+                        <strong style="color:var(--text-main);">Example:</strong> "I see where you're coming from regarding the budget, but we really need this software."
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <h3 style="font-size: 1.2rem;">Moving forward...</h3>
+                        <p style="font-size: 0.9rem; color: var(--primary); margin-top: 10px;">(Click to flip)</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <strong style="color:var(--text-main);">Function:</strong> Shifting the focus from past mistakes to future actions.<br><br>
+                        <strong style="color:var(--text-main);">Example:</strong> "We missed the deadline this time. Moving forward, let's have weekly check-in meetings."
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <h3 style="font-size: 1.2rem;">To get back on track...</h3>
+                        <p style="font-size: 0.9rem; color: var(--primary); margin-top: 10px;">(Click to flip)</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <strong style="color:var(--text-main);">Function:</strong> Stopping off-topic discussion and returning to the agenda.<br><br>
+                        <strong style="color:var(--text-main);">Example:</strong> "That's an interesting point about the office party, but to get back on track, how is the marketing report?"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: REVIEW GAME -->
+        <section id="section-9">
+            <h2>🎮 8. Vocabulary Knowledge Check</h2>
+            <p class="instruction">Ensure you've mastered today's professional terminology.</p>
+            
+            <div id="game-container">
+                <h3 id="game-question" style="color: white; margin-bottom: 25px; font-size: 1.5rem; line-height: 1.4;">Select 'Start' to begin the quiz.</h3>
+                <div id="game-options">
+                    <button class="btn-primary" style="font-size: 1.2rem; padding: 12px 30px; background: white; color: var(--primary); box-shadow: none;" onclick="startGame()">Start Quiz 🏁</button>
+                </div>
+                <p id="game-score" style="margin-top: 25px; font-weight: bold; font-size: 1.2rem; display: none; color: #DBEAFE;">Score: 0 / 5</p>
+            </div>
+        </section>
+
+        <!-- SECTION 10 & 11: REFLECTION & PROGRESS -->
+        <section id="section-10">
+            <h2>✅ 9. Professional Reflection Tracker</h2>
+            <p class="instruction">Mark your achievements for today's session.</p>
+            
+            <ul class="tracker-list">
+                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I shared my personal experience with workplace challenges.</li>
+                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I utilized new vocabulary (e.g., clarify, escalate, compromise).</li>
+                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I structured my proposed solutions clearly.</li>
+                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I negotiated politely in the role-play scenario.</li>
+                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I used a professional discourse marker (e.g., 'Moving forward...').</li>
+            </ul>
+
+            <h3 style="margin-top: 35px; color: var(--text-main);">Self-Reflection:</h3>
+            <p class="instruction">Did you communicate your ideas confidently and diplomatically today?</p>
+            <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                <button class="btn-outline" onclick="showToast('Excellent! Keep leveraging these skills at work.')">Highly Confident 🌟</button>
+                <button class="btn-outline" onclick="showToast('Solid work! Note down new phrases to review.')">Getting There 👍</button>
+                <button class="btn-outline" onclick="showToast('That is completely normal. Keep practicing!')">Need More Practice 📈</button>
+            </div>
+        </section>
+
+        <!-- SECTION 12: TEACHER SUPPORT -->
+        <section id="section-12">
+            <h2>🧑‍🏫 Facilitator Notes</h2>
+            <div class="teacher-box">
+                <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 10px;">Managing Professional Learners (Mixed B1-B2):</h4>
+                <ul style="margin-left: 20px; font-size: 1rem; margin-bottom: 20px; line-height: 1.6; color: var(--text-main);">
+                    <li><strong>Lack of Ideas:</strong> If professionals are hesitant to share real workplace issues due to confidentiality, suggest they use "a hypothetical situation" or "a situation a friend experienced."</li>
+                    <li><strong>Direct Translation Tone:</strong> B1 learners often translate directly, which can sound rude in English (e.g., "You are wrong"). Teach "softeners" and diplomatic language (e.g., "I see your point, but...").</li>
+                    <li><strong>Grammar vs. Communication:</strong> Prioritize successful negotiation and problem-solving over perfect grammar. Praise the *strategy* they used to resolve the conflict.</li>
+                </ul>
+
+                <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 10px;">Polite Correction Strategies:</h4>
+                <ul style="margin-left: 20px; font-size: 1rem; line-height: 1.6; color: var(--text-main);">
+                    <li><em>"Your point was very clear. To sound a bit more diplomatic in an email, we could say..."</em></li>
+                    <li><em>"Great solution! Let's try using our new word 'propose' to frame that idea."</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 13: HOMEWORK -->
+        <section id="section-13">
+            <h2>🏠 Professional Practice</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 15px;">Apply today's skills to your real work environment. Select a task below.</p>
+            
+            <div class="copy-box" id="hw-text">Self-Study Task: Workplace Problem Solving
+
+Please choose ONE task to complete this week:
+
+Option A (Speaking/Audio): 
+Record a 2-minute voice note describing a recent problem at work. Explain what the issue was, how you took initiative to solve it, and what the result was. Share it in the community group.
+
+Option B (Email Writing Practice): 
+Write a draft email to a "coworker" proposing a compromise on a project where you disagree on the direction. Use at least 3 vocabulary words from today's lesson (e.g., clarify, collaborate, constructive). Bring it to the next class!</div>
+            <button class="btn-primary" style="margin-top: 10px;" onclick="copyText('hw-text')">📋 Copy Tasks for Chat/Email</button>
+        </section>
+
+    </div>
+
+    <!-- COPYRIGHT FOOTER -->
+    <footer class="lesson-footer">
+        <h3>Lucero English System</h3>
+        <p>© 2026 Hệ thống Anh Ngữ Lucero. All rights reserved.</p>
+        <p style="margin-top: 5px;">Curriculum Developer & Author: Mr. Lucero</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Custom Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast-container');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Toggle Hidden Content
+        function toggleReveal(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('show')) {
+                el.classList.remove('show');
+            } else {
+                el.classList.add('show');
+            }
+        }
+
+        // Progress Tracker
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.tracker-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(box => {
+                if(box.checked) checkedCount++;
+            });
+            const percentage = Math.round((checkedCount / checkboxes.length) * 100);
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-text').innerText = percentage + '%';
+            
+            if(percentage === 100) {
+                setTimeout(() => showToast("🎉 Outstanding! You have completed all tasks."), 500);
+            }
+        }
+
+        // Copy Text Function
+        function copyText(id) {
+            const textToCopy = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast("✅ Tasks copied to clipboard!");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast("❌ Failed to copy text.");
+            });
+        }
+
+        // Quiz Game Logic
+        const quizData = [
+            {
+                question: "Which word means to suggest a plan or idea?",
+                options: ["Clarify", "Propose", "Escalate"],
+                correct: 1
+            },
+            {
+                question: "If you want to involve a manager to solve a hard problem, you should...",
+                options: ["Compromise", "Collaborate", "Escalate"],
+                correct: 2
+            },
+            {
+                question: "An agreement where both sides give up something is called a...",
+                options: ["Initiative", "Compromise", "Feedback"],
+                correct: 1
+            },
+            {
+                question: "To make something easier to understand is to...",
+                options: ["Clarify", "Miscommunicate", "Collaborate"],
+                correct: 0
+            },
+            {
+                question: "Useful comments intended to help someone improve are called...",
+                options: ["Miscommunication", "Constructive feedback", "Escalation"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function startGame() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('game-score').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            document.getElementById('game-score').innerText = `Score: ${score} / ${quizData.length}`;
+            
+            if (currentQuestion >= quizData.length) {
+                endGame();
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            document.getElementById('game-question').innerText = `${currentQuestion + 1}. ${q.question}`;
+            
+            let optionsHTML = '';
+            q.options.forEach((opt, index) => {
+                optionsHTML += `<button class="game-option" onclick="checkAnswer(${index})">${opt}</button>`;
+            });
+            document.getElementById('game-options').innerHTML = optionsHTML;
+        }
+
+        function checkAnswer(selectedIndex) {
+            const q = quizData[currentQuestion];
+            const buttons = document.querySelectorAll('.game-option');
+            
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (selectedIndex === q.correct) {
+                buttons[selectedIndex].classList.add('correct');
+                score++;
+                showToast("Correct! 🎯");
+            } else {
+                buttons[selectedIndex].classList.add('wrong');
+                buttons[q.correct].classList.add('correct'); 
+                showToast("Not quite! Take note of the correct answer. 💡");
+            }
+
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion();
+            }, 1800);
+        }
+
+        function endGame() {
+            let message = "Well done! 🌟";
+            if (score === 5) message = "Perfect Score! 🏆 Excellent vocabulary retention.";
+            if (score < 3) message = "Good effort! Please review the vocabulary section again. 💪";
+
+            document.getElementById('game-question').innerText = message;
+            document.getElementById('game-options').innerHTML = `<button class="btn-primary" style="font-size: 1.2rem; padding: 12px 30px; background: white; color: var(--primary); box-shadow: none;" onclick="startGame()">Retake Quiz 🔄</button>`;
+            document.getElementById('game-score').innerText = `Final Score: ${score} / ${quizData.length}`;
+        }
+    </script>
+</body>
+</html>
