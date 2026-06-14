@@ -204,8 +204,50 @@
         .idea-bank { background: #FFFBEB; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--accent);}
         .sample-answers { display: grid; gap: 15px; }
 
-        .roleplay-card { background: #EFF6FF; padding: 25px; border-radius: 16px; margin-bottom: 25px; border: 2px solid #BFDBFE; }
-        .role-badge { display: inline-block; background: var(--primary); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-right: 10px; margin-bottom: 10px;}
+        .roleplay-card { background: #EFF6FF; padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 2px solid #BFDBFE; }
+        .role-badge { display: inline-block; background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; font-size: 1rem; font-weight: 700; margin-right: 10px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);}
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 25px;
+            background: #F8FAFC;
+            border-radius: 16px;
+            border: 2px dashed #93C5FD;
+            animation: fadeIn 0.4s ease forwards;
+            display: none; /* Hidden initially */
+        }
+
+        .chat-bubble {
+            padding: 15px 20px;
+            border-radius: 20px;
+            max-width: 85%;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            position: relative;
+            font-family: var(--font-main);
+            font-weight: 600;
+        }
+
+        .chat-bubble.left {
+            background: white;
+            color: var(--text-main);
+            border: 2px solid #E2E8F0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .chat-bubble.right {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary-hover);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
 
         .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .flashcard {
@@ -303,6 +345,7 @@
             .question-header { flex-direction: column; align-items: flex-start; }
             .vocab-grid, .flashcard-grid { grid-template-columns: 1fr; }
             .reflection-q { flex-direction: column; align-items: flex-start; }
+            .chat-bubble { max-width: 95%; }
         }
     </style>
 </head>
@@ -711,33 +754,39 @@
 
             <div class="roleplay-card">
                 <h3>🏨 Scenario A: The Lost Reservation</h3>
-                <p style="margin-bottom: 15px;"><strong>Situation:</strong> You have just arrived at your hotel after an exhausting 10-hour flight. The receptionist informs you that they cannot find your booking in their system.</p>
+                <p style="margin-bottom: 15px; font-size: 1.1rem;"><strong>Situation:</strong> You have just arrived at your hotel after an exhausting 10-hour flight. The receptionist informs you that they cannot find your booking in their system.</p>
                 <div style="margin-bottom: 15px;">
                     <span class="role-badge">Student A: Exhausted Tourist</span>
-                    <span class="role-badge">Student B: Hotel Receptionist</span>
+                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);">Student B: Hotel Receptionist</span>
                 </div>
-                <button class="btn-outline" onclick="toggleContent('rp1-hints')">Show Dialogue Hints 💬</button>
-                <div id="rp1-hints" class="hidden-content">
-                    <ul style="margin-left: 20px;">
-                        <li style="margin-bottom: 10px;"><strong>Tourist:</strong> "Hi, I have a reservation under the name..." / "Here is my confirmation email on my phone." / "Could you please double-check the system?" / "What are my options if you're fully booked tonight?"</li>
-                        <li><strong>Receptionist:</strong> "Good evening. Can I have your last name and passport, please?" / "I apologize, but I don't see it in the current system." / "Did you book through a third-party agency?" / "Please take a seat; let me speak to my manager."</li>
-                    </ul>
+                <button class="btn-outline" onclick="toggleChat('rp1-chat')">Show Conversation 👀</button>
+                
+                <div id="rp1-chat" class="chat-container">
+                    <div class="chat-bubble left"><strong>Receptionist:</strong> Good evening. Welcome to the Grand Hotel. How can I help you?</div>
+                    <div class="chat-bubble right"><strong>Tourist:</strong> Hi, I have a reservation under the last name Smith. I just had a 10-hour flight and I'm very tired.</div>
+                    <div class="chat-bubble left"><strong>Receptionist:</strong> Let me check... I apologize, but I don't see your name in our current system.</div>
+                    <div class="chat-bubble right"><strong>Tourist:</strong> What? Here is my confirmation email on my phone. Could you please double-check?</div>
+                    <div class="chat-bubble left"><strong>Receptionist:</strong> Ah, I see. It seems there was an error with the third-party agency. Let me speak to my manager to fix this immediately.</div>
+                    <div class="chat-bubble right"><strong>Tourist:</strong> Thank you. What are my options if you are fully booked tonight?</div>
                 </div>
             </div>
 
             <div class="roleplay-card">
                 <h3>🍽️ Scenario B: Seeking Local Advice</h3>
-                <p style="margin-bottom: 15px;"><strong>Situation:</strong> You are walking in a completely new city and want to eat something highly traditional. You stop a friendly-looking local resident on the street to ask for recommendations.</p>
+                <p style="margin-bottom: 15px; font-size: 1.1rem;"><strong>Situation:</strong> You are walking in a completely new city and want to eat something highly traditional. You stop a friendly-looking local resident on the street to ask for recommendations.</p>
                 <div style="margin-bottom: 15px;">
                     <span class="role-badge">Student A: Hungry Tourist</span>
-                    <span class="role-badge">Student B: Local Resident</span>
+                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);">Student B: Local Resident</span>
                 </div>
-                <button class="btn-outline" onclick="toggleContent('rp2-hints')">Show Dialogue Hints 💬</button>
-                <div id="rp2-hints" class="hidden-content">
-                    <ul style="margin-left: 20px;">
-                        <li style="margin-bottom: 10px;"><strong>Tourist:</strong> "Excuse me, I'm so sorry to bother you." / "Do you happen to know a good place to eat around this neighborhood?" / "I'm looking for authentic local cuisine, definitely not a tourist trap." / "How do I get there from here?"</li>
-                        <li><strong>Local:</strong> "No problem at all! Yes, there's a fantastic spot just two streets away." / "You absolutely have to try the [local dish]." / "It's a bit spicy, do you handle spicy food well?" / "Just walk straight and turn left at the next corner."</li>
-                    </ul>
+                <button class="btn-outline" onclick="toggleChat('rp2-chat')">Show Conversation 👀</button>
+                
+                <div id="rp2-chat" class="chat-container">
+                    <div class="chat-bubble right"><strong>Tourist:</strong> Excuse me, I'm so sorry to bother you. Do you speak English?</div>
+                    <div class="chat-bubble left"><strong>Local:</strong> Yes, a little bit! How can I help you today?</div>
+                    <div class="chat-bubble right"><strong>Tourist:</strong> Do you happen to know a good place to eat around this neighborhood? I'm looking for authentic local cuisine, not a tourist trap.</div>
+                    <div class="chat-bubble left"><strong>Local:</strong> No problem at all! There's a fantastic spot just two streets away. You absolutely have to try the seafood pasta.</div>
+                    <div class="chat-bubble right"><strong>Tourist:</strong> That sounds perfect! How do I get there from here?</div>
+                    <div class="chat-bubble left"><strong>Local:</strong> Just walk straight down this road and turn left at the next corner. It's the blue building.</div>
                 </div>
             </div>
         </div>
@@ -977,6 +1026,16 @@
                 el.style.display = "none";
             } else {
                 el.style.display = "block";
+            }
+        }
+
+        // New toggle function specifically for the chat bubble container
+        function toggleChat(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "flex") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "flex";
             }
         }
 
