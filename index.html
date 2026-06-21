@@ -3,1124 +3,883 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Travel & Culture</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Speaking Lesson: Learning New Skills as an Adult</title>
     <style>
         :root {
-            --primary: #2563EB; /* Deep Royal Blue */
-            --primary-hover: #1D4ED8;
-            --secondary: #10B981; /* Emerald Green */
-            --secondary-hover: #059669;
-            --background: #F0FDF4; /* Very soft mint/slate background */
-            --card-bg: #FFFFFF;
-            --text-main: #1E293B; /* Dark Slate */
+            --bg-color: #f0fdf4; /* Soft mint/green background */
+            --text-main: #1e293b;
             --text-light: #475569;
-            --accent: #F59E0B; /* Amber */
-            --radius: 20px;
-            --font-main: 'Nunito', sans-serif;
-            --brand-gold: #D97706;
+            --primary: #0ea5e9; /* Sky blue */
+            --primary-hover: #0284c7;
+            --secondary: #10b981; /* Emerald green */
+            --secondary-hover: #059669;
+            --accent: #f59e0b; /* Amber */
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --transition: all 0.3s ease;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            font-family: var(--font-main);
-            background-color: var(--background);
+            background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            font-size: 20px; /* Increased for presentation visibility */
-            padding-bottom: 80px;
+            font-size: 1.15rem; /* Larger base font for Zoom presentations */
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            word-wrap: break-word;
         }
 
+        /* Top Progress Bar */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #e2e8f0;
+            z-index: 1000;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--secondary);
+            transition: width 0.5s ease-out;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Layout */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem 1.5rem;
         }
 
         header {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--primary-hover);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .objectives-card {
+            background-color: #e0f2fe;
+            border-left: 6px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            margin: 0 auto 2rem auto;
+            max-width: 700px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-main);
+            border-bottom: 3px solid #cbd5e1;
+            padding-bottom: 10px;
+        }
+
+        .section-complete-btn {
+            display: block;
+            margin: 3rem auto 0 auto;
+            background-color: #cbd5e1;
             color: white;
-            border-radius: 0 0 var(--radius) var(--radius);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section-complete-btn.completed {
+            background-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
         }
 
-        .brand-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.3);
+        /* Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media(min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
         }
 
-        h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);}
-        h2 { font-size: 1.9rem; color: var(--primary); margin-bottom: 25px; border-bottom: 3px solid #E2E8F0; padding-bottom: 12px; font-weight: 800;}
-        h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;}
-        
-        .section-block {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 35px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-            border: 1px solid #F1F5F9;
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-3px);
         }
 
+        /* Buttons */
         button {
-            background-color: var(--primary);
-            color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1.05rem;
-            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: var(--font-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.6rem 1.8rem;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            white-space: normal; /* Prevents overflow */
-            text-align: left;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
         }
-
-        button:hover { 
-            background-color: var(--primary-hover); 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
         }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: scale(1.02); }
         
         .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
+            background-color: #f8fafc;
             border: 2px solid var(--primary);
-            box-shadow: none;
+            color: var(--primary-hover);
         }
-        .btn-outline:hover { background-color: var(--primary); color: white; }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+        }
 
         .hidden-content {
             display: none;
-            margin-top: 15px;
-            padding: 20px;
-            background-color: #F8FAFC;
-            border-left: 5px solid var(--secondary);
-            border-radius: 0 12px 12px 0;
-            animation: fadeIn 0.4s ease forwards;
-            font-size: 1.1rem;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .warmup-card {
-            background: #F8FAFC;
-            border: 2px solid #E2E8F0;
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            transition: border-color 0.3s;
-        }
-        .warmup-card:hover { border-color: #CBD5E1; }
-
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .vocab-card {
-            background: #fff;
-            border: 2px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .vocab-card:hover { 
-            border-color: var(--primary);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1); 
-            transform: translateY(-5px);
-        }
-        .vocab-word { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; word-break: break-word;}
-        .vocab-def { font-size: 1.05rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1;}
-
-        .question-block {
-            border: 2px solid #E2E8F0;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            background: #fff;
-        }
-        .question-header {
-            background: #F8FAFC;
-            padding: 20px 25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.15rem;
-            transition: background 0.3s;
-            gap: 15px;
-            flex-wrap: wrap; /* Prevents overflow */
-        }
-        .question-header:hover { background: #EFF6FF; }
-        .question-body {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-            background: white;
-        }
-        .question-body.active { padding: 25px; max-height: 1500px; }
-        
-        .tag {
-            font-size: 0.85rem; padding: 6px 12px; border-radius: 20px; color: white; white-space: nowrap; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .tag.easy { background: var(--secondary); }
-        .tag.medium { background: var(--accent); }
-        .tag.opinion { background: #EF4444; }
-
-        .idea-bank { background: #FFFBEB; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--accent);}
-        .sample-answers { display: grid; gap: 15px; }
-
-        .roleplay-card { background: #EFF6FF; padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 2px solid #BFDBFE; }
-        .role-badge { display: inline-block; background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; font-size: 1rem; font-weight: 700; margin-right: 10px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);}
-
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-            padding: 25px;
-            background: #F8FAFC;
-            border-radius: 16px;
-            border: 2px dashed #93C5FD;
-            animation: fadeIn 0.4s ease forwards;
-            display: none; /* Hidden initially */
-        }
-
-        .chat-bubble {
-            padding: 15px 20px;
-            border-radius: 20px;
-            max-width: 85%;
-            font-size: 1.15rem;
-            line-height: 1.5;
-            position: relative;
-            font-family: var(--font-main);
-            font-weight: 600;
-        }
-
-        .chat-bubble.left {
-            background: white;
-            color: var(--text-main);
-            border: 2px solid #E2E8F0;
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .chat-bubble.right {
-            background: var(--primary);
-            color: white;
-            border: 2px solid var(--primary-hover);
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-        }
-
-        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .flashcard {
-            perspective: 1000px;
-            height: 140px;
-            cursor: pointer;
-        }
-        .flashcard-inner {
-            position: relative; width: 100%; height: 100%; text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d;
-        }
-        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
-        .flashcard-front, .flashcard-back {
-            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 16px; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-            font-size: 1.1rem;
-        }
-        .flashcard-front { background: linear-gradient(135deg, var(--primary), #60A5FA); color: white; font-weight: 800; font-size: 1.25rem; }
-        .flashcard-back { background-color: white; color: var(--text-main); transform: rotateY(180deg); border: 3px solid var(--primary); font-weight: 600;}
-
-        .quiz-question { margin-bottom: 20px; display: none; }
-        .quiz-question.active { display: block; animation: fadeIn 0.4s; }
-        .quiz-options { display: grid; gap: 12px; margin-top: 20px; }
-        .quiz-btn { background: #F8FAFC; color: var(--text-main); text-align: left; justify-content: flex-start; border: 2px solid #E2E8F0; font-weight: 600; box-shadow: none;}
-        .quiz-btn:hover { background: #F1F5F9; border-color: #CBD5E1; transform: translateY(0); }
-        .quiz-btn.correct { background: #D1FAE5; border-color: var(--secondary); color: #065F46; }
-        .quiz-btn.wrong { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
-
-        .reflection-q { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #F8FAFC; margin-bottom: 15px; border-radius: 12px; border: 1px solid #E2E8F0; flex-wrap: wrap; gap: 15px;}
-        .emoji-rating span { font-size: 2rem; cursor: pointer; opacity: 0.4; transition: opacity 0.2s, transform 0.2s; margin-left: 10px;}
-        .emoji-rating span:hover, .emoji-rating span.selected { opacity: 1; transform: scale(1.3); }
-
-        .progress-bar-container {
-            position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #E2E8F0;
-        }
-        .progress-bar { flex-grow: 1; height: 12px; background: #E2E8F0; border-radius: 6px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), #34D399); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        
-        .checklist-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 1.15rem; cursor: pointer; padding: 15px; border-radius: 12px; transition: background 0.2s; font-weight: 600; border: 1px solid transparent;}
-        .checklist-item:hover { background: #F1F5F9; border-color: #E2E8F0;}
-        .checklist-item input { transform: scale(1.6); cursor: pointer; accent-color: var(--secondary);}
-
-        .brand-footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #1E293B;
-            color: #94A3B8;
-            margin-top: 50px;
-            font-size: 1.1rem;
-            border-top: 4px solid var(--brand-gold);
-        }
-        .brand-footer strong { color: white; }
-
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #1E293B;
-            color: #fff;
-            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background-color: #f1f5f9;
             border-radius: 12px;
-            padding: 16px 24px;
-            position: fixed;
-            z-index: 1000;
-            left: 50%;
-            bottom: 30px;
-            transform: translateX(-50%) translateY(20px);
-            font-size: 1.1rem;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
+            animation: fadeIn 0.4s ease-out;
+            font-size: 1.15rem;
+            border-left: 4px solid var(--accent);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .show { display: block; }
+
+        /* Vocab Cards */
+        .vocab-word {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-hover);
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Speaking Section */
+        .question-card {
+            margin-bottom: 2rem;
+        }
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge.easy { background-color: #dcfce7; color: #166534; }
+        .badge.medium { background-color: #fef08a; color: #854d0e; }
+        .badge.opinion { background-color: #fee2e2; color: #991b1b; }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        /* Fluency Flashcards */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .flashcard {
+            background-color: var(--primary);
+            color: white;
+            height: 120px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            text-align: center;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
+        .flashcard:hover { transform: translateY(-5px) scale(1.03); background-color: var(--primary-hover); }
+
+        /* Review Game */
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        @media(min-width: 768px) {
+            .game-container { flex-direction: row; }
+        }
+        .game-col { flex: 1; display: flex; flex-direction: column; gap: 0.8rem; }
+        .game-btn {
+            background-color: white;
+            border: 2px solid #cbd5e1;
+            color: var(--text-main);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        .game-btn:hover { border-color: var(--primary); transform: translateX(5px); }
+        .game-btn.selected { border-color: var(--primary); background-color: #e0f2fe; transform: scale(1.02); }
+        .game-btn.matched { border-color: var(--secondary); background-color: #dcfce7; color: #166534; pointer-events: none; opacity: 0.8; }
+        .game-btn.wrong { border-color: #ef4444; background-color: #fee2e2; animation: shake 0.5s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s;
+        /* Checkboxes for Reflection */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
         }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content {
-            background: white; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); transform: translateY(20px); transition: all 0.3s;
+        .checklist-item:hover {
+            background-color: #f1f5f9;
         }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
-        .modal-content h2 { color: var(--primary); font-size: 2rem; margin-bottom: 15px; border: none; padding: 0;}
+        input[type="checkbox"] {
+            width: 28px;
+            height: 28px;
+            accent-color: var(--secondary);
+            cursor: pointer;
+        }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .question-header { flex-direction: column; align-items: flex-start; }
-            .vocab-grid, .flashcard-grid { grid-template-columns: 1fr; }
-            .reflection-q { flex-direction: column; align-items: flex-start; }
-            .chat-bubble { max-width: 95%; }
+        /* Copyright Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 2px solid #e2e8f0;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.02);
+        }
+        .copyright-highlight {
+            color: var(--primary-hover);
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="progress-bar-container">
-        <span style="font-weight: 800; color: var(--primary); white-space: nowrap;">Lesson Progress</span>
-        <div class="progress-bar">
-            <div class="progress-fill" id="top-progress"></div>
-        </div>
-        <span id="progress-text" style="font-weight: 700; color: var(--text-main);">0%</span>
+    <!-- Progress Tracker -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
-
-    <header>
-        <div class="brand-badge">Lucero English System</div>
-        <h1>🌍 Navigating the World</h1>
-        <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.9;">A B1/B2 Interactive English Speaking Lesson</p>
-        <div style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); padding: 25px; border-radius: 16px; margin-top: 30px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px);">
-            <strong style="font-size: 1.3rem;">🎯 Learning Objectives:</strong>
-            <ul style="margin-left: 25px; margin-top: 15px; line-height: 1.8;">
-                <li>Use travel vocabulary to describe past and future trips accurately.</li>
-                <li>Express and logically justify opinions on various cultural experiences.</li>
-                <li>Role-play real-life communication situations confidently for traveling.</li>
-            </ul>
-        </div>
-    </header>
 
     <div class="container">
-
-        <div class="section-block" id="sec1">
-            <h2>1. Warm-up ☕</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Let's get talking! Read the questions and click to see an example answer.</p>
+        <!-- Header & Objectives -->
+        <header>
+            <h1>🧠 Learning New Skills as an Adult</h1>
+            <p style="font-size: 1.4rem; color: var(--text-light); font-weight: 500;">A communicative English lesson for Adults (A2 - B2)</p>
             
-            <div class="warmup-card">
-                <h3>✈️ 1. What was the last place you traveled to?</h3>
-                <button onclick="toggleContent('wu1')">Show Example Answer</button>
-                <div id="wu1" class="hidden-content">
-                    "The last place I visited was Kyoto, Japan. I went there last spring with my family to see the cherry blossoms. It was an unforgettable trip."
-                </div>
+            <div class="objectives-card" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 0.8rem; color: var(--primary-hover); font-size: 1.5rem;">🎯 Learning Objectives:</h3>
+                <ul style="margin-left: 2rem; list-style-type: disc;">
+                    <li style="margin-bottom: 8px;">Discuss the benefits and challenges of learning as an adult.</li>
+                    <li style="margin-bottom: 8px;">Use vocabulary related to learning, habits, and self-improvement.</li>
+                    <li>Share personal experiences and strategies for mastering new skills.</li>
+                </ul>
             </div>
-            <div class="warmup-card">
-                <h3>🏖️ 2. Do you prefer a relaxing beach holiday or an active city tour?</h3>
-                <button onclick="toggleContent('wu2')">Show Example Answer</button>
-                <div id="wu2" class="hidden-content">
-                    "I definitely prefer active city tours. I love walking around, visiting historical museums, and trying local street food. Sitting on a beach gets a bit boring for me!"
-                </div>
-            </div>
-            <div class="warmup-card">
-                <h3>🎒 3. Do you like traveling alone or with friends/family? Why?</h3>
-                <button onclick="toggleContent('wu3')">Show Example Answer</button>
-                <div id="wu3" class="hidden-content">
-                    "I prefer traveling with friends because we can share the costs and create memories together. However, traveling alone definitely gives you more freedom."
-                </div>
-            </div>
-            <div class="warmup-card">
-                <h3>🍽️ 4. Have you ever tried a strange or unusual food while traveling?</h3>
-                <button onclick="toggleContent('wu4')">Show Example Answer</button>
-                <div id="wu4" class="hidden-content">
-                    "Yes! When I was in Thailand, I tried fried insects. I was hesitant at first, but it was very crunchy and honestly just tasted like salty chips."
-                </div>
-            </div>
-            <div class="warmup-card">
-                <h3>🌟 5. What is your ultimate dream destination?</h3>
-                <button onclick="toggleContent('wu5')">Show Example Answer</button>
-                <div id="wu5" class="hidden-content">
-                    "My absolute dream destination is Iceland. I really want to witness the Northern Lights in person and soak in the natural geothermal hot springs."
-                </div>
-            </div>
-        </div>
+        </header>
 
-        <div class="section-block" id="sec2">
-            <h2>2. Key Vocabulary 📖</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Review these useful travel words. Click "See Example" to understand how to use them contextually.</p>
+        <!-- SECTION 1: Warm Up -->
+        <section id="section-1">
+            <h2>🔥 1. Warm-Up</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Let's get talking! Ask and answer these quick questions. Click the button if you need an example.</p>
             
-            <div class="vocab-grid">
-                <div class="vocab-card">
-                    <div class="vocab-word">Itinerary (n.)</div>
-                    <div class="vocab-def">A detailed plan or route of a journey.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc1')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Itinerary')">🔊</button>
-                    </div>
-                    <div id="voc1" class="hidden-content">"Our itinerary for Paris is packed; it includes the Eiffel Tower on Monday and the Louvre Museum on Tuesday."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Local Cuisine (n.)</div>
-                    <div class="vocab-def">The traditional food of a specific region.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc2')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Local Cuisine')">🔊</button>
-                    </div>
-                    <div id="voc2" class="hidden-content">"When you visit Italy, you absolutely must try the local cuisine; authentic pasta is amazing."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Off the beaten path (idm.)</div>
-                    <div class="vocab-def">A place not popular with tourists.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc3')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Off the beaten path')">🔊</button>
-                    </div>
-                    <div id="voc3" class="hidden-content">"We decided to ignore the guidebooks and found a charming, quiet village entirely off the beaten path."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Breathtaking (adj.)</div>
-                    <div class="vocab-def">Astonishingly beautiful or magnificent.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc4')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Breathtaking')">🔊</button>
-                    </div>
-                    <div id="voc4" class="hidden-content">"The panoramic view from the summit of the mountain was absolutely breathtaking."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Culture Shock (n.)</div>
-                    <div class="vocab-def">Confusion felt by someone visiting a new society.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc5')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Culture Shock')">🔊</button>
-                    </div>
-                    <div id="voc5" class="hidden-content">"Moving to Tokyo caused a significant degree of culture shock at first, but I gradually adapted."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Souvenir (n.)</div>
-                    <div class="vocab-def">A thing kept as a reminder of a place.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc6')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Souvenir')">🔊</button>
-                    </div>
-                    <div id="voc6" class="hidden-content">"I bought a beautifully carved wooden elephant as a souvenir from my trip to India."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Accommodation (n.)</div>
-                    <div class="vocab-def">A room, building, or lodging where someone stays.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc7')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Accommodation')">🔊</button>
-                    </div>
-                    <div id="voc7" class="hidden-content">"We have already booked our flights, but we still need to secure our accommodation."</div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div class="vocab-word">Jet lag (n.)</div>
-                    <div class="vocab-def">Extreme tiredness after a flight across time zones.</div>
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
-                        <button class="btn-outline" onclick="toggleContent('voc8')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 45px; height: 45px; justify-content: center;" onclick="playAudioToast('Jet lag')">🔊</button>
-                    </div>
-                    <div id="voc8" class="hidden-content">"I suffered from terrible jet lag for three days after flying directly from London to Sydney."</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-block" id="sec3">
-            <h2>3. Speaking Practice 🗣️</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Practice answering these questions out loud. If you get stuck, click the question header to open the <strong>Idea Bank</strong> and <strong>Sample Answers</strong>.</p>
-
-            <div id="speaking-accordion">
+            <div class="grid-2">
                 <!-- Q1 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>1. What are three things you always pack in your suitcase?</span>
-                        <span class="tag easy">Easy</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Electronics:</strong> Phone charger, power bank, headphones, camera.</li>
-                                <li><strong>Comfort:</strong> Neck pillow, comfortable walking shoes, sunglasses.</li>
-                                <li><strong>Health:</strong> Basic medicine, sunscreen, hand sanitizer.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans1-short')">Show Short Answer</button>
-                            <div id="ans1-short" class="hidden-content">"I always make sure to pack my phone charger, comfortable walking shoes, and a pair of sunglasses."</div>
-                            
-                            <button class="btn-outline" onclick="toggleContent('ans1-ext')">Show Extended Answer</button>
-                            <div id="ans1-ext" class="hidden-content">"There are three absolute essentials I never travel without. First, a power bank because I use my phone constantly for maps and taking photos. Second, comfortable walking shoes because I love exploring new cities on foot. Finally, I always bring basic medicines just in case I feel under the weather in a foreign country."</div>
-                        </div>
+                <div class="card">
+                    <p class="question-text">🎯 What is a new skill you want to learn this year?</p>
+                    <button class="btn-outline btn-small" onclick="toggle('wu1')">Show Example</button>
+                    <div id="wu1" class="hidden-content">
+                        <em>"I really want to learn how to edit videos for my social media."</em>
                     </div>
                 </div>
-
                 <!-- Q2 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>2. Do you prefer staying in hotels or renting apartments (like Airbnb)? Why?</span>
-                        <span class="tag easy">Easy</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Hotels:</strong> Room service, daily cleaning, swimming pools, feeling of luxury.</li>
-                                <li><strong>Apartments:</strong> Kitchen to cook food, more space, feeling like a local resident, often cheaper for groups.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans2-short')">Show Short Answer</button>
-                            <div id="ans2-short" class="hidden-content">"I personally prefer Airbnb because I enjoy having a kitchen and feeling like a true local."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans2-ext')">Show Extended Answer</button>
-                            <div id="ans2-ext" class="hidden-content">"It really depends on the nature of the trip. For a short weekend getaway, I love hotels because you don't have to worry about cleaning and you can order room service. But for longer trips, I definitely prefer renting an apartment. Having a kitchen saves a lot of money, and it gives you a much better feel for the local neighborhood culture."</div>
-                        </div>
+                <div class="card">
+                    <p class="question-text">💻 Do you prefer learning online or in a classroom?</p>
+                    <button class="btn-outline btn-small" onclick="toggle('wu2')">Show Example</button>
+                    <div id="wu2" class="hidden-content">
+                        <em>"I prefer learning online because I can study at my own pace."</em>
                     </div>
                 </div>
-
                 <!-- Q3 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>3. How do you prepare before visiting a new country?</span>
-                        <span class="tag easy">Easy</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Research:</strong> Read travel blogs, watch YouTube vlogs, read reviews.</li>
-                                <li><strong>Logistics:</strong> Check visa requirements, exchange currency, purchase travel insurance.</li>
-                                <li><strong>Language:</strong> Learn basic survival phrases like 'Hello', 'Please', and 'Thank you'.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans3-short')">Show Short Answer</button>
-                            <div id="ans3-short" class="hidden-content">"I usually read various travel blogs and make a comprehensive list of places I want to see."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans3-ext')">Show Extended Answer</button>
-                            <div id="ans3-ext" class="hidden-content">"Before visiting a new destination, I usually do extensive research. I verify visa requirements first to avoid issues. Then, I watch YouTube vlogs to gather visual ideas for my itinerary. I also make an effort to learn a few basic phrases in the local language, which the locals always seem to appreciate greatly."</div>
-                        </div>
+                <div class="card">
+                    <p class="question-text">📚 What was your favorite subject when you were in school?</p>
+                    <button class="btn-outline btn-small" onclick="toggle('wu3')">Show Example</button>
+                    <div id="wu3" class="hidden-content">
+                        <em>"My favorite subject was History. I loved learning about the past."</em>
                     </div>
                 </div>
-
                 <!-- Q4 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>4. Have you ever experienced 'culture shock'? Describe it.</span>
-                        <span class="tag medium">Medium</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Social norms:</strong> Different ways of greeting, eating habits, tipping culture.</li>
-                                <li><strong>Environment:</strong> Intense traffic, high noise levels, strict public transport rules.</li>
-                                <li><strong>Feelings:</strong> Confused, overwhelmed, fascinated, occasionally homesick.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans4-short')">Show Short Answer</button>
-                            <div id="ans4-short" class="hidden-content">"Yes, when I visited India, the chaotic traffic and incredibly spicy food gave me a bit of culture shock initially."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans4-ext')">Show Extended Answer</button>
-                            <div id="ans4-ext" class="hidden-content">"Absolutely. When I first traveled to Japan, the profound silence on public transport truly shocked me. Where I'm from, trains are loud and people talk constantly on their phones. It felt quite strange at first, but after a few days, I really started to appreciate how peaceful and respectful the culture was."</div>
-                        </div>
+                <div class="card">
+                    <p class="question-text">🧗 Is it harder to learn new things now than when you were a child?</p>
+                    <button class="btn-outline btn-small" onclick="toggle('wu4')">Show Example</button>
+                    <div id="wu4" class="hidden-content">
+                        <em>"Yes, I think so. Kids have more free time and absorb information faster."</em>
                     </div>
                 </div>
-
                 <!-- Q5 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>5. Tell me about a bad travel experience you had. What went wrong?</span>
-                        <span class="tag medium">Medium</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Transportation:</strong> Missed connecting flights, lost luggage, severely delayed trains.</li>
-                                <li><strong>Health/Safety:</strong> Food poisoning, getting completely lost, getting scammed by taxis.</li>
-                                <li><strong>Weather:</strong> Heavy rain all week, unexpected snowstorms ruining plans.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans5-short')">Show Short Answer</button>
-                            <div id="ans5-short" class="hidden-content">"Once, the airline completely lost my luggage, and I had to wear the exact same clothes for three days straight."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans5-ext')">Show Extended Answer</button>
-                            <div id="ans5-ext" class="hidden-content">"My absolute worst experience was in Italy during a summer holiday. I got terrible food poisoning from some undercooked seafood. I spent three miserable days stuck in my hotel room while my friends went out sightseeing. On top of that, it rained the entire time! It was incredibly frustrating then, but it's a funny story to tell now."</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q6 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>6. What is the most 'breathtaking' place you have ever seen?</span>
-                        <span class="tag medium">Medium</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Nature:</strong> Towering mountains, vast oceans, massive waterfalls, protected national parks.</li>
-                                <li><strong>Architecture:</strong> Ancient historical ruins, massive modern skyscrapers, beautiful detailed temples.</li>
-                                <li><strong>Details:</strong> Describe the vibrant colors, the sheer scale, the unique atmosphere.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans6-short')">Show Short Answer</button>
-                            <div id="ans6-short" class="hidden-content">"The Grand Canyon in the USA was the most breathtaking place I've seen simply because of its massive size."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans6-ext')">Show Extended Answer</button>
-                            <div id="ans6-ext" class="hidden-content">"For me, it was witnessing the Swiss Alps for the very first time. We took a scenic train up the mountains, and when we finally stepped out, the view was simply unbelievable. The air was incredibly crisp, and the snow-capped peaks against the bright blue sky looked exactly like a painting. It was truly a breathtaking moment."</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q7 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>7. Should tourists try to learn the local language before visiting?</span>
-                        <span class="tag opinion">Opinion</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Yes:</strong> Shows respect, helps tremendously in emergencies, fosters a better connection with locals.</li>
-                                <li><strong>No:</strong> English is widely spoken globally, AI translation apps exist, it's too hard to learn quickly.</li>
-                                <li><strong>Middle ground:</strong> Just learn basic polite phrases (Hello, Thank you, Excuse me).</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans7-short')">Show Short Answer</button>
-                            <div id="ans7-short" class="hidden-content">"In my opinion, you don't need to be fluent, but you should definitely learn basic words out of respect."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans7-ext')">Show Extended Answer</button>
-                            <div id="ans7-ext" class="hidden-content">"I strongly believe that tourists should learn at least a little bit of the language. You certainly don't need to have a deep philosophical conversation, but saying 'Hello' and 'Thank you' in the local tongue makes a huge difference. It shows genuine respect for the culture, and I've found that locals are usually much friendlier when they see you making an effort."</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q8 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>8. Do you think traveling changes a person? How?</span>
-                        <span class="tag opinion">Opinion</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Perspective:</strong> Opens your mind, destroys unfair stereotypes, makes you appreciate your own home more.</li>
-                                <li><strong>Skills:</strong> Improves problem-solving abilities, makes you far more independent and socially confident.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans8-short')">Show Short Answer</button>
-                            <div id="ans8-short" class="hidden-content">"Yes, traveling makes you much more open-minded because you experience totally different ways of living."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans8-ext')">Show Extended Answer</button>
-                            <div id="ans8-ext" class="hidden-content">"I definitely think extensive travel changes people. It constantly pushes you out of your safe comfort zone and teaches you how to solve unexpected problems independently. More importantly, seeing firsthand how other people live effectively breaks down stereotypes. You quickly realize that despite superficial cultural differences, people around the world share very similar core values."</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q9 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>9. Is 'eco-tourism' (sustainable travel) important? Why or why not?</span>
-                        <span class="tag opinion">Opinion</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Pros:</strong> Protects fragile environments, supports local community businesses, preserves nature for future generations.</li>
-                                <li><strong>Examples:</strong> Avoiding single-use plastics, choosing to stay in eco-lodges, not disturbing natural wildlife.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans9-short')">Show Short Answer</button>
-                            <div id="ans9-short" class="hidden-content">"Yes, it is absolutely crucial because mass commercial tourism is actively destroying beautiful natural sites."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans9-ext')">Show Extended Answer</button>
-                            <div id="ans9-ext" class="hidden-content">"I think eco-tourism is becoming extremely important. Mass tourism causes severe pollution and directly harms local environments. If we want future generations to enjoy incredible places like coral reefs and rainforests, we must learn to travel responsibly. This means actively supporting small local businesses and consciously minimizing our carbon footprint while exploring."</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q10 -->
-                <div class="question-block">
-                    <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>10. How do you think travel will change in the next 20 years?</span>
-                        <span class="tag opinion">Opinion</span>
-                    </div>
-                    <div class="question-body">
-                        <div class="idea-bank">
-                            <strong>💡 Idea Bank:</strong>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li><strong>Technology:</strong> Immersive virtual reality (VR) tourism, supersonic faster planes, flawless AI live translators.</li>
-                                <li><strong>Space:</strong> Commercial space travel becoming normalized for wealthy tourists.</li>
-                                <li><strong>Environment:</strong> Stricter global rules on flying due to worsening climate change.</li>
-                            </ul>
-                        </div>
-                        <div class="sample-answers">
-                            <button class="btn-outline" onclick="toggleContent('ans10-short')">Show Short Answer</button>
-                            <div id="ans10-short" class="hidden-content">"I predict that virtual reality will soon let people 'visit' global landmarks without ever leaving their homes."</div>
-                            <button class="btn-outline" onclick="toggleContent('ans10-ext')">Show Extended Answer</button>
-                            <div id="ans10-ext" class="hidden-content">"In the next 20 years, I genuinely believe technology will completely revolutionize travel. We might have discreet AI translation earpieces that work perfectly in real-time, effectively eliminating all language barriers. Additionally, because of the climate crisis, physical flights might become much more heavily taxed and expensive, so a lot of people might opt to travel virtually using advanced VR technology instead."</div>
-                        </div>
+                <div class="card">
+                    <p class="question-text">⭐ Who is the most skilled person you know? What can they do?</p>
+                    <button class="btn-outline btn-small" onclick="toggle('wu5')">Show Example</button>
+                    <div id="wu5" class="hidden-content">
+                        <em>"My father is very skilled. He knows how to fix any car engine."</em>
                     </div>
                 </div>
             </div>
-        </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(1, this)">Mark Section Complete ✓</button>
+        </section>
 
-        <div class="section-block" id="sec4">
-            <h2>4. Real-life Role-play 🎭</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Grab a partner (or your teacher) and practice navigating these real-world scenarios.</p>
+        <!-- SECTION 2: Vocabulary -->
+        <section id="section-2">
+            <h2>📚 2. Vocabulary</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Learn these words about learning and self-improvement. Click to see an example sentence.</p>
 
-            <div class="roleplay-card">
-                <h3>🏨 Scenario A: The Lost Reservation</h3>
-                <p style="margin-bottom: 15px; font-size: 1.1rem;"><strong>Situation:</strong> You have just arrived at your hotel after an exhausting 10-hour flight. The receptionist informs you that they cannot find your booking in their system.</p>
-                <div style="margin-bottom: 15px;">
-                    <span class="role-badge">Student A: Exhausted Tourist</span>
-                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);">Student B: Hotel Receptionist</span>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="vocab-word">1. To master (v)</div>
+                    <p>To become highly skilled at doing something.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v1')">Example</button>
+                    <div id="v1" class="hidden-content"><em>"It takes many years of practice to <strong>master</strong> playing the piano."</em></div>
                 </div>
-                <button class="btn-outline" onclick="toggleChat('rp1-chat')">Show Conversation 👀</button>
-                
-                <div id="rp1-chat" class="chat-container">
-                    <div class="chat-bubble left"><strong>Receptionist:</strong> Good evening. Welcome to the Grand Hotel. How can I help you?</div>
-                    <div class="chat-bubble right"><strong>Tourist:</strong> Hi, I have a reservation under the last name Smith. I just had a 10-hour flight and I'm very tired.</div>
-                    <div class="chat-bubble left"><strong>Receptionist:</strong> Let me check... I apologize, but I don't see your name in our current system.</div>
-                    <div class="chat-bubble right"><strong>Tourist:</strong> What? Here is my confirmation email on my phone. Could you please double-check?</div>
-                    <div class="chat-bubble left"><strong>Receptionist:</strong> Ah, I see. It seems there was an error with the third-party agency. Let me speak to my manager to fix this immediately.</div>
-                    <div class="chat-bubble right"><strong>Tourist:</strong> Thank you. What are my options if you are fully booked tonight?</div>
+                <div class="card">
+                    <div class="vocab-word">2. Challenging (adj)</div>
+                    <p>Difficult in a way that tests your ability or determination.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v2')">Example</button>
+                    <div id="v2" class="hidden-content"><em>"Learning English grammar can be very <strong>challenging</strong> at first."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">3. To give up (v)</div>
+                    <p>To stop trying to do something before you have finished.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v3')">Example</button>
+                    <div id="v3" class="hidden-content"><em>"The puzzle was too hard, but he refused to <strong>give up</strong>."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">4. Progress (n)</div>
+                    <p>Movement forward towards a goal or improvement.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v4')">Example</button>
+                    <div id="v4" class="hidden-content"><em>"I am making good <strong>progress</strong> with my driving lessons."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">5. Overwhelming (adj)</div>
+                    <p>Too great, difficult, or confusing to handle.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v5')">Example</button>
+                    <div id="v5" class="hidden-content"><em>"Starting a new job can feel <strong>overwhelming</strong> on the first day."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">6. To enroll (v)</div>
+                    <p>To officially join a course, school, or program.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v6')">Example</button>
+                    <div id="v6" class="hidden-content"><em>"I decided to <strong>enroll</strong> in a photography class this weekend."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">7. Rewarding (adj)</div>
+                    <p>Giving a feeling of happiness or satisfaction.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v7')">Example</button>
+                    <div id="v7" class="hidden-content"><em>"Teaching others is a very <strong>rewarding</strong> experience."</em></div>
+                </div>
+                <div class="card">
+                    <div class="vocab-word">8. To dedicate (v)</div>
+                    <p>To give your time, effort, or energy to a specific task.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v8')">Example</button>
+                    <div id="v8" class="hidden-content"><em>"You must <strong>dedicate</strong> at least 30 minutes a day to see results."</em></div>
                 </div>
             </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(2, this)">Mark Section Complete ✓</button>
+        </section>
 
-            <div class="roleplay-card">
-                <h3>🍽️ Scenario B: Seeking Local Advice</h3>
-                <p style="margin-bottom: 15px; font-size: 1.1rem;"><strong>Situation:</strong> You are walking in a completely new city and want to eat something highly traditional. You stop a friendly-looking local resident on the street to ask for recommendations.</p>
-                <div style="margin-bottom: 15px;">
-                    <span class="role-badge">Student A: Hungry Tourist</span>
-                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);">Student B: Local Resident</span>
+        <!-- SECTIONS 3, 4, 5: Speaking, Ideas, Answers -->
+        <section id="section-3">
+            <h2>🗣️ 3. Main Speaking Questions</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Take turns answering these questions. Use the buttons to get ideas or see sample answers if you get stuck!</p>
+
+            <!-- Easy -->
+            <div class="card question-card">
+                <span class="badge easy">Easy</span>
+                <p class="question-text">1. What is the last new thing you learned how to do?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq1-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq1-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq1-long')">🗣️ Extended Answer</button>
                 </div>
-                <button class="btn-outline" onclick="toggleChat('rp2-chat')">Show Conversation 👀</button>
-                
-                <div id="rp2-chat" class="chat-container">
-                    <div class="chat-bubble right"><strong>Tourist:</strong> Excuse me, I'm so sorry to bother you. Do you speak English?</div>
-                    <div class="chat-bubble left"><strong>Local:</strong> Yes, a little bit! How can I help you today?</div>
-                    <div class="chat-bubble right"><strong>Tourist:</strong> Do you happen to know a good place to eat around this neighborhood? I'm looking for authentic local cuisine, not a tourist trap.</div>
-                    <div class="chat-bubble left"><strong>Local:</strong> No problem at all! There's a fantastic spot just two streets away. You absolutely have to try the seafood pasta.</div>
-                    <div class="chat-bubble right"><strong>Tourist:</strong> That sounds perfect! How do I get there from here?</div>
-                    <div class="chat-bubble left"><strong>Local:</strong> Just walk straight down this road and turn left at the next corner. It's the blue building.</div>
+                <div id="sq1-idea" class="hidden-content"><strong>Ideas:</strong> A recipe, a software program for work, driving, using a new app.</div>
+                <div id="sq1-short" class="hidden-content"><strong>Short:</strong> "The last thing I learned was how to bake banana bread."</div>
+                <div id="sq1-long" class="hidden-content"><strong>Extended:</strong> "The last new thing I learned was how to use Excel for my job. I watched a few tutorials online and practiced entering data. Now, it's much easier for me to organize my files."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge easy">Easy</span>
+                <p class="question-text">2. Do you like watching tutorial videos on YouTube? Why or why not?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq2-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq2-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq2-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq2-idea" class="hidden-content"><strong>Ideas:</strong> Visual learning, free information, sometimes too long, easy to pause and rewind.</div>
+                <div id="sq2-short" class="hidden-content"><strong>Short:</strong> "Yes, I love them because they are free and easy to follow."</div>
+                <div id="sq2-long" class="hidden-content"><strong>Extended:</strong> "Yes, I think YouTube is the best teacher! I am a visual learner, so watching someone actually do the task helps me understand it better. Plus, I can pause and rewind if I get confused."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge easy">Easy</span>
+                <p class="question-text">3. Do you prefer learning alone or with other people?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq3-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq3-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq3-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq3-idea" class="hidden-content"><strong>Ideas:</strong> Quiet focus, no distractions vs. motivation, group energy, asking a partner for help.</div>
+                <div id="sq3-short" class="hidden-content"><strong>Short:</strong> "I prefer learning alone because I can focus better."</div>
+                <div id="sq3-long" class="hidden-content"><strong>Extended:</strong> "It depends on the skill. If I am reading or studying grammar, I prefer to be alone in a quiet room. But if I am learning a sport or a language, I like learning with others because it is more fun and interactive."</div>
+            </div>
+
+            <!-- Medium -->
+            <div class="card question-card">
+                <span class="badge medium">Medium</span>
+                <p class="question-text">4. Why do many adults stop learning new skills after they finish university?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq4-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq4-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq4-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq4-idea" class="hidden-content"><strong>Ideas:</strong> Busy with jobs/family, too tired, lack of motivation, no tests to force them.</div>
+                <div id="sq4-short" class="hidden-content"><strong>Short:</strong> "Because they are too busy with their careers and families."</div>
+                <div id="sq4-long" class="hidden-content"><strong>Extended:</strong> "I think many adults stop learning because life gets overwhelming. They have to work full-time, take care of children, and manage a home. By the end of the day, they are simply too tired to open a book or enroll in a class."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge medium">Medium</span>
+                <p class="question-text">5. How do you find the time to learn something new in your busy schedule?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq5-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq5-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq5-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq5-idea" class="hidden-content"><strong>Ideas:</strong> Waking up early, weekend mornings, learning during commutes, dedicating 15 mins a day.</div>
+                <div id="sq5-short" class="hidden-content"><strong>Short:</strong> "I try to practice for 15 minutes before I go to bed."</div>
+                <div id="sq5-long" class="hidden-content"><strong>Extended:</strong> "It is very challenging, but I try to use my commute time. While I am riding the bus, I listen to podcasts or use language apps. I also try to dedicate 20 minutes every Sunday morning to review what I learned."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge medium">Medium</span>
+                <p class="question-text">6. What is the most challenging part of learning a new language as an adult?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq6-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq6-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq6-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq6-idea" class="hidden-content"><strong>Ideas:</strong> Pronunciation, memorizing vocabulary, fear of making mistakes, grammar rules.</div>
+                <div id="sq6-short" class="hidden-content"><strong>Short:</strong> "The hardest part is remembering new vocabulary words."</div>
+                <div id="sq6-long" class="hidden-content"><strong>Extended:</strong> "For me, the most challenging part is speaking without fear. As adults, we are afraid of sounding silly or making mistakes. Children don't care if they make a mistake, which is why they learn to speak so much faster."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge medium">Medium</span>
+                <p class="question-text">7. Describe a time when you wanted to give up on learning something, but you kept going.</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq7-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq7-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq7-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq7-idea" class="hidden-content"><strong>Ideas:</strong> Driving a car, a difficult software, a sport (swimming/biking), playing an instrument.</div>
+                <div id="sq7-short" class="hidden-content"><strong>Short:</strong> "I wanted to give up learning to drive because it was scary."</div>
+                <div id="sq7-long" class="hidden-content"><strong>Extended:</strong> "When I first started learning to play the guitar, my fingers hurt a lot and I couldn't make it sound good. I wanted to give up after a month. But my friend encouraged me to keep practicing, and eventually, I made progress and played my first song."</div>
+            </div>
+
+            <!-- Opinion -->
+            <div class="card question-card">
+                <span class="badge opinion">Opinion</span>
+                <p class="question-text">8. Do you think everyone should learn basic coding or computer programming?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq8-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq8-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq8-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq8-idea" class="hidden-content"><strong>Ideas:</strong> Essential for the future, helps logical thinking vs. too specialized, not needed for every job.</div>
+                <div id="sq8-short" class="hidden-content"><strong>Short:</strong> "No, I think only people who work in tech need to learn it."</div>
+                <div id="sq8-long" class="hidden-content"><strong>Extended:</strong> "I think having basic computer skills is necessary, but actual coding is not for everyone. While it teaches logical thinking, it is a very specialized skill. People should focus on skills relevant to their own careers and passions."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge opinion">Opinion</span>
+                <p class="question-text">9. "It is impossible to teach an old dog new tricks." Do you agree with this idiom?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq9-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq9-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq9-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq9-idea" class="hidden-content"><strong>Ideas:</strong> Brain plasticity, lifelong learning, older people have more patience, habit breaking is hard.</div>
+                <div id="sq9-short" class="hidden-content"><strong>Short:</strong> "I disagree. Anyone can learn at any age if they try hard."</div>
+                <div id="sq9-long" class="hidden-content"><strong>Extended:</strong> "I completely disagree. While it might take longer for older people to process certain new information, they have more patience and life experience to help them understand concepts. Lifelong learning is definitely possible if you are dedicated."</div>
+            </div>
+
+            <div class="card question-card">
+                <span class="badge opinion">Opinion</span>
+                <p class="question-text">10. Should companies give their employees paid time off to learn new personal skills?</p>
+                <div class="action-buttons">
+                    <button class="btn-outline btn-small" onclick="toggle('sq10-idea')">💡 Idea Bank</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq10-short')">📝 Short Answer</button>
+                    <button class="btn-outline btn-small" onclick="toggle('sq10-long')">🗣️ Extended Answer</button>
+                </div>
+                <div id="sq10-idea" class="hidden-content"><strong>Ideas:</strong> Happier employees, better mental health, companies lose money, skill should relate to the job.</div>
+                <div id="sq10-short" class="hidden-content"><strong>Short:</strong> "Yes, because it makes employees happier and more productive."</div>
+                <div id="sq10-long" class="hidden-content"><strong>Extended:</strong> "I believe companies should offer some time for learning, even if it's just a few hours a month. When employees learn new things, they feel more motivated and creative. Ultimately, a happy and developing employee will perform better at work."</div>
+            </div>
+
+            <button class="btn-primary section-complete-btn" onclick="markComplete(3, this)">Mark Section Complete ✓</button>
+        </section>
+
+        <!-- SECTION 6: Role-play -->
+        <section id="section-4">
+            <h2>🎭 4. Role-Play Scenarios</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Choose a partner and act out the following real-life situations.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.5rem;">Scenario A: The Hesitant Learner</h3>
+                    <p><strong>Student A:</strong> You want to join an evening Salsa dance class and you are trying to convince your friend to join you.</p>
+                    <p style="margin-top: 15px;"><strong>Student B:</strong> You are very hesitant. You think you are "too old" to learn dancing and you are worried you will look silly.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp1')">Show Dialogue Hints</button>
+                    <div id="rp1" class="hidden-content">
+                        <ul style="list-style-type: circle; margin-left: 20px;">
+                            <li><em>"Come on, it will be so much fun!"</em></li>
+                            <li><em>"I have two left feet. I'm going to embarrass myself."</em></li>
+                            <li><em>"Everyone there is a beginner too."</em></li>
+                            <li><em>"Well, maybe I can just watch the first class..."</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.5rem;">Scenario B: The Time Management Coach</h3>
+                    <p><strong>Student A:</strong> You really want to learn how to play the guitar, but you keep telling yourself you have "absolutely no time."</p>
+                    <p style="margin-top: 15px;"><strong>Student B:</strong> You are a time management coach. You must give Student A practical advice on how to dedicate time to this new skill.</p>
+                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp2')">Show Dialogue Hints</button>
+                    <div id="rp2" class="hidden-content">
+                        <ul style="list-style-type: circle; margin-left: 20px;">
+                            <li><em>"By the time I get home from work, I'm exhausted."</em></li>
+                            <li><em>"Can you wake up just 15 minutes earlier?"</em></li>
+                            <li><em>"I spend an hour scrolling on my phone in bed."</em></li>
+                            <li><em>"Replace that phone time with guitar practice."</em></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(4, this)">Mark Section Complete ✓</button>
+        </section>
 
-        <div class="section-block" id="sec5">
-            <h2>5. Fluency Builder 🚀</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Use these linking words and sentence starters to sound much more natural. Click to flip the flashcard and see an example.</p>
-            
+        <!-- SECTION 7: Fluency Builder -->
+        <section id="section-5">
+            <h2>🚀 5. Fluency Builder</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Use these sentence starters to sound more natural when talking about skills. Click to flip the flashcard.</p>
+
             <div class="flashcard-grid">
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">In my opinion...</div>
-                        <div class="flashcard-back">"In my opinion, traveling alone is the absolute best way to grow."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">I've always wanted to...</div>
-                        <div class="flashcard-back">"I've always wanted to visit the ancient pyramids in Egypt."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">One reason is that...</div>
-                        <div class="flashcard-back">"One reason is that international hotels are generally more secure."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">On the other hand...</div>
-                        <div class="flashcard-back">"Air travel is extremely fast. On the other hand, it causes high pollution."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">To be completely honest...</div>
-                        <div class="flashcard-back">"To be completely honest, I suffered terrible jet lag on my last trip."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">For instance...</div>
-                        <div class="flashcard-back">"Many popular places suffer from over-tourism; for instance, Venice."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">I definitely prefer...</div>
-                        <div class="flashcard-back">"I definitely prefer hot, tropical climates over cold, snowy ones."</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">Looking back...</div>
-                        <div class="flashcard-back">"Looking back, getting lost in the streets of Rome was actually really fun."</div>
-                    </div>
-                </div>
+                <div class="flashcard" onclick="flipCard(this, 'The best way to learn is...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'I find it challenging when...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'It takes a lot of patience to...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'I felt really proud when...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'One piece of advice is to...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'Compared to when I was younger,...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'It is incredibly rewarding to...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'I struggle to find time for...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'The main advantage is...')">Click to reveal</div>
+                <div class="flashcard" onclick="flipCard(this, 'If I had more time, I would...')">Click to reveal</div>
             </div>
-        </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(5, this)">Mark Section Complete ✓</button>
+        </section>
 
-        <div class="section-block" id="sec6">
-            <h2>6. Quick Review Game 🎮</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Let's test your memory of the vocabulary we learned today.</p>
+        <!-- SECTION 8: Review Game -->
+        <section id="section-6">
+            <h2>🎮 6. Review Game: Match the Vocabulary</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Click a word on the left, then click its correct definition on the right to test your memory.</p>
             
-            <div id="quiz-container" style="background: #F8FAFC; padding: 30px; border-radius: 16px; border: 2px solid #E2E8F0;">
-                
-                <div id="q1" class="quiz-question active">
-                    <h3 style="color: var(--primary);">1. Which phrase means "The traditional food of a specific region"?</h3>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">A. An Itinerary</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q1')">B. Local Cuisine</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">C. Accommodation</button>
-                    </div>
+            <div class="game-container" id="game-board">
+                <div class="game-col" id="words-col">
+                    <!-- Words injected by JS -->
                 </div>
+                <div class="game-col" id="defs-col">
+                    <!-- Definitions injected by JS -->
+                </div>
+            </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(6, this)">Mark Section Complete ✓</button>
+        </section>
 
-                <div id="q2" class="quiz-question">
-                    <h3 style="color: var(--primary);">2. If a destination is "Off the beaten path", it is...</h3>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q2')">A. Quiet and not popular with standard tourists</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">B. Extremely crowded and noisy</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">C. Located directly in the city center</button>
-                    </div>
-                </div>
+        <!-- SECTION 9: Self Reflection -->
+        <section id="section-7">
+            <h2>🧠 7. Self-Reflection</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Check the boxes for the things you accomplished in this lesson.</p>
 
-                <div id="q3" class="quiz-question">
-                    <h3 style="color: var(--primary);">3. Extreme physical tiredness after a long flight is called...</h3>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">A. Culture shock</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">B. A Souvenir</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q3')">C. Jet lag</button>
-                    </div>
-                </div>
+            <div class="card">
+                <label class="checklist-item">
+                    <input type="checkbox" onchange="updateProgress()">
+                    <span>I learned at least 3 new vocabulary words about skills.</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" onchange="updateProgress()">
+                    <span>I used the fluency sentence starters in my answers.</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" onchange="updateProgress()">
+                    <span>I participated actively in the role-play scenario.</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" onchange="updateProgress()">
+                    <span>I gave an extended answer for at least one opinion question.</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" onchange="updateProgress()">
+                    <span>I feel more confident talking about learning experiences.</span>
+                </label>
+            </div>
+            <button class="btn-primary section-complete-btn" onclick="markComplete(7, this)">Mark Section Complete ✓</button>
+        </section>
 
-                <div id="quiz-end" class="quiz-question" style="text-align: center; padding: 20px;">
-                    <h3 style="font-size: 1.8rem; color: var(--secondary); margin-bottom: 20px;">🎉 Fantastic job! You finished the review.</h3>
-                    <button onclick="resetQuiz()">Restart Quiz 🔄</button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="section-block" id="sec7">
-            <h2>7. Self-Reflection 🪞</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Take a moment. How did you feel about your speaking performance today?</p>
-            
-            <div class="reflection-q">
-                <span style="font-weight: 700;">Did I speak confidently and clearly today?</span>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
-                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
-                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
-                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
-                </div>
-            </div>
-            <div class="reflection-q">
-                <span style="font-weight: 700;">Did I try my best to use the new vocabulary?</span>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
-                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
-                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
-                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
-                </div>
-            </div>
-            <div class="reflection-q">
-                <span style="font-weight: 700;">Did I successfully give extended answers (3+ sentences)?</span>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
-                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
-                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
-                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
-                </div>
-            </div>
-            <div class="reflection-q">
-                <span style="font-weight: 700;">How well did I navigate the role-play scenarios?</span>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
-                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
-                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
-                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-block" id="sec8" style="background: linear-gradient(to right, #F0F9FF, #E0F2FE); border: 2px solid #BAE6FD;">
-            <h2>8. Lesson Completion Checklist ✅</h2>
-            <p style="margin-bottom: 25px; color: var(--text-main); font-weight: 600;">Tick the boxes as you finish each part to update your master progress bar.</p>
-            
-            <div class="checklist-item">
-                <input type="checkbox" id="chk1" onchange="updateProgress()">
-                <label for="chk1">Completed the Warm-up Questions</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="chk2" onchange="updateProgress()">
-                <label for="chk2">Reviewed all Key Vocabulary</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="chk3" onchange="updateProgress()">
-                <label for="chk3">Answered the Main Speaking Questions</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="chk4" onchange="updateProgress()">
-                <label for="chk4">Practiced both Role-play Scenarios</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="chk5" onchange="updateProgress()">
-                <label for="chk5">Passed the Quick Review Game</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="chk6" onchange="updateProgress()">
-                <label for="chk6">Completed the Self-Reflection</label>
-            </div>
-        </div>
+        <!-- Copyright Footer -->
+        <footer>
+            <p>© 2026 Bản quyền thuộc về <span class="copyright-highlight">Hệ thống Anh Ngữ Lucero (Lucero English System)</span></p>
+            <p style="margin-top: 5px;">Tác giả biên soạn: <span class="copyright-highlight">Mr. Lucero</span></p>
+        </footer>
 
     </div>
 
-    <footer class="brand-footer">
-        <p><strong>Bản quyền thuộc về Hệ thống Anh Ngữ Lucero</strong></p>
-        <p>Lucero English System | Prepared by <strong>Mr. Lucero</strong></p>
-        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">© 2026 All Rights Reserved.</p>
-    </footer>
-
-    <div id="toast">Notification text</div>
-
-    <div class="modal-overlay" id="completion-modal">
-        <div class="modal-content">
-            <h2>🎉 Congratulations!</h2>
-            <p style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 25px;">You have successfully completed the entire lesson. Excellent speaking practice today!</p>
-            <button onclick="closeModal()">Close Window</button>
-        </div>
-    </div>
-
+    <!-- JavaScript for Interactivity -->
     <script>
-        // Custom Toast Notification System (Replaces Alert)
-        function showToast(msg) {
-            const toastElement = document.getElementById("toast");
-            toastElement.innerHTML = msg;
-            toastElement.className = "show";
-            setTimeout(function(){ 
-                toastElement.className = toastElement.className.replace("show", ""); 
-            }, 3000);
-        }
-
-        // Updated Audio Function using Web Speech API
-        function playAudioToast(word) {
-            // Show the visual notification
-            showToast(`🔊 <strong>Pronouncing:</strong> ${word}`);
-            
-            // Play actual audio using the browser's built-in Text-to-Speech
-            if ('speechSynthesis' in window) {
-                // Cancel any ongoing speech
-                window.speechSynthesis.cancel();
-                
-                const utterance = new SpeechSynthesisUtterance(word);
-                utterance.lang = 'en-US'; // Standard American English
-                utterance.rate = 0.85; // Slightly slower for clear ESL pronunciation
-                utterance.pitch = 1.0;
-                
-                window.speechSynthesis.speak(utterance);
-            } else {
-                console.log("Text-to-Speech not supported in this browser.");
-            }
-        }
-
-        // Custom Modal System (Replaces Alert for completion)
-        function showModal() {
-            document.getElementById('completion-modal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('completion-modal').classList.remove('active');
-        }
-
-        // Toggle simple hidden content blocks
-        function toggleContent(id) {
+        // 1. Accordion / Reveal logic
+        function toggle(id) {
             const el = document.getElementById(id);
-            if (el.style.display === "block") {
-                el.style.display = "none";
+            if (el.classList.contains('show')) {
+                el.classList.remove('show');
             } else {
-                el.style.display = "block";
+                el.classList.add('show');
             }
         }
 
-        // New toggle function specifically for the chat bubble container
-        function toggleChat(id) {
-            const el = document.getElementById(id);
-            if (el.style.display === "flex") {
-                el.style.display = "none";
+        // 2. Flashcard Flip Logic
+        function flipCard(element, text) {
+            if (element.innerText === 'Click to reveal') {
+                element.innerText = text;
+                element.style.backgroundColor = 'var(--accent)'; // Change to accent color
+                element.style.color = '#fff';
             } else {
-                el.style.display = "flex";
+                element.innerText = 'Click to reveal';
+                element.style.backgroundColor = 'var(--primary)'; // Revert
             }
         }
 
-        // Toggle Accordion for Speaking Questions
-        function toggleAccordion(element) {
-            const body = element.nextElementSibling;
-            if (body.classList.contains('active')) {
-                body.classList.remove('active');
-            } else {
-                body.classList.add('active');
+        // 3. Progress Tracker Logic
+        let totalSectionsCompleted = 0;
+        const totalSections = 7;
+
+        function markComplete(sectionNum, btnEl) {
+            if (!btnEl.classList.contains('completed')) {
+                btnEl.classList.add('completed');
+                btnEl.innerText = "Section Completed ✅";
+                totalSectionsCompleted++;
+                
+                // Update Progress Bar
+                const percentage = (totalSectionsCompleted / totalSections) * 100;
+                document.getElementById('progress-bar').style.width = percentage + '%';
+
+                if(percentage === 100) {
+                    setTimeout(() => {
+                        alert("🎉 Congratulations! You have completed the entire lesson!");
+                    }, 500);
+                }
             }
         }
 
-        // Quiz Logic
-        function checkAnswer(btn, isCorrect, currentQId) {
-            const parent = btn.parentElement;
-            const buttons = parent.querySelectorAll('.quiz-btn');
+        // 4. Review Game Logic (Updated for Learning Skills Topic)
+        const vocabData = [
+            { id: 1, word: "To master", def: "To become highly skilled at doing something." },
+            { id: 2, word: "Challenging", def: "Difficult in a way that tests your ability." },
+            { id: 3, word: "To give up", def: "To stop trying to do something before finishing." },
+            { id: 4, word: "Progress", def: "Movement forward towards a goal." },
+            { id: 5, word: "Overwhelming", def: "Too difficult or confusing to handle." },
+            { id: 6, word: "To enroll", def: "To officially join a course or program." }
+        ];
+
+        let selectedWordBtn = null;
+        let selectedDefBtn = null;
+        let matchesFound = 0;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initGame() {
+            const wordsCol = document.getElementById('words-col');
+            const defsCol = document.getElementById('defs-col');
             
-            // Disable all buttons in this question to prevent double-clicking
-            buttons.forEach(b => b.disabled = true);
+            let words = [...vocabData];
+            let defs = [...vocabData];
+            
+            shuffleArray(words);
+            shuffleArray(defs);
 
-            if (isCorrect) {
-                btn.classList.add('correct');
-                setTimeout(() => nextQuestion(currentQId), 1200);
-            } else {
-                btn.classList.add('wrong');
-                // Find correct answer and highlight it
-                buttons.forEach(b => {
-                    if (b.getAttribute('onclick').includes('true')) {
-                        b.classList.add('correct');
+            words.forEach(item => {
+                let btn = document.createElement('button');
+                btn.className = 'game-btn word-btn';
+                btn.innerText = item.word;
+                btn.dataset.id = item.id;
+                btn.onclick = () => handleWordClick(btn);
+                wordsCol.appendChild(btn);
+            });
+
+            defs.forEach(item => {
+                let btn = document.createElement('button');
+                btn.className = 'game-btn def-btn';
+                btn.innerText = item.def;
+                btn.dataset.id = item.id;
+                btn.onclick = () => handleDefClick(btn);
+                defsCol.appendChild(btn);
+            });
+        }
+
+        function handleWordClick(btn) {
+            if(btn.classList.contains('matched')) return;
+            
+            // Deselect previous
+            document.querySelectorAll('.word-btn').forEach(b => b.classList.remove('selected'));
+            
+            btn.classList.add('selected');
+            selectedWordBtn = btn;
+            
+            checkMatch();
+        }
+
+        function handleDefClick(btn) {
+            if(btn.classList.contains('matched')) return;
+            
+            // Deselect previous
+            document.querySelectorAll('.def-btn').forEach(b => b.classList.remove('selected'));
+            
+            btn.classList.add('selected');
+            selectedDefBtn = btn;
+            
+            checkMatch();
+        }
+
+        function checkMatch() {
+            if (selectedWordBtn && selectedDefBtn) {
+                const wordId = selectedWordBtn.dataset.id;
+                const defId = selectedDefBtn.dataset.id;
+
+                if (wordId === defId) {
+                    // Match!
+                    selectedWordBtn.classList.remove('selected');
+                    selectedDefBtn.classList.remove('selected');
+                    selectedWordBtn.classList.add('matched');
+                    selectedDefBtn.classList.add('matched');
+                    
+                    selectedWordBtn = null;
+                    selectedDefBtn = null;
+                    matchesFound++;
+
+                    if (matchesFound === vocabData.length) {
+                        setTimeout(() => alert("Excellent! You matched all the vocabulary words!"), 300);
                     }
-                });
-                setTimeout(() => nextQuestion(currentQId), 2500);
+                } else {
+                    // Wrong!
+                    selectedWordBtn.classList.add('wrong');
+                    selectedDefBtn.classList.add('wrong');
+                    
+                    let tempW = selectedWordBtn;
+                    let tempD = selectedDefBtn;
+                    
+                    setTimeout(() => {
+                        tempW.classList.remove('wrong', 'selected');
+                        tempD.classList.remove('wrong', 'selected');
+                    }, 500);
+
+                    selectedWordBtn = null;
+                    selectedDefBtn = null;
+                }
             }
         }
 
-        function nextQuestion(currentQId) {
-            const currentQ = document.getElementById(currentQId);
-            currentQ.classList.remove('active');
-            
-            if (currentQId === 'q1') document.getElementById('q2').classList.add('active');
-            else if (currentQId === 'q2') document.getElementById('q3').classList.add('active');
-            else if (currentQId === 'q3') document.getElementById('quiz-end').classList.add('active');
-        }
+        // Initialize Game on load
+        window.onload = initGame;
 
-        function resetQuiz() {
-            document.getElementById('quiz-end').classList.remove('active');
-            document.getElementById('q1').classList.add('active');
-            
-            const buttons = document.querySelectorAll('.quiz-btn');
-            buttons.forEach(b => {
-                b.classList.remove('correct', 'wrong');
-                b.disabled = false;
-            });
-        }
-
-        // Emoji Reflection Logic
-        function selectEmoji(element) {
-            const parent = element.parentElement;
-            const emojis = parent.querySelectorAll('span');
-            emojis.forEach(e => e.classList.remove('selected'));
-            element.classList.add('selected');
-        }
-
-        // Progress Tracker Logic
+        // Reflection Checkbox trigger
         function updateProgress() {
-            const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-            const total = checkboxes.length;
-            let checkedCount = 0;
-            
-            checkboxes.forEach(chk => {
-                if(chk.checked) checkedCount++;
-            });
-
-            const percentage = Math.round((checkedCount / total) * 100);
-            
-            document.getElementById('top-progress').style.width = percentage + '%';
-            document.getElementById('progress-text').innerText = percentage + '%';
-            
-            if (percentage === 100) {
-                setTimeout(() => {
-                    showModal();
-                }, 600);
-            }
+            // Can be used for extra animations if needed.
         }
+
     </script>
 </body>
 </html>
