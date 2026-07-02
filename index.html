@@ -3,1180 +3,729 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESL Lesson: Learning English for Real Life</title>
+    <title>ESL Lesson: Time Management & Priorities - Lucero English</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap');
-
         :root {
-            /* Adult, professional color palette */
-            --primary: #1E3A8A; /* Navy Blue */
-            --primary-light: #3B82F6; 
-            --secondary: #0D9488; /* Teal */
-            --secondary-light: #14B8A6;
-            --accent: #D97706; /* Amber */
-            --bg-light: #F8FAFC;
-            --bg-surface: #FFFFFF;
-            --text-dark: #1E293B;
-            --text-medium: #475569;
-            --text-light: #94A3B8;
-            --success: #10B981;
-            --error: #EF4444;
-            --border-radius: 12px;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --primary: #4F46E5; /* Vibrant Indigo */
+            --primary-light: #EEF2FF;
+            --secondary: #0D9488; /* Vibrant Teal */
+            --secondary-light: #F0FDFA;
+            --accent: #F59E0B; /* Warm Amber */
+            --bg-color: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #1E293B;
+            --text-light: #64748B;
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            font-size: 18px; /* Large readable font for screen sharing */
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 18px; /* Increased base font size for presentation */
+            padding-bottom: 0; /* Removed to fit footer perfectly */
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Lora', serif; /* Elegant serif for headings */
-            color: var(--primary);
+        /* Top Progress Bar */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: #E2E8F0;
+            z-index: 1000;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.4s ease;
+            box-shadow: 0 2px 10px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px; /* Widened for better presentation view */
+            margin: 50px auto 40px auto;
+            padding: 0 24px;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), #1E40AF);
-            color: white;
-            padding: 50px 20px;
             text-align: center;
-            border-bottom: 4px solid var(--secondary);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, #ffffff, #EEF2FF);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary);
         }
 
-        header h1 {
-            color: white;
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+        h1 { font-size: clamp(2.2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 15px; font-weight: 800; }
+        h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 12px; font-weight: 700; }
+        h3 { font-size: 1.4rem; margin-bottom: 15px; color: #334155; }
 
-        .brand-badge {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
+        .objectives-card {
+            background: #FFFFFF;
+            padding: 25px 30px;
+            border-radius: 16px;
+            text-align: left;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--accent);
             display: inline-block;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 800px;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px 40px;
-        }
-
-        .progress-tracker {
-            background: var(--bg-surface);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin-top: -70px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .progress-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-medium);
-            background: var(--bg-light);
-            padding: 10px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid #E2E8F0;
-        }
-
-        .progress-item:hover {
-            border-color: var(--primary-light);
-            color: var(--primary);
-        }
-
-        .progress-item.completed {
-            background: #ECFDF5;
-            color: #047857;
-            border-color: var(--success);
-        }
-
-        .objectives {
-            background: #F0FDF4;
-            border-left: 6px solid var(--secondary);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            margin: 40px 0;
-            box-shadow: var(--card-shadow);
+        .objectives-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.15rem;
         }
         
-        .objectives h3 { margin-bottom: 15px; color: var(--secondary); }
-        .objectives ul { list-style: none; padding-left: 5px; }
-        .objectives li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: flex-start; gap: 10px;}
-        .objectives li::before { content: '✓'; color: var(--secondary); font-weight: bold; }
+        .objectives-card li { margin-bottom: 10px; }
+        .objectives-card li::before {
+            content: "🎯";
+            margin-right: 12px;
+        }
 
         section {
-            background: var(--bg-surface);
-            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            background: var(--card-bg);
             padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #E2E8F0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
         }
 
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #F1F5F9;
-            padding-bottom: 15px;
-        }
-        
-        .section-desc {
-            color: var(--text-medium);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .tag-easy { background: #E0F2FE; color: #0369A1; }
-        .tag-medium { background: #FEF3C7; color: #B45309; }
-        .tag-opinion { background: #F3E8FF; color: #7E22CE; }
-
+        /* Buttons & Interactions */
         button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        button:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-            box-shadow: var(--hover-shadow);
-        }
-        button:active { transform: translateY(1px); box-shadow: none; }
-        
-        button.btn-secondary { background: var(--secondary); }
-        button.btn-secondary:hover { background: var(--secondary-light); }
-        
-        button.btn-accent { background: var(--accent); }
-        button.btn-accent:hover { background: #F59E0B; }
-        
-        button.btn-outline { 
-            background: transparent; 
-            border: 1px solid #CBD5E1; 
-            color: var(--text-dark); 
-        }
-        button.btn-outline:hover { 
-            border-color: var(--primary); 
-            color: var(--primary);
-            background: #F8FAFC;
+            gap: 10px;
+            white-space: nowrap; /* Prevents button text wrapping */
         }
 
-        /* Expandable Content */
-        .expandable-content {
-            display: none;
-            margin-top: 15px;
-            padding: 20px;
-            border-radius: 8px;
-            background: #F8FAFC;
-            border-left: 4px solid var(--primary-light);
-            animation: fadeIn 0.3s ease-out forwards;
+        button:hover {
+            background: #4338CA;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
         }
-        .expandable-content.active { display: block; }
-        
+
+        button.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        button.outline:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #F8FAFC;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary);
+            font-size: 1.15rem;
+            animation: fadeIn 0.4s ease;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
+            from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Vocabulary Grid */
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        /* Adjusted grid to prevent text squeezing */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        /* Specific Sections */
         .vocab-card {
-            background: var(--bg-surface);
+            border: 2px solid #E2E8F0;
             padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #E2E8F0;
-            transition: all 0.3s;
+            border-radius: 16px;
+            transition: var(--transition);
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .vocab-card:hover { 
-            box-shadow: var(--hover-shadow); 
-            border-color: var(--secondary);
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.1); 
+            transform: translateY(-3px);
         }
-        .vocab-word { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; font-family: 'Lora', serif;}
-        .vocab-def { font-size: 1rem; color: var(--text-medium); margin-bottom: 15px; }
-        .vocab-actions { display: flex; gap: 10px; }
-        .vocab-actions button { flex: 1; font-size: 0.9rem; padding: 8px;}
-        .vocab-actions button.btn-icon { flex: 0 0 auto; padding: 8px 12px; }
+        .vocab-word { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
 
-        /* Questions */
-        .question-block {
-            padding: 30px 0;
-            border-bottom: 1px solid #E2E8F0;
+        .speaking-card {
+            border: 2px solid #E2E8F0;
+            padding: 25px 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            transition: var(--transition);
         }
-        .question-block:last-child { border-bottom: none; padding-bottom: 0; }
-        .question-text { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; color: var(--text-dark);}
-        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .speaking-card:hover { border-color: var(--secondary); }
+        .speaking-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .badge-easy { background: #D1FAE5; color: #065F46; }
+        .badge-medium { background: #FEF3C7; color: #92400E; }
+        .badge-opinion { background: #EDE9FE; color: #5B21B6; }
 
-        .idea-list { list-style-type: none; padding-left: 0; }
-        .idea-list li { 
-            margin-bottom: 10px; 
-            padding: 12px 15px; 
-            background: white; 
-            border-radius: 8px; 
-            border: 1px solid #E2E8F0;
-            display: flex; gap: 10px; align-items: flex-start;
-        }
-        .idea-list li::before { content: '💡'; }
-        
-        .answer-box { 
-            background: #ECFDF5; 
-            padding: 20px; 
-            border-radius: 8px; 
-            border-left: 4px solid var(--success); 
-            color: #065F46; 
-            font-style: italic;
-        }
-
-        /* Roleplay */
-        .roleplay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .roleplay-card { 
-            background: #F8FAFC; 
-            padding: 30px; 
-            border-radius: 12px; 
-            border: 1px solid #CBD5E1; 
-        }
-
-        /* Flashcards */
-        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .flashcard {
-            perspective: 1000px;
-            height: 140px;
-            cursor: pointer;
-        }
-        .flashcard-inner {
-            position: relative;
-            width: 100%; height: 100%;
+        .fluency-card {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
             text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%; height: 100%;
-            backface-visibility: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            padding: 20px;
-            font-size: 1.1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .flashcard-front { 
-            background: var(--bg-surface); 
-            color: var(--primary); 
-            border: 2px solid var(--primary); 
-            font-weight: 600;
-        }
-        .flashcard-back { 
-            background: var(--primary); 
-            color: white; 
-            transform: rotateY(180deg); 
-            font-weight: 400;
+        .fluency-card:hover { 
+            transform: scale(1.03) translateY(-5px); 
+            background: #4338CA;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
         }
 
         /* Review Game */
-        .game-container { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
-        .game-col { display: flex; flex-direction: column; gap: 12px; flex: 1; min-width: 250px; }
-        .game-btn {
-            background: var(--bg-surface); border: 1px solid #CBD5E1; color: var(--text-dark);
-            width: 100%; text-align: left; justify-content: flex-start; font-weight: 400; padding: 15px 20px;
-            border-radius: 8px;
+        .match-game { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .match-col { display: flex; flex-direction: column; gap: 15px; }
+        .match-btn { 
+            background: white; border: 2px solid #CBD5E0; color: var(--text-main); 
+            text-align: left; padding: 18px 20px; border-radius: 12px; width: 100%;
+            font-size: 1.15rem; font-weight: 600;
+            white-space: normal; /* Allow text to wrap nicely here if needed */
+            min-height: 70px; display: flex; align-items: center;
         }
-        .game-btn:hover { background: #F1F5F9; }
-        .game-btn.selected { border-color: var(--primary); background: #EFF6FF; color: var(--primary); font-weight: 600;}
-        .game-btn.matched { background: #D1FAE5; border-color: var(--success); color: #065F46; pointer-events: none; opacity: 0.6; }
-        .game-btn.wrong { background: #FEE2E2; border-color: var(--error); color: #991B1B; animation: shake 0.4s; }
+        .match-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+        .match-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 3px rgba(79,70,229,0.2); }
+        .match-btn.correct { border-color: #10B981; background: #ECFDF5; color: #065F46; pointer-events: none;}
+        .match-btn.wrong { border-color: #EF4444; background: #FEF2F2; color: #991B1B; animation: shake 0.4s; }
 
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
         }
 
-        /* Reflection */
-        .reflection-item {
-            display: flex; justify-content: space-between; align-items: center;
-            background: #F8FAFC; padding: 20px 25px; border-radius: 8px; margin-bottom: 12px;
-            border: 1px solid #E2E8F0;
-        }
-        .emoji-rating span { font-size: 1.8rem; cursor: pointer; transition: all 0.2s; margin-left: 15px; filter: grayscale(100%); opacity: 0.4;}
-        .emoji-rating span:hover { transform: scale(1.1); opacity: 0.8;}
-        .emoji-rating span.selected { filter: grayscale(0%); transform: scale(1.2); opacity: 1;}
-
-        /* Toasts & Footer */
-        #toast-container {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
+        /* Checkboxes */
+        .checkbox-container {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            pointer-events: none;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: var(--transition);
         }
-        .toast {
-            background: #1E293B;
+        .checkbox-container:hover { background: #F1F5F9; }
+        .checkbox-container input {
+            width: 28px;
+            height: 28px;
+            margin-right: 18px;
+            accent-color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* Lucero Footer */
+        footer {
+            background: linear-gradient(135deg, #1E293B, #0F172A);
             color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: 500;
-            font-size: 1rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            animation: slideUp 0.4s ease-out forwards;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .toast.fade-out { animation: fadeOut 0.4s ease-in forwards; }
-        @keyframes slideUp { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
-        @keyframes fadeOut { from { opacity: 1; transform: translate(-50%, 0); } to { opacity: 0; transform: translate(-50%, 20px); } }
-
-        .footer {
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 20px;
-            color: var(--text-medium);
-            font-size: 0.95rem;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 5px solid var(--accent);
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            section { padding: 25px 20px; }
-            .action-buttons { flex-direction: column; }
-            button { width: 100%; justify-content: center; }
-            .reflection-item { flex-direction: column; text-align: center; gap: 15px; }
-            .vocab-grid { grid-template-columns: 1fr; }
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .match-game { grid-template-columns: 1fr; gap: 20px; }
+            h1 { font-size: 2.2rem; }
+            section { padding: 25px; }
+            .container { padding: 0 15px; margin-top: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-badge">ELS - English Lucero System</div>
-        <h1>Learning English for Real Life 🌍</h1>
-        <p style="font-size: 1.2rem; font-weight: 400; opacity: 0.9;">An Interactive Speaking Lesson for Adult Learners</p>
-    </header>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 
     <div class="container">
         
-        <div class="progress-tracker" id="tracker">
-            <div class="progress-item" onclick="toggleProgress(this)">1. Warm-up</div>
-            <div class="progress-item" onclick="toggleProgress(this)">2. Vocabulary</div>
-            <div class="progress-item" onclick="toggleProgress(this)">3. Speaking</div>
-            <div class="progress-item" onclick="toggleProgress(this)">4. Roleplay</div>
-            <div class="progress-item" onclick="toggleProgress(this)">5. Fluency</div>
-            <div class="progress-item" onclick="toggleProgress(this)">6. Review</div>
-        </div>
-
-        <div class="objectives">
-            <h3>Lesson Objectives</h3>
-            <ul>
-                <li>Discuss practical strategies and challenges in learning English.</li>
-                <li>Use vocabulary related to language acquisition and communication.</li>
-                <li>Express opinions and share personal professional experiences fluently.</li>
-            </ul>
-        </div>
-
-        <section id="section-1">
-            <h2>1. Warm-Up Discussion ☕</h2>
-            <p class="section-desc">Let's get started. Read the questions and share your thoughts to warm up your speaking skills.</p>
+        <header>
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 800; color: var(--secondary); margin-bottom: 10px;">B1/B2 Speaking Lesson</p>
+            <h1>Time Management & Priorities ⏳</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; color: var(--text-light);">Learn how to fluently discuss your daily schedule, organize your life, and express your opinions on productivity.</p>
             
-            <div class="question-block">
-                <div class="question-text">1. Why did you decide to start learning English? 🎯</div>
-                <button class="btn-outline" onclick="toggleBox(this, 's1-q1')">View Example Answer 👀</button>
-                <div class="expandable-content" id="s1-q1">
-                    <div class="answer-box">"I started learning English because it is essential for my career growth and helps me communicate with international clients."</div>
+            <div class="objectives-card">
+                <h3 style="color: var(--primary); font-weight: bold; margin-bottom: 15px;">Today's Objectives:</h3>
+                <ul>
+                    <li>Use advanced vocabulary related to daily routines and scheduling.</li>
+                    <li>Answer personal questions fluently with extended details.</li>
+                    <li>Express well-reasoned opinions about work-life balance.</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- SECTION 1: WARM UP -->
+        <section>
+            <h2>☕ 1. Warm-up Discussion</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Discuss these questions with your partner or teacher. Give detailed answers!</p>
+            
+            <div class="grid-2">
+                <div class="vocab-card">
+                    <h3>1. Are you a morning person or a night owl? 🦉</h3>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w1')">Show Example</button>
+                        <div id="w1" class="hidden-content">I am definitely a night owl. I focus best after 9 PM when the house is completely quiet.</div>
+                    </div>
                 </div>
+                <div class="vocab-card">
+                    <h3>2. Do you use a physical calendar or a digital to-do list? 📅</h3>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w2')">Show Example</button>
+                        <div id="w2" class="hidden-content">I rely on a digital calendar on my smartphone so I can get instant notifications.</div>
+                    </div>
+                </div>
+                <div class="vocab-card">
+                    <h3>3. Are you usually early, exactly on time, or late? ⏰</h3>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w3')">Show Example</button>
+                        <div id="w3" class="hidden-content">I make it a rule to be 5 minutes early. I really dislike making other people wait!</div>
+                    </div>
+                </div>
+                <div class="vocab-card">
+                    <h3>4. What is your busiest day of the week? 🏃</h3>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w4')">Show Example</button>
+                        <div id="w4" class="hidden-content">Monday is my busiest day because I have three back-to-back meetings.</div>
+                    </div>
+                </div>
+            </div>
+            <label class="checkbox-container" style="margin-top: 30px;">
+                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I have completed the warm-up discussion.
+            </label>
+        </section>
+
+        <!-- SECTION 2: VOCABULARY -->
+        <section>
+            <h2>📚 2. Essential Vocabulary</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Learn these powerful words for discussing time and productivity.</p>
+            
+            <div class="grid-3">
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Procrastinate (v)</div>
+                    </div>
+                    <p style="margin-top: 5px;">To delay doing something that you should do, usually because you don't want to do it.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v1')">Example</button>
+                        <div id="v1" class="hidden-content">I always <b>procrastinate</b> when I have to write essays. I leave it until Sunday night.</div>
+                    </div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Prioritize (v)</div>
+                    </div>
+                    <p style="margin-top: 5px;">To decide which tasks are the most important so you can do them first.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v2')">Example</button>
+                        <div id="v2" class="hidden-content">When I have a heavy workload, I <b>prioritize</b> urgent tasks over checking emails.</div>
+                    </div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Deadline (n)</div>
+                    </div>
+                    <p style="margin-top: 5px;">A specific time or date by which something must be completely finished.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v3')">Example</button>
+                        <div id="v3" class="hidden-content">The final <b>deadline</b> for submitting the financial report is Friday at 5:00 PM.</div>
+                    </div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Time-consuming (adj)</div>
+                    </div>
+                    <p style="margin-top: 5px;">Taking a large amount of time to complete.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v4')">Example</button>
+                        <div id="v4" class="hidden-content">Organizing all these files manually is incredibly <b>time-consuming</b>.</div>
+                    </div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Multitask (v)</div>
+                    </div>
+                    <p style="margin-top: 5px;">To do several different things at the exact same time.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v5')">Example</button>
+                        <div id="v5" class="hidden-content">I try to <b>multitask</b> by listening to an English podcast while cooking dinner.</div>
+                    </div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div style="display:flex; justify-content: space-between; align-items: center;">
+                        <div class="vocab-word">Overwhelmed (adj)</div>
+                    </div>
+                    <p style="margin-top: 5px;">Feeling stressed because you have too much to handle or do.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v7')">Example</button>
+                        <div id="v7" class="hidden-content">I feel completely <b>overwhelmed</b> because I have three massive projects due this week.</div>
+                    </div>
+                </div>
+            </div>
+            <label class="checkbox-container" style="margin-top: 30px;">
+                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I fully understand the new vocabulary.
+            </label>
+        </section>
+
+        <!-- SECTIONS 3: MAIN SPEAKING -->
+        <section>
+            <h2>🗣️ 3. Speaking Practice</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Answer the questions. Use "Ideas" to brainstorm, and check "Sample Answers" if you get stuck.</p>
+
+            <div class="speaking-card">
+                <span class="speaking-badge badge-easy">EASY</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary);">1. How many hours of sleep do you usually get? Is it enough?</h3>
+                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <button class="outline" onclick="toggle('idea2')">💡 Ideas</button>
+                    <button class="outline" onclick="toggle('sample2')">💬 Sample Answers</button>
+                </div>
+                <div id="idea2" class="hidden-content">
+                    <b>Ideas to talk about:</b> 6-8 hours, feeling exhausted, needing more sleep, catching up on weekends.
+                </div>
+                <div id="sample2" class="hidden-content">
+                    <b>Short Answer:</b> I usually get around 7 hours of sleep, which is just enough for me.<br><br>
+                    <b>Extended Answer:</b> I aim for 8 hours, but typically I only get 6. Due to my demanding schedule, I often feel a bit exhausted during the week. I always try to sleep in on weekends to catch up.
+                </div>
+            </div>
+
+            <div class="speaking-card">
+                <span class="speaking-badge badge-medium">MEDIUM</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary);">2. How do you remember important tasks or appointments?</h3>
+                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <button class="outline" onclick="toggle('idea4')">💡 Ideas</button>
+                    <button class="outline" onclick="toggle('sample4')">💬 Sample Answers</button>
+                </div>
+                <div id="idea4" class="hidden-content">
+                    <b>Ideas to talk about:</b> Phone alarms, Google Calendar, planners, sticky notes, asking someone to remind you.
+                </div>
+                <div id="sample4" class="hidden-content">
+                    <b>Short Answer:</b> I strictly use a planner app on my smartphone to keep track of things.<br><br>
+                    <b>Extended Answer:</b> I rely heavily on Google Calendar. Whenever I make an appointment, I log it into my phone immediately and set a reminder for one hour before. Without it, I would forget absolutely everything!
+                </div>
+            </div>
+
+            <div class="speaking-card">
+                <span class="speaking-badge badge-medium">MEDIUM</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary);">3. What are the biggest distractions for you when you study or work?</h3>
+                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <button class="outline" onclick="toggle('idea6')">💡 Ideas</button>
+                    <button class="outline" onclick="toggle('sample6')">💬 Sample Answers</button>
+                </div>
+                <div id="idea6" class="hidden-content">
+                    <b>Ideas to talk about:</b> Smartphones, social media notifications, noisy environments, watching TV, feeling hungry.
+                </div>
+                <div id="sample6" class="hidden-content">
+                    <b>Short Answer:</b> My phone is my biggest distraction, especially Instagram and TikTok.<br><br>
+                    <b>Extended Answer:</b> Definitely my smartphone. Whenever I hear a notification, I glance at it, and then I end up mindlessly scrolling through social media for 20 minutes. I now try to leave my phone in another room when I need to focus.
+                </div>
+            </div>
+
+            <div class="speaking-card">
+                <span class="speaking-badge badge-opinion">OPINION</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary);">4. Is it better to focus on one single task, or to multitask?</h3>
+                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <button class="outline" onclick="toggle('idea9')">💡 Ideas</button>
+                    <button class="outline" onclick="toggle('sample9')">💬 Sample Answers</button>
+                </div>
+                <div id="idea9" class="hidden-content">
+                    <b>Ideas to talk about:</b> Higher quality work, fewer mistakes vs. getting more done quickly, feeling efficient.
+                </div>
+                <div id="sample9" class="hidden-content">
+                    <b>Short Answer:</b> I strongly believe focusing on one task is much better to ensure quality.<br><br>
+                    <b>Extended Answer:</b> Personally, I prefer to focus on a single task at a time. When I attempt to multitask, I feel like my attention is divided and I make silly mistakes. Focusing completely helps me finish tasks faster and with much higher quality.
+                </div>
+            </div>
+
+            <div class="speaking-card">
+                <span class="speaking-badge badge-opinion">OPINION</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary);">5. How important is work-life balance to you?</h3>
+                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <button class="outline" onclick="toggle('idea10')">💡 Ideas</button>
+                    <button class="outline" onclick="toggle('sample10')">💬 Sample Answers</button>
+                </div>
+                <div id="idea10" class="hidden-content">
+                    <b>Ideas to talk about:</b> Physical health, family time, preventing burnout, mental health, career sustainability.
+                </div>
+                <div id="sample10" class="hidden-content">
+                    <b>Short Answer:</b> It is absolutely essential for my mental well-being.<br><br>
+                    <b>Extended Answer:</b> Work-life balance is my ultimate priority. If I only focus on work, I quickly feel burned out and unmotivated. I maintain this balance by refusing to check work emails after 6 PM. Having personal time to recharge is crucial.
+                </div>
+            </div>
+
+            <label class="checkbox-container" style="margin-top: 30px;">
+                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I completed the speaking practice.
+            </label>
+        </section>
+
+        <!-- SECTION 4: ROLE-PLAY -->
+        <section>
+            <h2>🎭 4. Role-Play Scenarios</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Practice these real-life conversational situations with your partner.</p>
+
+            <div class="grid-2">
+                <div class="vocab-card" style="background: var(--primary-light); border: 2px solid var(--primary);">
+                    <h3 style="color: var(--primary); font-size: 1.4rem;">Scenario A: Declining an Invitation</h3>
+                    <p style="margin-bottom: 10px;"><b>Situation:</b> You are extremely busy with work and feel overwhelmed. A close friend invites you out for dinner tonight.</p>
+                    <p><b>Task:</b> Politely say no, explain exactly why you are busy, and suggest an alternative time to meet.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 20px; width: 100%; justify-content: center;" onclick="toggle('rp1')">Show Dialogue Hints</button>
+                        <div id="rp1" class="hidden-content" style="background: white;">
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;">"I'd love to, but I'm completely overwhelmed with work right now."</li>
+                                <li style="margin-bottom: 8px;">"I have a strict deadline tomorrow morning."</li>
+                                <li style="margin-bottom: 8px;">"Can we take a raincheck on that?"</li>
+                                <li>"How about next Friday instead? My schedule clears up then."</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vocab-card" style="background: var(--secondary-light); border: 2px solid var(--secondary);">
+                    <h3 style="color: var(--secondary); font-size: 1.4rem;">Scenario B: Planning a Project</h3>
+                    <p style="margin-bottom: 10px;"><b>Situation:</b> You and a colleague need to organize a major presentation for next week.</p>
+                    <p><b>Task:</b> Discuss what needs to be done, prioritize the main tasks, and agree on deadlines for each other.</p>
+                    <div>
+                        <button class="outline" style="margin-top: 20px; width: 100%; justify-content: center; border-color: var(--secondary); color: var(--secondary);" onclick="toggle('rp2')">Show Dialogue Hints</button>
+                        <div id="rp2" class="hidden-content" style="background: white; border-left-color: var(--primary);">
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;">"First, we need to prioritize the research phase."</li>
+                                <li style="margin-bottom: 8px;">"I can handle the data collection. Will you design the slides?"</li>
+                                <li style="margin-bottom: 8px;">"Let's set a firm deadline for Wednesday at noon."</li>
+                                <li>"That sounds like a solid plan to me."</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label class="checkbox-container" style="margin-top: 30px;">
+                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I successfully completed the role-plays.
+            </label>
+        </section>
+
+        <!-- SECTION 5: FLUENCY BUILDER -->
+        <section>
+            <h2>🚀 5. Fluency Builder</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Click the flashcards to reveal sentence starters that will make your English sound much more natural and advanced.</p>
+
+            <div class="grid-3">
+                <div class="fluency-card" onclick="this.innerHTML='Generally speaking, I usually...'">I usually...</div>
+                <div class="fluency-card" onclick="this.innerHTML='From my perspective, [idea] is...'">In my opinion...</div>
+                <div class="fluency-card" onclick="this.innerHTML='The main reason is that...'">One reason is...</div>
+                <div class="fluency-card" onclick="this.innerHTML='To give you an example...'">For example...</div>
+                <div class="fluency-card" onclick="this.innerHTML='To be completely honest with you...'">To be honest...</div>
+                <div class="fluency-card" onclick="this.innerHTML='Well, it heavily depends on...'">It depends on...</div>
+                <div class="fluency-card" onclick="this.innerHTML='On the one hand... but on the other hand...'">On the one hand...</div>
+                <div class="fluency-card" onclick="this.innerHTML='From my own personal experience...'">In my experience...</div>
+                <div class="fluency-card" onclick="this.innerHTML='I completely agree because...'">I completely agree...</div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: REVIEW GAME -->
+        <section>
+            <h2>🎮 6. Vocabulary Match Game</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Match the vocabulary word to its correct definition. Click a word on the left, then click its definition on the right.</p>
+
+            <div class="match-game">
+                <!-- Words -->
+                <div class="match-col" id="words-col">
+                    <button class="match-btn word-btn" data-id="1" onclick="selectWord(this, 1)">1. Procrastinate</button>
+                    <button class="match-btn word-btn" data-id="2" onclick="selectWord(this, 2)">2. Prioritize</button>
+                    <button class="match-btn word-btn" data-id="3" onclick="selectWord(this, 3)">3. Multitask</button>
+                    <button class="match-btn word-btn" data-id="4" onclick="selectWord(this, 4)">4. Deadline</button>
+                </div>
+                <!-- Definitions (Mixed) -->
+                <div class="match-col" id="defs-col">
+                    <button class="match-btn def-btn" data-match="3" onclick="selectDef(this, 3)">A. To do several different things at the exact same time.</button>
+                    <button class="match-btn def-btn" data-match="1" onclick="selectDef(this, 1)">B. To delay doing something that you should do.</button>
+                    <button class="match-btn def-btn" data-match="4" onclick="selectDef(this, 4)">C. A specific time when something must be completely finished.</button>
+                    <button class="match-btn def-btn" data-match="2" onclick="selectDef(this, 2)">D. To decide which tasks are the most important.</button>
+                </div>
+            </div>
+            <p id="game-feedback" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; color: var(--primary); min-height: 30px; text-align: center;"></p>
+        </section>
+
+        <!-- SECTION 7: REFLECTION -->
+        <section style="background: var(--primary-light); border: 3px solid var(--primary); padding-bottom: 30px;">
+            <h2>📝 7. Self-Reflection & Progress Tracker</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-main);">Review your performance today. Check the boxes that are true for you.</p>
+
+            <div style="background: white; padding: 25px; border-radius: 16px;">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I felt confident when speaking English today.
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I actively used at least 3 new vocabulary words.
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I tried to give "Extended Answers" (not just 1 short sentence).
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I effectively communicated with my partner during the role-play.
+                </label>
             </div>
             
-            <div class="question-block">
-                <div class="question-text">2. Where do you use English the most in your daily life? 📱</div>
-                <button class="btn-outline" onclick="toggleBox(this, 's1-q2')">View Example Answer 👀</button>
-                <div class="expandable-content" id="s1-q2">
-                    <div class="answer-box">"I mostly use English at work to write emails, and at home when I watch movies or read news articles online."</div>
-                </div>
-            </div>
-
-            <div class="question-block">
-                <div class="question-text">3. Do you feel nervous when speaking to foreigners? Why? 😅</div>
-                <button class="btn-outline" onclick="toggleBox(this, 's1-q3')">View Example Answer 👀</button>
-                <div class="expandable-content" id="s1-q3">
-                    <div class="answer-box">"Yes, sometimes I feel nervous because I worry about making grammar mistakes or that they won't understand my accent."</div>
-                </div>
-            </div>
-
-            <div class="question-block">
-                <div class="question-text">4. What is your favorite way to practice listening? 🎧</div>
-                <button class="btn-outline" onclick="toggleBox(this, 's1-q4')">View Example Answer 👀</button>
-                <div class="expandable-content" id="s1-q4">
-                    <div class="answer-box">"My favorite way to practice listening is by listening to podcasts while commuting to work."</div>
-                </div>
-            </div>
-
-            <div class="question-block">
-                <div class="question-text">5. Have you ever traveled to an English-speaking country? ✈️</div>
-                <button class="btn-outline" onclick="toggleBox(this, 's1-q5')">View Example Answer 👀</button>
-                <div class="expandable-content" id="s1-q5">
-                    <div class="answer-box">"Yes, I visited London a few years ago. It was challenging at first, but a great experience to practice speaking."</div>
-                </div>
+            <div style="margin-top: 35px; text-align: center;">
+                <h3 id="final-message" style="color: var(--secondary); font-size: 2rem; display: none; animation: fadeIn 0.8s ease;">🎉 Excellent job! You have completed the lesson! 🎉</h3>
             </div>
         </section>
-
-        <section id="section-2">
-            <h2>2. Essential Vocabulary 📖</h2>
-            <p class="section-desc">Familiarize yourself with these terms to enhance your communication today.</p>
-            
-            <div class="vocab-grid">
-                <!-- Word 1 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Fluency</div>
-                    <div class="vocab-def">The ability to speak or write a language smoothly and easily.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-1')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Fluency')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-1"><div class="answer-box">"Her <strong>fluency</strong> in English helped her secure the international sales manager position."</div></div>
-                </div>
-                <!-- Word 2 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Misunderstand</div>
-                    <div class="vocab-def">To fail to understand someone correctly.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-2')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Misunderstand')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-2"><div class="answer-box">"I'm sorry, I think I <strong>misunderstood</strong> your instructions. Could you repeat them?"</div></div>
-                </div>
-                <!-- Word 3 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Immerse</div>
-                    <div class="vocab-def">To surround yourself completely with something, like a culture or language.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-3')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Immerse')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-3"><div class="answer-box">"The best way to learn is to <strong>immerse</strong> yourself in the language by living abroad."</div></div>
-                </div>
-                <!-- Word 4 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Essential</div>
-                    <div class="vocab-def">Absolutely necessary or extremely important.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-4')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Essential')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-4"><div class="answer-box">"Daily practice is <strong>essential</strong> if you want to improve your pronunciation."</div></div>
-                </div>
-                <!-- Word 5 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Confident</div>
-                    <div class="vocab-def">Feeling sure of your own abilities or qualities.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-5')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Confident')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-5"><div class="answer-box">"She felt much more <strong>confident</strong> giving her presentation after practicing it three times."</div></div>
-                </div>
-                <!-- Word 6 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Context</div>
-                    <div class="vocab-def">The situation or information surrounding a word that helps explain its meaning.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-6')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Context')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-6"><div class="answer-box">"If you don't know a word, try to guess its meaning from the <strong>context</strong> of the sentence."</div></div>
-                </div>
-                <!-- Word 7 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Overcome</div>
-                    <div class="vocab-def">To succeed in dealing with a problem or difficulty.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-7')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Overcome')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-7"><div class="answer-box">"It takes time to <strong>overcome</strong> the fear of speaking a foreign language in public."</div></div>
-                </div>
-                <!-- Word 8 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Accent</div>
-                    <div class="vocab-def">A distinctive way of pronouncing a language associated with a particular region.</div>
-                    <div class="vocab-actions">
-                        <button class="btn-secondary" onclick="toggleBox(this, 'v-8')">Context</button>
-                        <button class="btn-outline btn-icon" onclick="playAudio('Accent')" title="Listen">🔊</button>
-                    </div>
-                    <div class="expandable-content" id="v-8"><div class="answer-box">"Having an <strong>accent</strong> is perfectly fine as long as people can understand you clearly."</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-3">
-            <h2>3. Speaking Practice 🗣️</h2>
-            <p class="section-desc">Develop your fluency. Choose your challenge level and use the Idea Bank for inspiration.</p>
-
-            <!-- Q1 (Easy) -->
-            <div class="question-block">
-                <span class="tag tag-easy">Easy</span>
-                <div class="question-text">1. How often do you actively practice speaking English?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q1-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q1-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q1-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q1-ideas">
-                    <ul class="idea-list">
-                        <li>Every day with international colleagues.</li>
-                        <li>A few times a week during my English classes.</li>
-                        <li>Rarely, mostly I just read and listen.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q1-ans-short">
-                    <div class="answer-box">"I actively practice speaking about two or three times a week during my online classes."</div>
-                </div>
-                <div class="expandable-content" id="q1-ans-long">
-                    <div class="answer-box">"I try to practice speaking every single day. Even if I don't have a conversation partner, I often talk to myself in English while doing household chores or driving. It really helps me feel more comfortable with the language."</div>
-                </div>
-            </div>
-
-            <!-- Q2 (Easy) -->
-            <div class="question-block">
-                <span class="tag tag-easy">Easy</span>
-                <div class="question-text">2. Do you prefer watching movies with or without subtitles? Why?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q2-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q2-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q2-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q2-ideas">
-                    <ul class="idea-list">
-                        <li>With English subtitles to connect words and sounds.</li>
-                        <li>Without subtitles to challenge my listening skills.</li>
-                        <li>With subtitles in my native language so I can relax.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q2-ans-short">
-                    <div class="answer-box">"I prefer using English subtitles so I can see how new words are spelled."</div>
-                </div>
-                <div class="expandable-content" id="q2-ans-long">
-                    <div class="answer-box">"It depends on my mood. If I am studying, I watch with English subtitles so I can learn new vocabulary and connect pronunciation with spelling. But if I just want to relax, I watch without subtitles to challenge my listening comprehension naturally."</div>
-                </div>
-            </div>
-
-            <!-- Q3 (Easy) -->
-            <div class="question-block">
-                <span class="tag tag-easy">Easy</span>
-                <div class="question-text">3. What is the hardest part of learning English for you?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q3-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q3-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q3-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q3-ideas">
-                    <ul class="idea-list">
-                        <li>Understanding fast native speakers.</li>
-                        <li>Remembering phrasal verbs and idioms.</li>
-                        <li>Overcoming the fear of making grammar mistakes.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q3-ans-short">
-                    <div class="answer-box">"The hardest part for me is understanding native speakers when they talk very fast."</div>
-                </div>
-                <div class="expandable-content" id="q3-ans-long">
-                    <div class="answer-box">"For me, the most challenging aspect is remembering phrasal verbs. There are so many of them, and their meanings often don't make logical sense based on the individual words. I have to memorize them entirely from context."</div>
-                </div>
-            </div>
-
-            <!-- Q4 (Medium) -->
-            <div class="question-block">
-                <span class="tag tag-medium">Medium</span>
-                <div class="question-text">4. How can making mistakes actually help you learn a language?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q4-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q4-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q4-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q4-ideas">
-                    <ul class="idea-list">
-                        <li>Mistakes show you what you need to focus on.</li>
-                        <li>When someone corrects you, you remember it better.</li>
-                        <li>It helps you overcome perfectionism and just communicate.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q4-ans-short">
-                    <div class="answer-box">"Mistakes are helpful because they highlight the specific areas where you need to improve."</div>
-                </div>
-                <div class="expandable-content" id="q4-ans-long">
-                    <div class="answer-box">"Making mistakes is a crucial part of the learning process. When I make a mistake and someone corrects me, the embarrassment actually helps me remember the correct rule for the future. It also teaches you that communication is more important than perfection."</div>
-                </div>
-            </div>
-
-            <!-- Q5 (Medium) -->
-            <div class="question-block">
-                <span class="tag tag-medium">Medium</span>
-                <div class="question-text">5. Describe a time when you successfully communicated in English in a real-life situation.</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q5-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q5-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q5-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q5-ideas">
-                    <ul class="idea-list">
-                        <li>Giving directions to a lost tourist in my city.</li>
-                        <li>Handling a business call with a client from abroad.</li>
-                        <li>Ordering food smoothly at a restaurant during a vacation.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q5-ans-short">
-                    <div class="answer-box">"I felt very proud when I successfully ordered a complicated meal at a restaurant in New York."</div>
-                </div>
-                <div class="expandable-content" id="q5-ans-long">
-                    <div class="answer-box">"A few months ago, a tourist stopped me on the street to ask for directions to the train station. I was nervous at first, but I managed to explain the route clearly using simple vocabulary. When they thanked me and found their way, it gave me a huge boost of confidence."</div>
-                </div>
-            </div>
-
-            <!-- Q6 (Medium) -->
-            <div class="question-block">
-                <span class="tag tag-medium">Medium</span>
-                <div class="question-text">6. What are some effective ways to immerse yourself in English without traveling?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q6-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q6-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q6-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q6-ideas">
-                    <ul class="idea-list">
-                        <li>Change the language on your phone and computer to English.</li>
-                        <li>Listen to English podcasts and news while commuting.</li>
-                        <li>Join international online communities or gaming groups.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q6-ans-short">
-                    <div class="answer-box">"You can change your phone's language setting to English and listen to English podcasts daily."</div>
-                </div>
-                <div class="expandable-content" id="q6-ans-long">
-                    <div class="answer-box">"There are many ways to create immersion at home. Personally, I changed all my devices to English and I only consume news from international websites. I also joined a few Discord servers related to my hobbies where everyone communicates in English, which forces me to read and write daily."</div>
-                </div>
-            </div>
-
-            <!-- Q7 (Medium) -->
-            <div class="question-block">
-                <span class="tag tag-medium">Medium</span>
-                <div class="question-text">7. How does knowing English specifically help your career or future goals?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q7-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q7-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q7-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q7-ideas">
-                    <ul class="idea-list">
-                        <li>It opens up opportunities to work for multinational companies.</li>
-                        <li>It allows me to read professional research and literature in my field.</li>
-                        <li>It is required for communicating with overseas suppliers.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q7-ans-short">
-                    <div class="answer-box">"Knowing English is essential for me because I want to work for a multinational tech company."</div>
-                </div>
-                <div class="expandable-content" id="q7-ans-long">
-                    <div class="answer-box">"In my industry, almost all the latest research, software documentation, and training materials are published in English first. Being fluent allows me to stay updated with industry trends and opens up opportunities for promotions that require international travel."</div>
-                </div>
-            </div>
-
-            <!-- Q8 (Opinion) -->
-            <div class="question-block">
-                <span class="tag tag-opinion">Opinion</span>
-                <div class="question-text">8. In your opinion, is perfect grammar or a wide vocabulary more important for communication?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q8-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q8-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q8-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q8-ideas">
-                    <ul class="idea-list">
-                        <li>Vocabulary: Without grammar, you can convey little; without vocabulary, nothing.</li>
-                        <li>Grammar: It prevents serious misunderstandings in professional settings.</li>
-                        <li>Both: You need a balance of both to sound professional.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q8-ans-short">
-                    <div class="answer-box">"In my opinion, vocabulary is more important because you can still express ideas even with bad grammar."</div>
-                </div>
-                <div class="expandable-content" id="q8-ans-long">
-                    <div class="answer-box">"From my perspective, a wide vocabulary is far more important for daily communication. If you know the right words, a native speaker can usually guess your meaning from the context, even if your verb tenses are wrong. However, if you don't have the vocabulary, conversation stops completely."</div>
-                </div>
-            </div>
-
-            <!-- Q9 (Opinion) -->
-            <div class="question-block">
-                <span class="tag tag-opinion">Opinion</span>
-                <div class="question-text">9. Do you think you need a native-like accent to be a successful English speaker?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q9-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q9-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q9-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q9-ideas">
-                    <ul class="idea-list">
-                        <li>No: As long as you are clear and articulate, an accent shows your unique background.</li>
-                        <li>Yes: In some strict corporate environments, a strong accent might cause bias.</li>
-                        <li>It depends: Clarity is more important than sounding exactly like an American or Brit.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q9-ans-short">
-                    <div class="answer-box">"I completely disagree; clear pronunciation is important, but a native accent is not necessary."</div>
-                </div>
-                <div class="expandable-content" id="q9-ans-long">
-                    <div class="answer-box">"I strongly believe that a native-like accent is not necessary. English is a global language spoken by billions of non-native speakers. As long as your pronunciation is clear enough to avoid misunderstandings, your accent is just a beautiful reflection of your cultural identity."</div>
-                </div>
-            </div>
-
-            <!-- Q10 (Opinion) -->
-            <div class="question-block">
-                <span class="tag tag-opinion">Opinion</span>
-                <div class="question-text">10. Some people say adults cannot learn a language as well as children. Do you agree?</div>
-                <div class="action-buttons">
-                    <button class="btn-accent" onclick="toggleBox(this, 'q10-ideas')">Idea Bank 💡</button>
-                    <button class="btn-outline" onclick="toggleBox(this, 'q10-ans-short')">Short Answer</button>
-                    <button class="btn-primary" onclick="toggleBox(this, 'q10-ans-long')">Extended Answer</button>
-                </div>
-                <div class="expandable-content" id="q10-ideas">
-                    <ul class="idea-list">
-                        <li>Agree: Children absorb languages naturally without overthinking rules.</li>
-                        <li>Disagree: Adults have better study habits, discipline, and understanding of grammar.</li>
-                        <li>Partial: Adults might struggle with pronunciation, but learn vocabulary faster.</li>
-                    </ul>
-                </div>
-                <div class="expandable-content" id="q10-ans-short">
-                    <div class="answer-box">"I disagree. Adults may struggle with accents, but they are better at understanding complex grammar."</div>
-                </div>
-                <div class="expandable-content" id="q10-ans-long">
-                    <div class="answer-box">"I only partially agree with this statement. It is true that children acquire pronunciation and intonation more naturally. However, adults have cognitive advantages; we understand abstract concepts, have disciplined study routines, and can actively associate new vocabulary with existing knowledge. We just need to overcome the fear of making mistakes."</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-6">
-            <h2>4. Real-Life Roleplay 🤝</h2>
-            <p class="section-desc">Practice these common scenarios with a partner. Apply the vocabulary you learned.</p>
-
-            <div class="roleplay-grid">
-                <!-- Scenario 1 -->
-                <div class="roleplay-card">
-                    <h3 style="color: var(--primary); margin-bottom: 10px;">Scenario 1: The Networking Event</h3>
-                    <p style="margin-bottom: 15px;"><strong>Situation:</strong> You are attending an international conference. You sit next to a colleague from another country. Introduce yourself, explain what you do, and make small talk.</p>
-                    <p style="margin-bottom: 15px;"><strong>Roles:</strong> You (Professional) & Foreign Colleague.</p>
-                    <button class="btn-outline" onclick="toggleBox(this, 'rp-1-hints')">Show Dialogue Hints 💬</button>
-                    <div class="expandable-content" id="rp-1-hints">
-                        <p><em>You:</em> "Hello, mind if I sit here? I'm [Name], I work in [Department]."</p>
-                        <p><em>Colleague:</em> "Nice to meet you. I'm Alex. How are you enjoying the conference?"</p>
-                        <p><em>You:</em> "It's been great. The last speaker was very insightful. Where are you visiting from?"</p>
-                        <p><em>Colleague:</em> "I flew in from Canada. Is this your first time at this event?"</p>
-                    </div>
-                </div>
-
-                <!-- Scenario 2 -->
-                <div class="roleplay-card">
-                    <h3 style="color: var(--secondary); margin-bottom: 10px;">Scenario 2: The Misunderstanding</h3>
-                    <p style="margin-bottom: 15px;"><strong>Situation:</strong> You are on a phone call with an airline customer service agent. They are speaking very quickly, and you didn't catch the details of your flight change.</p>
-                    <p style="margin-bottom: 15px;"><strong>Roles:</strong> You (Customer) & Customer Service Agent.</p>
-                    <button class="btn-outline" onclick="toggleBox(this, 'rp-2-hints')">Show Dialogue Hints 💬</button>
-                    <div class="expandable-content" id="rp-2-hints">
-                        <p><em>Agent:</em> "So your flight is rebooked for the 14th departing at 16:00 from gate B22, is that confirmed?"</p>
-                        <p><em>You:</em> "I'm sorry, I think I <strong>misunderstood</strong> that. Could you please speak a little slower?"</p>
-                        <p><em>Agent:</em> "Certainly. Your new flight is on the 14th..."</p>
-                        <p><em>You:</em> "Thank you. Let me repeat that back to ensure I have the <strong>essential</strong> details correct."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-7">
-            <h2>5. Fluency Builder 🏗️</h2>
-            <p class="section-desc">Click the flashcards to flip them. Use these sophisticated sentence starters to structure your thoughts.</p>
-
-            <div class="flashcard-grid">
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">From my perspective,...</div>
-                        <div class="flashcard-back">...daily practice is essential.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">One of the main reasons is...</div>
-                        <div class="flashcard-back">...that it builds confidence.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">On the other hand,...</div>
-                        <div class="flashcard-back">...it requires a lot of time.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">For instance,...</div>
-                        <div class="flashcard-back">...I use English at work daily.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">To be honest,...</div>
-                        <div class="flashcard-back">...I still get nervous speaking.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">I totally agree because...</div>
-                        <div class="flashcard-back">...grammar helps avoid mistakes.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">Personally, I feel that...</div>
-                        <div class="flashcard-back">...accents are not a problem.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">That's a valid point, but...</div>
-                        <div class="flashcard-back">...vocabulary is more practical.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">It really depends on...</div>
-                        <div class="flashcard-back">...the context of the situation.</div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="flipCard(this)">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">Ultimately,...</div>
-                        <div class="flashcard-back">...communication is the goal.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-8">
-            <h2>6. Vocabulary Review 🧠</h2>
-            <p class="section-desc">Test your retention. Match the professional vocabulary word to its correct definition.</p>
-            
-            <div class="game-container">
-                <div class="game-col" id="game-words">
-                    <!-- Words generated by JS -->
-                </div>
-                <div class="game-col" id="game-defs">
-                    <!-- Defs generated by JS -->
-                </div>
-            </div>
-            <div id="game-message" style="text-align: center; margin-top: 25px; font-weight: 600; font-size: 1.3rem; color: var(--primary);"></div>
-        </section>
-
-        <section id="section-9">
-            <h2>Self-Reflection 📝</h2>
-            <p class="section-desc">Take a moment to evaluate your performance in today's lesson.</p>
-            
-            <div class="reflection-item">
-                <div style="font-weight: 500;">1. Did I speak confidently and avoid long pauses?</div>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Needs work">🤔</span>
-                    <span onclick="selectEmoji(this)" title="Okay">🙂</span>
-                    <span onclick="selectEmoji(this)" title="Excellent">🚀</span>
-                </div>
-            </div>
-            <div class="reflection-item">
-                <div style="font-weight: 500;">2. Did I successfully use the new vocabulary?</div>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not really">📉</span>
-                    <span onclick="selectEmoji(this)" title="Sometimes">📊</span>
-                    <span onclick="selectEmoji(this)" title="Yes, naturally">📈</span>
-                </div>
-            </div>
-            <div class="reflection-item">
-                <div style="font-weight: 500;">3. Were my opinions clear and well-structured?</div>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="No">❌</span>
-                    <span onclick="selectEmoji(this)" title="Somewhat">✔️</span>
-                    <span onclick="selectEmoji(this)" title="Yes">✅</span>
-                </div>
-            </div>
-            <div class="reflection-item">
-                <div style="font-weight: 500;">4. Did I actively elaborate beyond simple short answers?</div>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Needs work">🌱</span>
-                    <span onclick="selectEmoji(this)" title="Okay">🌿</span>
-                    <span onclick="selectEmoji(this)" title="Excellent">🌳</span>
-                </div>
-            </div>
-            <div class="reflection-item">
-                <div style="font-weight: 500;">5. Do I feel prepared to use these skills in real life?</div>
-                <div class="emoji-rating">
-                    <span onclick="selectEmoji(this)" title="Not yet">🔒</span>
-                    <span onclick="selectEmoji(this)" title="Almost">🔓</span>
-                    <span onclick="selectEmoji(this)" title="Ready!">🌍</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>© Copyright by <strong>ELS - English Lucero System</strong></p>
-            <p>Author: Mr. Lucero | Empowering Adult Learners</p>
-        </div>
 
     </div>
 
-    <!-- Toast Notifications -->
-    <div id="toast-container"></div>
+    <!-- LUCERO COPYRIGHT FOOTER -->
+    <footer>
+        <div class="footer-logo">Hệ thống Anh Ngữ Lucero</div>
+        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Lucero English System</p>
+        <p style="color: #94A3B8; font-size: 1rem;">Biên soạn bởi / Compiled by Mr. Lucero</p>
+        <p style="color: #64748B; font-size: 0.9rem; margin-top: 20px;">&copy; 2026 Bản quyền thuộc về Hệ thống Anh Ngữ Lucero.</p>
+    </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // --- Custom Toast Notification System ---
-        function showToast(message, emoji = '✅') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `<span style="font-size: 1.2rem;">${emoji}</span> <span>${message}</span>`;
+        // Toggle Hidden Content
+        function toggle(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+            } else {
+                element.style.display = "block";
+            }
+        }
+
+        // Progress Tracker Logic
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.progress-check');
+            const total = checkboxes.length;
+            let checked = 0;
+
+            checkboxes.forEach(box => {
+                if(box.checked) checked++;
+            });
+
+            const percentage = (checked / total) * 100;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+
+            if(percentage === 100) {
+                document.getElementById('final-message').style.display = 'block';
+            } else {
+                document.getElementById('final-message').style.display = 'none';
+            }
+        }
+
+        // Mini Game Logic
+        let activeWordBtn = null;
+        let activeWordId = null;
+
+        function selectWord(btn, id) {
+            // Reset previous selections
+            document.querySelectorAll('.word-btn').forEach(b => b.classList.remove('selected'));
             
-            container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.add('fade-out');
-                toast.addEventListener('animationend', () => {
-                    toast.remove();
-                });
-            }, 3000);
+            // Set new selection if it isn't already correct
+            if(!btn.classList.contains('correct')) {
+                btn.classList.add('selected');
+                activeWordBtn = btn;
+                activeWordId = id;
+                document.getElementById('game-feedback').innerText = "Now select the definition on the right...";
+                document.getElementById('game-feedback').style.color = "var(--primary)";
+            }
         }
 
-        // --- Web Speech API (Text-to-Speech) for US English ---
-        let voicesLoaded = false;
-        
-        function initVoices() {
-            window.speechSynthesis.getVoices();
-            voicesLoaded = true;
-        }
-
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = initVoices;
-            initVoices();
-        }
-
-        function playAudio(word) {
-            if (!('speechSynthesis' in window)) {
-                showToast("Browser doesn't support audio.", "🔇");
+        function selectDef(btn, matchId) {
+            if (!activeWordBtn) {
+                document.getElementById('game-feedback').innerText = "⚠️ Please select a word on the left first!";
+                document.getElementById('game-feedback').style.color = "#F59E0B";
                 return;
             }
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(word);
-            utterance.lang = 'en-US'; 
-            utterance.rate = 0.9;    
-            
-            const voices = window.speechSynthesis.getVoices();
-            const preferredVoice = voices.find(voice => voice.lang === 'en-US' && (voice.name.includes('Google') || voice.name.includes('Samantha') || voice.name.includes('Alex')));
-            if (preferredVoice) {
-                utterance.voice = preferredVoice;
+
+            if (btn.classList.contains('correct')) return;
+
+            if (activeWordId == matchId) {
+                // Correct Match
+                activeWordBtn.classList.remove('selected');
+                activeWordBtn.classList.add('correct');
+                btn.classList.add('correct');
+                document.getElementById('game-feedback').innerText = "Correct! Great job. ✅";
+                document.getElementById('game-feedback').style.color = "#10B981";
+                
+                // Reset active state
+                activeWordBtn = null;
+                activeWordId = null;
             } else {
-                const anyUsVoice = voices.find(voice => voice.lang === 'en-US');
-                if (anyUsVoice) utterance.voice = anyUsVoice;
-            }
-
-            window.speechSynthesis.speak(utterance);
-            showToast("Pronunciation playing...", "🔊");
-        }
-
-        // --- General Interactivity ---
-        function toggleBox(btn, boxId) {
-            const content = document.getElementById(boxId);
-            const isActive = content.classList.contains('active');
-            
-            if (isActive) {
-                content.classList.remove('active');
-            } else {
-                content.classList.add('active');
+                // Wrong Match
+                btn.classList.add('wrong');
+                document.getElementById('game-feedback').innerText = "Incorrect. Try again! ❌";
+                document.getElementById('game-feedback').style.color = "#EF4444";
+                
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                }, 400);
             }
         }
-
-        // --- Progress Tracker ---
-        function toggleProgress(el) {
-            el.classList.toggle('completed');
-            if(el.classList.contains('completed')){
-                showToast("Section completed!", "⭐");
-            }
-        }
-
-        // --- Flashcards ---
-        function flipCard(card) {
-            card.classList.toggle('flipped');
-        }
-
-        // --- Reflection Emojis ---
-        function selectEmoji(emojiEl) {
-            const siblings = emojiEl.parentElement.children;
-            for(let i=0; i<siblings.length; i++){
-                siblings[i].classList.remove('selected');
-            }
-            emojiEl.classList.add('selected');
-            showToast("Reflection logged", "📝");
-        }
-
-        // --- Review Game Logic ---
-        const vocabData = [
-            { id: 1, word: "Fluency", def: "The ability to speak or write smoothly and easily." },
-            { id: 2, word: "Misunderstand", def: "To fail to understand someone correctly." },
-            { id: 3, word: "Immerse", def: "To surround yourself completely with a language." },
-            { id: 4, word: "Context", def: "Information surrounding a word that explains its meaning." },
-            { id: 5, word: "Overcome", def: "To succeed in dealing with a difficulty." },
-            { id: 6, word: "Essential", def: "Absolutely necessary or extremely important." }
-        ];
-
-        let selectedWordBtn = null;
-        let selectedDefBtn = null;
-        let matchesFound = 0;
-
-        function initGame() {
-            const wordContainer = document.getElementById('game-words');
-            const defContainer = document.getElementById('game-defs');
-            
-            wordContainer.innerHTML = '';
-            defContainer.innerHTML = '';
-
-            const words = [...vocabData].sort(() => Math.random() - 0.5);
-            const defs = [...vocabData].sort(() => Math.random() - 0.5);
-
-            words.forEach(item => {
-                let btn = document.createElement('button');
-                btn.className = 'game-btn';
-                btn.innerText = item.word;
-                btn.dataset.id = item.id;
-                btn.onclick = () => handleWordClick(btn);
-                wordContainer.appendChild(btn);
-            });
-
-            defs.forEach(item => {
-                let btn = document.createElement('button');
-                btn.className = 'game-btn';
-                btn.innerText = item.def;
-                btn.dataset.id = item.id;
-                btn.onclick = () => handleDefClick(btn);
-                defContainer.appendChild(btn);
-            });
-        }
-
-        function handleWordClick(btn) {
-            if (btn.classList.contains('matched')) return;
-            if (selectedWordBtn) selectedWordBtn.classList.remove('selected');
-            selectedWordBtn = btn;
-            selectedWordBtn.classList.add('selected');
-            checkMatch();
-        }
-
-        function handleDefClick(btn) {
-            if (btn.classList.contains('matched')) return;
-            if (selectedDefBtn) selectedDefBtn.classList.remove('selected');
-            selectedDefBtn = btn;
-            selectedDefBtn.classList.add('selected');
-            checkMatch();
-        }
-
-        function checkMatch() {
-            if (selectedWordBtn && selectedDefBtn) {
-                if (selectedWordBtn.dataset.id === selectedDefBtn.dataset.id) {
-                    // Match!
-                    selectedWordBtn.classList.remove('selected');
-                    selectedDefBtn.classList.remove('selected');
-                    selectedWordBtn.classList.add('matched');
-                    selectedDefBtn.classList.add('matched');
-                    
-                    matchesFound++;
-                    document.getElementById('game-message').innerText = "Correct! Well done.";
-                    showToast("Perfect Match!", "🎯");
-                    
-                    if(matchesFound === vocabData.length) {
-                        document.getElementById('game-message').innerText = "Excellent! You have mastered the vocabulary.";
-                        showToast("Mission Accomplished!", "🏆");
-                    }
-                    
-                    resetSelection();
-                } else {
-                    // No match
-                    selectedWordBtn.classList.add('wrong');
-                    selectedDefBtn.classList.add('wrong');
-                    document.getElementById('game-message').innerText = "Not quite. Try again.";
-                    
-                    setTimeout(() => {
-                        selectedWordBtn.classList.remove('wrong', 'selected');
-                        selectedDefBtn.classList.remove('wrong', 'selected');
-                        resetSelection();
-                        if (matchesFound !== vocabData.length) {
-                            document.getElementById('game-message').innerText = "";
-                        }
-                    }, 800);
-                }
-            }
-        }
-
-        function resetSelection() {
-            selectedWordBtn = null;
-            selectedDefBtn = null;
-        }
-
-        window.onload = initGame;
-
     </script>
 </body>
 </html>
