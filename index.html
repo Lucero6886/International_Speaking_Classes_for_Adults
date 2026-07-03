@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESL Lesson: Time Management & Priorities - Lucero English</title>
+    <title>ESL Speaking Lesson: Time Management & Priorities | Lucero English System</title>
     <style>
         :root {
-            --primary: #4F46E5; /* Vibrant Indigo */
-            --primary-light: #EEF2FF;
-            --secondary: #0D9488; /* Vibrant Teal */
-            --secondary-light: #F0FDFA;
-            --accent: #F59E0B; /* Warm Amber */
-            --bg-color: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --text-main: #1E293B;
-            --text-light: #64748B;
+            --primary: #4338ca;
+            --primary-light: #6366f1;
+            --primary-hover: #3730a3;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --bg-color: #f0fdfa;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #475569;
             --border-radius: 20px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -23,707 +23,915 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
             color: var(--text-main);
-            line-height: 1.6;
-            font-size: 18px; /* Increased base font size for presentation */
-            padding-bottom: 0; /* Removed to fit footer perfectly */
+            line-height: 1.7;
+            font-size: 19px; /* Increased base font size for better visibility */
+            padding-bottom: 40px;
         }
 
-        /* Top Progress Bar */
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: #E2E8F0;
-            z-index: 1000;
-        }
-
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: width 0.4s ease;
-            box-shadow: 0 2px 10px rgba(79, 70, 229, 0.4);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1100px; /* Widened for better presentation view */
-            margin: 50px auto 40px auto;
-            padding: 0 24px;
-        }
-
+        /* Typography & Header */
         header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 4rem 1.5rem;
             text-align: center;
-            margin-bottom: 50px;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, #ffffff, #EEF2FF);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--primary);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 25px rgba(67, 56, 202, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        h1 { font-size: clamp(2.2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 15px; font-weight: 800; }
-        h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 12px; font-weight: 700; }
-        h3 { font-size: 1.4rem; margin-bottom: 15px; color: #334155; }
+        .header-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
 
-        .objectives-card {
-            background: #FFFFFF;
-            padding: 25px 30px;
-            border-radius: 16px;
-            text-align: left;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-left: 5px solid var(--accent);
+        .brand-badge {
             display: inline-block;
-            max-width: 800px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .objectives-card ul {
-            list-style-type: none;
-            padding-left: 0;
-            font-size: 1.15rem;
+        h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        .objectives-card li { margin-bottom: 10px; }
-        .objectives-card li::before {
-            content: "🎯";
-            margin-right: 12px;
+        h2 { 
+            color: var(--primary); 
+            margin-bottom: 1.5rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            font-size: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid #e0e7ff;
+            padding-bottom: 0.5rem;
         }
 
-        section {
-            margin-bottom: 50px;
-            background: var(--card-bg);
-            padding: 40px;
+        h3 { 
+            color: #334155; 
+            margin-bottom: 0.8rem; 
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .objectives-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
             border-radius: var(--border-radius);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            backdrop-filter: blur(10px);
+            text-align: left;
+            margin-top: 2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .objectives-card h3 { color: white; }
+        .objectives-card ul { margin-left: 1.5rem; }
+        .objectives-card li { margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        /* Buttons & Interactions */
-        button {
-            background: var(--primary);
+        section { margin-bottom: 4rem; }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            border-color: #e0e7ff;
+        }
+
+        /* Buttons (Fixed for no text wrapping) */
+        .btn {
+            background-color: var(--primary-light);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 0.8rem 1.5rem;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            white-space: nowrap; /* Prevents button text wrapping */
+            margin-top: 0.5rem;
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal;
         }
 
-        button:hover {
-            background: #4338CA;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
-        }
-
-        button.outline {
-            background: white;
+        .btn:hover { background-color: var(--primary-hover); transform: scale(1.02); }
+        .btn:active { transform: scale(0.98); }
+        
+        .btn-outline {
+            background-color: #f8fafc;
             color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: none;
+            border: 2px solid var(--primary-light);
         }
+        
+        .btn-outline:hover { background-color: #e0e7ff; color: var(--primary-hover); }
 
-        button.outline:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
+        .btn-audio {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            border: 2px solid transparent;
         }
+        .btn-audio:hover { background-color: #e0e7ff; border-color: var(--primary-light); }
 
+        /* Hidden Content */
         .hidden-content {
             display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background: #F8FAFC;
-            border-radius: 12px;
-            border-left: 5px solid var(--secondary);
-            font-size: 1.15rem;
-            animation: fadeIn 0.4s ease;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #cbd5e1;
+            animation: fadeIn 0.4s ease-in-out;
         }
+        .hidden-content.show { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grids */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        /* Adjusted grid to prevent text squeezing */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-
-        /* Specific Sections */
-        .vocab-card {
-            border: 2px solid #E2E8F0;
-            padding: 25px;
-            border-radius: 16px;
-            transition: var(--transition);
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .vocab-card:hover { 
-            border-color: var(--primary-light);
-            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.1); 
-            transform: translateY(-3px);
-        }
-        .vocab-word { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
-
-        .speaking-card {
-            border: 2px solid #E2E8F0;
-            padding: 25px 30px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-        .speaking-card:hover { border-color: var(--secondary); }
-        .speaking-badge {
-            display: inline-block;
-            padding: 6px 14px;
+        /* Badges */
+        .badge {
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-        .badge-easy { background: #D1FAE5; color: #065F46; }
-        .badge-medium { background: #FEF3C7; color: #92400E; }
-        .badge-opinion { background: #EDE9FE; color: #5B21B6; }
-
-        .fluency-card {
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: var(--transition);
             font-weight: 700;
-            font-size: 1.2rem;
-            min-height: 90px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+        .badge-easy { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .badge-medium { background: #fef08a; color: #a16207; border: 1px solid #fde047; }
+        .badge-opinion { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+        /* Idea Bank & Sample Answers */
+        .idea-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        .idea-list li {
+            background: #f1f5f9;
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            border: 1px solid #e2e8f0;
+            font-weight: 600;
+        }
+
+        .sample-answer {
+            background: #f8fafc;
+            padding: 1.2rem;
+            border-left: 5px solid var(--primary-light);
+            border-radius: 6px 12px 12px 6px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .sample-answer span { font-weight: 800; color: var(--primary); display: block; font-size: 0.95rem; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Flashcards (Fixed size for visibility & no overflow) */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .flashcard {
+            perspective: 1000px;
+            min-height: 160px;
+            cursor: pointer;
+        }
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateX(180deg);
+        }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .fluency-card:hover { 
-            transform: scale(1.03) translateY(-5px); 
-            background: #4338CA;
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-        }
-
-        /* Review Game */
-        .match-game { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .match-col { display: flex; flex-direction: column; gap: 15px; }
-        .match-btn { 
-            background: white; border: 2px solid #CBD5E0; color: var(--text-main); 
-            text-align: left; padding: 18px 20px; border-radius: 12px; width: 100%;
-            font-size: 1.15rem; font-weight: 600;
-            white-space: normal; /* Allow text to wrap nicely here if needed */
-            min-height: 70px; display: flex; align-items: center;
-        }
-        .match-btn:hover { border-color: var(--primary); background: var(--primary-light); }
-        .match-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 3px rgba(79,70,229,0.2); }
-        .match-btn.correct { border-color: #10B981; background: #ECFDF5; color: #065F46; pointer-events: none;}
-        .match-btn.wrong { border-color: #EF4444; background: #FEF2F2; color: #991B1B; animation: shake 0.4s; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            75% { transform: translateX(8px); }
-        }
-
-        /* Checkboxes */
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            font-weight: 700;
             font-size: 1.2rem;
+            word-wrap: break-word;
+        }
+        .flashcard-front { background-color: var(--card-bg); color: var(--primary); border: 2px solid #e0e7ff; }
+        .flashcard-back { background-color: var(--primary-light); color: white; transform: rotateX(180deg); font-weight: 600; font-size: 1.1rem;}
+        .flashcard:hover .flashcard-front { border-color: var(--primary); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2); }
+
+        /* Quiz Game */
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.8rem;
+            background: #f8fafc;
+            color: var(--text-main);
+            border: 2px solid #e2e8f0;
+            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            justify-content: flex-start;
+        }
+        .quiz-option:hover:not(:disabled) { background: #e0e7ff; border-color: var(--primary-light); color: var(--primary-hover); }
+        .quiz-option.correct { background: #dcfce7; border-color: var(--secondary); color: #14532d; font-weight: bold; }
+        .quiz-option.wrong { background: #fee2e2; border-color: #ef4444; color: #7f1d1d; }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.9; }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            z-index: 1000;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), #34d399);
+            width: 0%;
+            transition: width 0.5s ease-out;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Checkbox completion */
+        .section-complete {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
-            padding: 10px;
-            border-radius: 8px;
+            border: 2px dashed #cbd5e1;
             transition: var(--transition);
         }
-        .checkbox-container:hover { background: #F1F5F9; }
-        .checkbox-container input {
-            width: 28px;
-            height: 28px;
-            margin-right: 18px;
-            accent-color: var(--secondary);
-            cursor: pointer;
+        .section-complete:hover { background: #f8fafc; border-color: #94a3b8; }
+        .section-complete.completed {
+            background: #f0fdf4;
+            color: #15803d;
+            border: 2px solid #86efac;
+        }
+        .section-complete input { transform: scale(1.6); cursor: pointer; accent-color: var(--secondary); }
+
+        /* Reflection */
+        .reflection-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .reflection-q span { font-weight: 600; font-size: 1.15rem; }
+        .reflection-q:last-child { border-bottom: none; }
+        .rating-stars { display: flex; gap: 8px; cursor: pointer; }
+        .star { color: #e2e8f0; font-size: 2rem; transition: 0.2s; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .star.active { color: var(--accent); }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            transition: var(--transition);
+            background: #f8fafc;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
-        /* Lucero Footer */
+        /* Footer Copyright */
         footer {
-            background: linear-gradient(135deg, #1E293B, #0F172A);
-            color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 5px solid var(--accent);
+            padding: 3rem 1rem 1rem 1rem;
+            margin-top: 4rem;
+            border-top: 2px solid #e2e8f0;
+            color: var(--text-light);
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .footer-brand {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
         
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* Word Class tag */
+        .word-type {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--primary-hover);
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .match-game { grid-template-columns: 1fr; gap: 20px; }
+        /* Roleplay layout */
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .role-box {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .role-box strong { color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 5px;}
+        
+        @media (max-width: 768px) {
+            .role-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2.2rem; }
-            section { padding: 25px; }
-            .container { padding: 0 15px; margin-top: 30px; }
+            h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+    <!-- Progress Tracker -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <div class="container">
-        
-        <header>
-            <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 800; color: var(--secondary); margin-bottom: 10px;">B1/B2 Speaking Lesson</p>
-            <h1>Time Management & Priorities ⏳</h1>
-            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; color: var(--text-light);">Learn how to fluently discuss your daily schedule, organize your life, and express your opinions on productivity.</p>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="brand-badge">✨ Lucero English System</div>
+            <h1>⏳ Time Management & Priorities</h1>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.9;">Adult ESL Speaking Lesson | Level: A2 - B2 | Duration: 60 mins</p>
             
             <div class="objectives-card">
-                <h3 style="color: var(--primary); font-weight: bold; margin-bottom: 15px;">Today's Objectives:</h3>
+                <h3>🎯 Learning Objectives:</h3>
                 <ul>
-                    <li>Use advanced vocabulary related to daily routines and scheduling.</li>
-                    <li>Answer personal questions fluently with extended details.</li>
-                    <li>Express well-reasoned opinions about work-life balance.</li>
+                    <li><strong>Vocabulary:</strong> Use terminology related to scheduling, habits, and daily tasks.</li>
+                    <li><strong>Fluency:</strong> Explain personal time management strategies confidently.</li>
+                    <li><strong>Critical Thinking:</strong> Express and defend opinions on work-life balance.</li>
                 </ul>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- SECTION 1: WARM UP -->
-        <section>
-            <h2>☕ 1. Warm-up Discussion</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Discuss these questions with your partner or teacher. Give detailed answers!</p>
+    <div class="container">
+
+        <!-- SECTION 1: WARM-UP -->
+        <section id="section-1">
+            <h2>🔥 1. Warm-Up</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Answer these quick questions to get started. Click the button if you need ideas!</p>
             
-            <div class="grid-2">
-                <div class="vocab-card">
-                    <h3>1. Are you a morning person or a night owl? 🦉</h3>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w1')">Show Example</button>
-                        <div id="w1" class="hidden-content">I am definitely a night owl. I focus best after 9 PM when the house is completely quiet.</div>
-                    </div>
-                </div>
-                <div class="vocab-card">
-                    <h3>2. Do you use a physical calendar or a digital to-do list? 📅</h3>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w2')">Show Example</button>
-                        <div id="w2" class="hidden-content">I rely on a digital calendar on my smartphone so I can get instant notifications.</div>
-                    </div>
-                </div>
-                <div class="vocab-card">
-                    <h3>3. Are you usually early, exactly on time, or late? ⏰</h3>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w3')">Show Example</button>
-                        <div id="w3" class="hidden-content">I make it a rule to be 5 minutes early. I really dislike making other people wait!</div>
-                    </div>
-                </div>
-                <div class="vocab-card">
-                    <h3>4. What is your busiest day of the week? 🏃</h3>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('w4')">Show Example</button>
-                        <div id="w4" class="hidden-content">Monday is my busiest day because I have three back-to-back meetings.</div>
-                    </div>
-                </div>
+            <div id="warmup-container">
+                <!-- Injected via JS -->
             </div>
-            <label class="checkbox-container" style="margin-top: 30px;">
-                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I have completed the warm-up discussion.
+            
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="1"> 
+                I have completed the Warm-Up!
             </label>
         </section>
 
         <!-- SECTION 2: VOCABULARY -->
-        <section>
-            <h2>📚 2. Essential Vocabulary</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Learn these powerful words for discussing time and productivity.</p>
+        <section id="section-2">
+            <h2>📚 2. Core Vocabulary</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Learn these key words. Click the audio button to hear the pronunciation, and "Example" to see how they are used in context.</p>
             
-            <div class="grid-3">
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Procrastinate (v)</div>
-                    </div>
-                    <p style="margin-top: 5px;">To delay doing something that you should do, usually because you don't want to do it.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v1')">Example</button>
-                        <div id="v1" class="hidden-content">I always <b>procrastinate</b> when I have to write essays. I leave it until Sunday night.</div>
-                    </div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Prioritize (v)</div>
-                    </div>
-                    <p style="margin-top: 5px;">To decide which tasks are the most important so you can do them first.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v2')">Example</button>
-                        <div id="v2" class="hidden-content">When I have a heavy workload, I <b>prioritize</b> urgent tasks over checking emails.</div>
-                    </div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Deadline (n)</div>
-                    </div>
-                    <p style="margin-top: 5px;">A specific time or date by which something must be completely finished.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v3')">Example</button>
-                        <div id="v3" class="hidden-content">The final <b>deadline</b> for submitting the financial report is Friday at 5:00 PM.</div>
-                    </div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Time-consuming (adj)</div>
-                    </div>
-                    <p style="margin-top: 5px;">Taking a large amount of time to complete.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v4')">Example</button>
-                        <div id="v4" class="hidden-content">Organizing all these files manually is incredibly <b>time-consuming</b>.</div>
-                    </div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Multitask (v)</div>
-                    </div>
-                    <p style="margin-top: 5px;">To do several different things at the exact same time.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v5')">Example</button>
-                        <div id="v5" class="hidden-content">I try to <b>multitask</b> by listening to an English podcast while cooking dinner.</div>
-                    </div>
-                </div>
-                
-                <div class="vocab-card">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <div class="vocab-word">Overwhelmed (adj)</div>
-                    </div>
-                    <p style="margin-top: 5px;">Feeling stressed because you have too much to handle or do.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 15px;" onclick="toggle('v7')">Example</button>
-                        <div id="v7" class="hidden-content">I feel completely <b>overwhelmed</b> because I have three massive projects due this week.</div>
-                    </div>
-                </div>
+            <div class="card" id="vocab-container" style="padding: 1rem 2rem;">
+                <!-- Injected via JS -->
             </div>
-            <label class="checkbox-container" style="margin-top: 30px;">
-                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I fully understand the new vocabulary.
+
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="2"> 
+                I have reviewed the Vocabulary!
             </label>
         </section>
 
-        <!-- SECTIONS 3: MAIN SPEAKING -->
-        <section>
+        <!-- SECTION 3: SPEAKING PRACTICE -->
+        <section id="section-3">
             <h2>🗣️ 3. Speaking Practice</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Answer the questions. Use "Ideas" to brainstorm, and check "Sample Answers" if you get stuck.</p>
-
-            <div class="speaking-card">
-                <span class="speaking-badge badge-easy">EASY</span>
-                <h3 style="font-size: 1.5rem; color: var(--primary);">1. How many hours of sleep do you usually get? Is it enough?</h3>
-                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="outline" onclick="toggle('idea2')">💡 Ideas</button>
-                    <button class="outline" onclick="toggle('sample2')">💬 Sample Answers</button>
-                </div>
-                <div id="idea2" class="hidden-content">
-                    <b>Ideas to talk about:</b> 6-8 hours, feeling exhausted, needing more sleep, catching up on weekends.
-                </div>
-                <div id="sample2" class="hidden-content">
-                    <b>Short Answer:</b> I usually get around 7 hours of sleep, which is just enough for me.<br><br>
-                    <b>Extended Answer:</b> I aim for 8 hours, but typically I only get 6. Due to my demanding schedule, I often feel a bit exhausted during the week. I always try to sleep in on weekends to catch up.
-                </div>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Read the questions and answer out loud. Use the Idea Bank and Sample Answers if you need inspiration.</p>
+            
+            <div id="speaking-container">
+                <!-- Injected via JS -->
             </div>
 
-            <div class="speaking-card">
-                <span class="speaking-badge badge-medium">MEDIUM</span>
-                <h3 style="font-size: 1.5rem; color: var(--primary);">2. How do you remember important tasks or appointments?</h3>
-                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="outline" onclick="toggle('idea4')">💡 Ideas</button>
-                    <button class="outline" onclick="toggle('sample4')">💬 Sample Answers</button>
-                </div>
-                <div id="idea4" class="hidden-content">
-                    <b>Ideas to talk about:</b> Phone alarms, Google Calendar, planners, sticky notes, asking someone to remind you.
-                </div>
-                <div id="sample4" class="hidden-content">
-                    <b>Short Answer:</b> I strictly use a planner app on my smartphone to keep track of things.<br><br>
-                    <b>Extended Answer:</b> I rely heavily on Google Calendar. Whenever I make an appointment, I log it into my phone immediately and set a reminder for one hour before. Without it, I would forget absolutely everything!
-                </div>
-            </div>
-
-            <div class="speaking-card">
-                <span class="speaking-badge badge-medium">MEDIUM</span>
-                <h3 style="font-size: 1.5rem; color: var(--primary);">3. What are the biggest distractions for you when you study or work?</h3>
-                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="outline" onclick="toggle('idea6')">💡 Ideas</button>
-                    <button class="outline" onclick="toggle('sample6')">💬 Sample Answers</button>
-                </div>
-                <div id="idea6" class="hidden-content">
-                    <b>Ideas to talk about:</b> Smartphones, social media notifications, noisy environments, watching TV, feeling hungry.
-                </div>
-                <div id="sample6" class="hidden-content">
-                    <b>Short Answer:</b> My phone is my biggest distraction, especially Instagram and TikTok.<br><br>
-                    <b>Extended Answer:</b> Definitely my smartphone. Whenever I hear a notification, I glance at it, and then I end up mindlessly scrolling through social media for 20 minutes. I now try to leave my phone in another room when I need to focus.
-                </div>
-            </div>
-
-            <div class="speaking-card">
-                <span class="speaking-badge badge-opinion">OPINION</span>
-                <h3 style="font-size: 1.5rem; color: var(--primary);">4. Is it better to focus on one single task, or to multitask?</h3>
-                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="outline" onclick="toggle('idea9')">💡 Ideas</button>
-                    <button class="outline" onclick="toggle('sample9')">💬 Sample Answers</button>
-                </div>
-                <div id="idea9" class="hidden-content">
-                    <b>Ideas to talk about:</b> Higher quality work, fewer mistakes vs. getting more done quickly, feeling efficient.
-                </div>
-                <div id="sample9" class="hidden-content">
-                    <b>Short Answer:</b> I strongly believe focusing on one task is much better to ensure quality.<br><br>
-                    <b>Extended Answer:</b> Personally, I prefer to focus on a single task at a time. When I attempt to multitask, I feel like my attention is divided and I make silly mistakes. Focusing completely helps me finish tasks faster and with much higher quality.
-                </div>
-            </div>
-
-            <div class="speaking-card">
-                <span class="speaking-badge badge-opinion">OPINION</span>
-                <h3 style="font-size: 1.5rem; color: var(--primary);">5. How important is work-life balance to you?</h3>
-                <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="outline" onclick="toggle('idea10')">💡 Ideas</button>
-                    <button class="outline" onclick="toggle('sample10')">💬 Sample Answers</button>
-                </div>
-                <div id="idea10" class="hidden-content">
-                    <b>Ideas to talk about:</b> Physical health, family time, preventing burnout, mental health, career sustainability.
-                </div>
-                <div id="sample10" class="hidden-content">
-                    <b>Short Answer:</b> It is absolutely essential for my mental well-being.<br><br>
-                    <b>Extended Answer:</b> Work-life balance is my ultimate priority. If I only focus on work, I quickly feel burned out and unmotivated. I maintain this balance by refusing to check work emails after 6 PM. Having personal time to recharge is crucial.
-                </div>
-            </div>
-
-            <label class="checkbox-container" style="margin-top: 30px;">
-                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I completed the speaking practice.
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="3"> 
+                I have finished the Speaking Practice!
             </label>
         </section>
 
         <!-- SECTION 4: ROLE-PLAY -->
-        <section>
+        <section id="section-4">
             <h2>🎭 4. Role-Play Scenarios</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Practice these real-life conversational situations with your partner.</p>
-
-            <div class="grid-2">
-                <div class="vocab-card" style="background: var(--primary-light); border: 2px solid var(--primary);">
-                    <h3 style="color: var(--primary); font-size: 1.4rem;">Scenario A: Declining an Invitation</h3>
-                    <p style="margin-bottom: 10px;"><b>Situation:</b> You are extremely busy with work and feel overwhelmed. A close friend invites you out for dinner tonight.</p>
-                    <p><b>Task:</b> Politely say no, explain exactly why you are busy, and suggest an alternative time to meet.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 20px; width: 100%; justify-content: center;" onclick="toggle('rp1')">Show Dialogue Hints</button>
-                        <div id="rp1" class="hidden-content" style="background: white;">
-                            <ul style="padding-left: 20px;">
-                                <li style="margin-bottom: 8px;">"I'd love to, but I'm completely overwhelmed with work right now."</li>
-                                <li style="margin-bottom: 8px;">"I have a strict deadline tomorrow morning."</li>
-                                <li style="margin-bottom: 8px;">"Can we take a raincheck on that?"</li>
-                                <li>"How about next Friday instead? My schedule clears up then."</li>
-                            </ul>
-                        </div>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Practice these real-life scenarios with a partner or your teacher.</p>
+            
+            <!-- Scenario 1 -->
+            <div class="card">
+                <h3>Scenario 1: The Deadline Approach</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Situation:</strong> You cannot finish your current project on time and need to ask your boss for an extension.</p>
+                
+                <div class="role-grid">
+                    <div class="role-box">
+                        <strong>🧑‍💼 Role A (Employee)</strong>
+                        Explain why you are running late and politely ask for more time to ensure high quality.
+                    </div>
+                    <div class="role-box">
+                        <strong>👔 Role B (Manager)</strong>
+                        Ask for specific reasons. Be slightly strict about the schedule, but eventually agree to the new deadline.
                     </div>
                 </div>
 
-                <div class="vocab-card" style="background: var(--secondary-light); border: 2px solid var(--secondary);">
-                    <h3 style="color: var(--secondary); font-size: 1.4rem;">Scenario B: Planning a Project</h3>
-                    <p style="margin-bottom: 10px;"><b>Situation:</b> You and a colleague need to organize a major presentation for next week.</p>
-                    <p><b>Task:</b> Discuss what needs to be done, prioritize the main tasks, and agree on deadlines for each other.</p>
-                    <div>
-                        <button class="outline" style="margin-top: 20px; width: 100%; justify-content: center; border-color: var(--secondary); color: var(--secondary);" onclick="toggle('rp2')">Show Dialogue Hints</button>
-                        <div id="rp2" class="hidden-content" style="background: white; border-left-color: var(--primary);">
-                            <ul style="padding-left: 20px;">
-                                <li style="margin-bottom: 8px;">"First, we need to prioritize the research phase."</li>
-                                <li style="margin-bottom: 8px;">"I can handle the data collection. Will you design the slides?"</li>
-                                <li style="margin-bottom: 8px;">"Let's set a firm deadline for Wednesday at noon."</li>
-                                <li>"That sounds like a solid plan to me."</li>
-                            </ul>
-                        </div>
-                    </div>
+                <button class="btn btn-outline" onclick="toggleContent('role1-hints')">💡 View Useful Phrases</button>
+                <div id="role1-hints" class="hidden-content">
+                    <ul class="idea-list">
+                        <li>"I apologize for the inconvenience, but..."</li>
+                        <li>"I underestimated how time-consuming this would be."</li>
+                        <li>"Could we possibly push the deadline to Friday?"</li>
+                        <li>"I want to make sure the final result is perfect."</li>
+                    </ul>
                 </div>
             </div>
-            <label class="checkbox-container" style="margin-top: 30px;">
-                <input type="checkbox" class="progress-check" onchange="updateProgress()"> I successfully completed the role-plays.
+
+            <!-- Scenario 2 -->
+            <div class="card">
+                <h3>Scenario 2: The Busy Friend</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Situation:</strong> You want to hang out with your friend this weekend, but their schedule is extremely packed.</p>
+                
+                <div class="role-grid">
+                    <div class="role-box">
+                        <strong>👋 Role A (You)</strong>
+                        Suggest a specific time and a quick activity (e.g., grabbing coffee, a short walk).
+                    </div>
+                    <div class="role-box">
+                        <strong>📅 Role B (Friend)</strong>
+                        Look at your imaginary schedule. Decline the first offer, but try to squeeze them in for 1 hour later.
+                    </div>
+                </div>
+
+                <button class="btn btn-outline" onclick="toggleContent('role2-hints')">💡 View Useful Phrases</button>
+                <div id="role2-hints" class="hidden-content">
+                    <ul class="idea-list">
+                        <li>"Are you free to catch up on Saturday morning?"</li>
+                        <li>"Let me check my calendar real quick..."</li>
+                        <li>"My schedule is completely booked on Sunday."</li>
+                        <li>"Can we squeeze in a quick coffee break around 3 PM?"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="4"> 
+                I have practiced the Role-Plays!
             </label>
         </section>
 
         <!-- SECTION 5: FLUENCY BUILDER -->
-        <section>
-            <h2>🚀 5. Fluency Builder</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Click the flashcards to reveal sentence starters that will make your English sound much more natural and advanced.</p>
-
-            <div class="grid-3">
-                <div class="fluency-card" onclick="this.innerHTML='Generally speaking, I usually...'">I usually...</div>
-                <div class="fluency-card" onclick="this.innerHTML='From my perspective, [idea] is...'">In my opinion...</div>
-                <div class="fluency-card" onclick="this.innerHTML='The main reason is that...'">One reason is...</div>
-                <div class="fluency-card" onclick="this.innerHTML='To give you an example...'">For example...</div>
-                <div class="fluency-card" onclick="this.innerHTML='To be completely honest with you...'">To be honest...</div>
-                <div class="fluency-card" onclick="this.innerHTML='Well, it heavily depends on...'">It depends on...</div>
-                <div class="fluency-card" onclick="this.innerHTML='On the one hand... but on the other hand...'">On the one hand...</div>
-                <div class="fluency-card" onclick="this.innerHTML='From my own personal experience...'">In my experience...</div>
-                <div class="fluency-card" onclick="this.innerHTML='I completely agree because...'">I completely agree...</div>
+        <section id="section-5">
+            <h2>⚡ 5. Fluency Builder</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Click the flashcards to reveal sentence starters. Complete the sentence out loud as fast and naturally as you can!</p>
+            
+            <div class="flashcard-grid" id="flashcard-container">
+                <!-- Injected via JS -->
             </div>
+
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="5"> 
+                I have completed the Fluency Builder!
+            </label>
         </section>
 
         <!-- SECTION 6: REVIEW GAME -->
-        <section>
-            <h2>🎮 6. Vocabulary Match Game</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-light);">Match the vocabulary word to its correct definition. Click a word on the left, then click its definition on the right.</p>
-
-            <div class="match-game">
-                <!-- Words -->
-                <div class="match-col" id="words-col">
-                    <button class="match-btn word-btn" data-id="1" onclick="selectWord(this, 1)">1. Procrastinate</button>
-                    <button class="match-btn word-btn" data-id="2" onclick="selectWord(this, 2)">2. Prioritize</button>
-                    <button class="match-btn word-btn" data-id="3" onclick="selectWord(this, 3)">3. Multitask</button>
-                    <button class="match-btn word-btn" data-id="4" onclick="selectWord(this, 4)">4. Deadline</button>
+        <section id="section-6">
+            <h2>🎮 6. Review Quiz</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Let's test your memory of today's essential vocabulary.</p>
+            
+            <div class="card" id="quiz-container" style="text-align: center; padding: 3rem 2rem;">
+                <h3 id="quiz-question" style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-main);">Loading Question...</h3>
+                <div id="quiz-options" style="max-width: 600px; margin: 0 auto;">
+                    <!-- Injected via JS -->
                 </div>
-                <!-- Definitions (Mixed) -->
-                <div class="match-col" id="defs-col">
-                    <button class="match-btn def-btn" data-match="3" onclick="selectDef(this, 3)">A. To do several different things at the exact same time.</button>
-                    <button class="match-btn def-btn" data-match="1" onclick="selectDef(this, 1)">B. To delay doing something that you should do.</button>
-                    <button class="match-btn def-btn" data-match="4" onclick="selectDef(this, 4)">C. A specific time when something must be completely finished.</button>
-                    <button class="match-btn def-btn" data-match="2" onclick="selectDef(this, 2)">D. To decide which tasks are the most important.</button>
-                </div>
+                <div id="quiz-feedback" style="margin-top: 1.5rem; font-weight: 800; font-size: 1.2rem; display: none; padding: 1rem; border-radius: 10px;"></div>
+                <button class="btn" id="next-quiz-btn" style="display:none; margin-top: 20px; font-size: 1.1rem; padding: 1rem 2rem;" onclick="nextQuiz()">Next Question ➡️</button>
             </div>
-            <p id="game-feedback" style="margin-top: 20px; font-size: 1.2rem; font-weight: bold; color: var(--primary); min-height: 30px; text-align: center;"></p>
+
+            <label class="section-complete">
+                <input type="checkbox" class="progress-check" data-section="6"> 
+                I passed the Review Game!
+            </label>
         </section>
 
-        <!-- SECTION 7: REFLECTION -->
-        <section style="background: var(--primary-light); border: 3px solid var(--primary); padding-bottom: 30px;">
-            <h2>📝 7. Self-Reflection & Progress Tracker</h2>
-            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--text-main);">Review your performance today. Check the boxes that are true for you.</p>
-
-            <div style="background: white; padding: 25px; border-radius: 16px;">
-                <label class="checkbox-container">
-                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I felt confident when speaking English today.
-                </label>
-                <label class="checkbox-container">
-                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I actively used at least 3 new vocabulary words.
-                </label>
-                <label class="checkbox-container">
-                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I tried to give "Extended Answers" (not just 1 short sentence).
-                </label>
-                <label class="checkbox-container">
-                    <input type="checkbox" class="progress-check" onchange="updateProgress()"> I effectively communicated with my partner during the role-play.
-                </label>
-            </div>
+        <!-- SECTION 7: SELF-REFLECTION -->
+        <section id="section-7">
+            <h2>🧠 7. Self-Reflection</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Evaluate your performance today (1 star = Needs Work, 5 stars = Excellent).</p>
             
-            <div style="margin-top: 35px; text-align: center;">
-                <h3 id="final-message" style="color: var(--secondary); font-size: 2rem; display: none; animation: fadeIn 0.8s ease;">🎉 Excellent job! You have completed the lesson! 🎉</h3>
+            <div class="card">
+                <div class="reflection-q">
+                    <span>1. Did I speak confidently and loudly?</span>
+                    <div class="rating-stars" onclick="rateStar(event, 1)"></div>
+                </div>
+                <div class="reflection-q">
+                    <span>2. Did I actively use the new vocabulary words?</span>
+                    <div class="rating-stars" onclick="rateStar(event, 2)"></div>
+                </div>
+                <div class="reflection-q">
+                    <span>3. Did I speak fluently without overly long pauses?</span>
+                    <div class="rating-stars" onclick="rateStar(event, 3)"></div>
+                </div>
+                <div class="reflection-q" style="flex-direction: column; align-items: flex-start;">
+                    <span style="margin-bottom: 10px;">4. What is one new word, phrase, or idea you want to remember from today's lesson?</span>
+                    <input type="text" placeholder="Type your notes here...">
+                </div>
             </div>
+
+            <label class="section-complete" style="background: #fffbeb; border-color: #fde68a; color: #b45309;">
+                <input type="checkbox" class="progress-check" data-section="7"> 
+                I have finished the Self-Reflection! Lesson Complete! 🎉
+            </label>
         </section>
 
     </div>
 
-    <!-- LUCERO COPYRIGHT FOOTER -->
+    <!-- Copyright Footer -->
     <footer>
-        <div class="footer-logo">Hệ thống Anh Ngữ Lucero</div>
-        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Lucero English System</p>
-        <p style="color: #94A3B8; font-size: 1rem;">Biên soạn bởi / Compiled by Mr. Lucero</p>
-        <p style="color: #64748B; font-size: 0.9rem; margin-top: 20px;">&copy; 2026 Bản quyền thuộc về Hệ thống Anh Ngữ Lucero.</p>
+        <div class="container">
+            <div class="footer-brand">LUCERO ENGLISH SYSTEM</div>
+            <p>Copyright © 2026 by Lucero English System. All rights reserved.</p>
+            <p style="font-weight: 600; color: #64748b;">Authored by Mr. Lucero.</p>
+        </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // Toggle Hidden Content
-        function toggle(id) {
-            const element = document.getElementById(id);
-            if (element.style.display === "block") {
-                element.style.display = "none";
+        // --- DATA OBJECTS (Academically Reviewed) ---
+
+        const warmupData = [
+            { q: "What time do you usually wake up and go to bed?", emoji: "⏰", ans: "I usually wake up at 7:00 AM and go to sleep around 11:30 PM." },
+            { q: "Do you use an alarm clock, or do you wake up naturally?", emoji: "🔔", ans: "I definitely need an alarm clock, otherwise I will oversleep!" },
+            { q: "What is the very first thing you do in the morning?", emoji: "☕", ans: "I usually drink a large glass of water and then check my work emails." },
+            { q: "Would you consider yourself a 'morning person' or a 'night owl'?", emoji: "🦉", ans: "I am absolutely a night owl. I feel most productive after dinner." },
+            { q: "Do you generally feel like you have enough time in a day?", emoji: "⏳", ans: "Not really, my schedule is so packed that I always feel rushed!" }
+        ];
+
+        const vocabData = [
+            { word: "Schedule", type: "Noun / Verb", def: "A structured plan of activities and when they will happen.", ex: "Let me check my schedule for next week to see if I am available for a meeting." },
+            { word: "Prioritize", type: "Verb", def: "To treat a task as more important than others and do it first.", ex: "I prioritize my work tasks every morning so I can finish the most difficult ones early." },
+            { word: "Procrastinate", type: "Verb", def: "To delay doing something that you should do, often because it is difficult or boring.", ex: "I often procrastinate when I have to write a long, complicated report." },
+            { word: "Deadline", type: "Noun", def: "The specific time or date by which something must be completed.", ex: "The strict deadline for submitting this project is Friday at 5:00 PM." },
+            { word: "Routine", type: "Noun", def: "A usual or fixed way of doing things regularly.", ex: "Establishing a healthy morning routine helps me start the day feeling relaxed." },
+            { word: "Distracted", type: "Adjective", def: "Unable to pay full attention to a task because something else is happening.", ex: "I easily get distracted by social media notifications while I am studying." },
+            { word: "Multitask", type: "Verb", def: "To do more than one activity at the exact same time.", ex: "It is incredibly hard to multitask effectively without making careless mistakes." },
+            { word: "Time-consuming", type: "Adjective", def: "Taking a significant amount of time to complete.", ex: "Commuting in heavy traffic every day is a very time-consuming process." }
+        ];
+
+        const speakingData = [
+            { level: "easy", q: "How do you remember your important appointments?", ideas: ["Calendar app", "Notebook", "Sticky notes", "Alarms"], short: "I strictly use my smartphone's calendar.", ext: "I always log appointments into my Google Calendar. It sends me an automatic notification 30 minutes beforehand, so I never forget." },
+            { level: "easy", q: "Do you like to plan your weekends or just relax?", ideas: ["Make a to-do list", "Go with the flow", "Sleep in", "Visit friends"], short: "I prefer not to plan and just relax.", ext: "During the week my life is very scheduled, so on weekends I like to just go with the flow. If I feel like sleeping in, I do it without feeling guilty." },
+            { level: "easy", q: "What activity takes up the majority of your time every day?", ideas: ["Work", "Studying", "Commuting", "Household chores", "Phone"], short: "Working and commuting take most of my time.", ext: "I work a standard eight hours a day, and my commute takes an hour each way. After that, I spend a significant amount of time preparing dinner." },
+            { level: "medium", q: "How do you handle the situation when you are running late?", ideas: ["Feel stressed", "Get anxious", "Try to rush", "Text the person"], short: "I feel very stressed and anxious.", ext: "I genuinely hate being late. If I'm running late, I feel very stressed, and I usually message the person immediately to apologize and give an ETA." },
+            { level: "medium", q: "What is your strategy when you have too many things to do?", ideas: ["Make a priority list", "Ask for assistance", "Take a deep breath", "Focus on one task"], short: "I make a list and tackle the hardest task first.", ext: "I write down absolutely everything I need to accomplish. Then, I prioritize the top three tasks and focus solely on them until they are fully completed." },
+            { level: "medium", q: "What are the biggest daily distractions for you personally?", ideas: ["Social media apps", "Noisy environments", "Incoming emails", "Television"], short: "My smartphone is definitely my biggest distraction.", ext: "Whenever my phone buzzes, I have a strong urge to check it. Additionally, working from home can be distracting if there is construction noise outside." },
+            { level: "medium", q: "Do you believe multitasking is an effective or ineffective skill?", ideas: ["Saves time", "Causes mistakes", "Lowers work quality", "Good for simple chores"], short: "I think it is generally ineffective because I make mistakes.", ext: "For basic chores like cleaning while listening to a podcast, it is fine. But for professional work, multitasking drastically lowers my focus and overall quality." },
+            { level: "opinion", q: "Is modern technology saving our time, or is it wasting it?", ideas: ["Instant communication", "Mindless scrolling", "Automated daily tasks"], short: "It does both, heavily depending on how we utilize it.", ext: "Technology certainly saves time for things like online banking and emails. However, social media algorithms are designed to hold our attention, causing us to waste hours scrolling." },
+            { level: "opinion", q: "From your perspective, why do people procrastinate so often?", ideas: ["Fear of failing", "Task feels overwhelming", "Lack of motivation", "Perfectionism"], short: "People often procrastinate because a task feels too overwhelming.", ext: "I believe people delay doing things when they feel overwhelmed. If a project is huge or complicated, it feels much easier to watch TV than to take the first step." },
+            { level: "opinion", q: "There is a saying: 'Time is money'. To what extent do you agree?", ideas: ["Health is wealth", "Time is severely limited", "Hard work generates income"], short: "I somewhat agree, but time is ultimately more valuable.", ext: "In the corporate world, time is definitely money. But in personal life, time is significantly more precious than money because you can never earn it back once it is spent." }
+        ];
+
+        const flashcardData = [
+            "I usually make a habit of...", "To be completely honest, I think...", "For instance,...", "One major reason is that...", 
+            "It really depends on...", "On the other hand,...", "In my personal experience,...", "The most effective way to...", 
+            "I frequently find it difficult to...", "Whenever I have free time, I..."
+        ];
+
+        const quizData = [
+            { q: "Which vocabulary word means: 'To delay doing something that you should do'?", options: ["Prioritize", "Procrastinate", "Schedule"], answer: 1 },
+            { q: "Which vocabulary word means: 'A usual or fixed way of doing things regularly'?", options: ["Routine", "Deadline", "Multitask"], answer: 0 },
+            { q: "Which vocabulary word means: 'Taking a significant amount of time to complete'?", options: ["Distracted", "Time-consuming", "Prioritize"], answer: 1 },
+            { q: "Which vocabulary word means: 'Unable to pay full attention to a task'?", options: ["Schedule", "Multitask", "Distracted"], answer: 2 }
+        ];
+
+        // --- INITIALIZATION ---
+
+        window.onload = () => {
+            renderWarmup();
+            renderVocab();
+            renderSpeaking();
+            renderFlashcards();
+            setupCheckboxes();
+            
+            // Initialize rating stars
+            document.querySelectorAll('.rating-stars').forEach(container => {
+                container.innerHTML = '<span class="star active">★</span>'.repeat(5);
+            });
+        };
+
+        // --- RENDER FUNCTIONS ---
+
+        function renderWarmup() {
+            const container = document.getElementById('warmup-container');
+            warmupData.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="card">
+                        <h3 style="margin-bottom: 12px; font-size: 1.3rem;">${item.emoji} ${item.q}</h3>
+                        <button class="btn btn-outline" onclick="toggleContent('warmup-ans-${index}')">👀 Show Example Answer</button>
+                        <div id="warmup-ans-${index}" class="hidden-content">
+                            <p style="color: var(--text-light); font-style: italic; font-size: 1.15rem; background: #f8fafc; padding: 15px; border-radius: 10px; border-left: 4px solid var(--secondary);">"${item.ans}"</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderVocab() {
+            const container = document.getElementById('vocab-container');
+            vocabData.forEach((item, index) => {
+                const isLast = index === vocabData.length - 1;
+                const borderStyle = isLast ? 'none' : '1px solid #e2e8f0';
+                
+                container.innerHTML += `
+                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: ${borderStyle};">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+                            <h3 style="color: var(--primary); font-size: 1.4rem; margin: 0;">
+                                ${item.word} <span class="word-type">[${item.type}]</span>
+                            </h3>
+                            <button class="btn btn-audio" onclick="speakText('${item.word}')" title="Listen to pronunciation">🔊</button>
+                        </div>
+                        <p style="margin-bottom: 12px; font-size: 1.1rem;"><strong>Definition:</strong> ${item.def}</p>
+                        <button class="btn btn-outline" style="font-size: 0.95rem; padding: 0.5rem 1rem;" onclick="toggleContent('vocab-ex-${index}')">📖 View Context Example</button>
+                        <div id="vocab-ex-${index}" class="hidden-content">
+                            <p style="color: var(--text-light); font-style: italic; font-size: 1.1rem; background: #f0fdf4; padding: 12px 15px; border-radius: 8px; border-left: 4px solid var(--secondary);">"${item.ex}"</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderSpeaking() {
+            const container = document.getElementById('speaking-container');
+            speakingData.forEach((item, index) => {
+                let badgeClass = item.level === 'easy' ? 'badge-easy' : (item.level === 'medium' ? 'badge-medium' : 'badge-opinion');
+                let badgeText = item.level === 'opinion' ? 'OPINION / DEBATE' : `LEVEL: ${item.level.toUpperCase()}`;
+                
+                let ideasHtml = item.ideas.map(idea => `<li>💡 ${idea}</li>`).join('');
+
+                container.innerHTML += `
+                    <div class="card">
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                        <h3 style="margin: 10px 0 15px 0; font-size: 1.35rem; line-height: 1.4;">${index + 1}. ${item.q}</h3>
+                        
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="btn btn-outline" onclick="toggleContent('ideas-${index}')">🧠 Open Idea Bank</button>
+                            <button class="btn btn-outline" onclick="toggleContent('answers-${index}')">💬 See Sample Answers</button>
+                        </div>
+
+                        <div id="ideas-${index}" class="hidden-content">
+                            <ul class="idea-list">${ideasHtml}</ul>
+                        </div>
+
+                        <div id="answers-${index}" class="hidden-content">
+                            <div class="sample-answer">
+                                <span>🎯 Short & Direct Answer:</span>
+                                "${item.short}"
+                            </div>
+                            <div class="sample-answer" style="border-left-color: var(--secondary); background: #f0fdf4;">
+                                <span>🚀 Extended Answer (Recommended):</span>
+                                "${item.ext}"
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcard-container');
+            flashcardData.forEach(text => {
+                container.innerHTML += `
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                ${text}
+                            </div>
+                            <div class="flashcard-back">
+                                Finish this sentence logically! 🗣️
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // --- UTILITY FUNCTIONS ---
+
+        function toggleContent(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('show')) {
+                el.classList.remove('show');
             } else {
-                element.style.display = "block";
+                el.classList.add('show');
             }
         }
 
-        // Progress Tracker Logic
-        function updateProgress() {
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                // Cancel any ongoing speech
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; // Slower for clear ESL listening
+                utterance.pitch = 1;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Sorry, your browser does not support the Web Speech API.");
+            }
+        }
+
+        // --- QUIZ LOGIC ---
+        let currentQuizIndex = 0;
+        
+        function loadQuiz(index) {
+            const qData = quizData[index];
+            document.getElementById('quiz-question').innerText = `Question ${index + 1} of ${quizData.length}:\n\n${qData.q}`;
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            const labels = ["A", "B", "C"];
+            qData.options.forEach((opt, i) => {
+                let isCorrect = (i === qData.answer);
+                optionsContainer.innerHTML += `
+                    <button class="btn quiz-option" onclick="checkQuiz(this, ${isCorrect})">
+                        <strong>${labels[i]})</strong> &nbsp; ${opt}
+                    </button>
+                `;
+            });
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('next-quiz-btn').style.display = 'none';
+        }
+
+        function checkQuiz(btnElement, isCorrect) {
+            const buttons = document.querySelectorAll('.quiz-option');
+            buttons.forEach(b => b.disabled = true);
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.style.display = 'block';
+
+            if (isCorrect) {
+                btnElement.classList.add('correct');
+                feedback.innerText = "✅ Excellent! That is the correct answer.";
+                feedback.style.color = "#14532d";
+                feedback.style.backgroundColor = "#dcfce7";
+            } else {
+                btnElement.classList.add('wrong');
+                feedback.innerText = "❌ Incorrect. Look at the highlighted correct answer.";
+                feedback.style.color = "#7f1d1d";
+                feedback.style.backgroundColor = "#fee2e2";
+                buttons[quizData[currentQuizIndex].answer].classList.add('correct');
+            }
+
+            const nextBtn = document.getElementById('next-quiz-btn');
+            nextBtn.style.display = 'inline-flex';
+
+            if (currentQuizIndex >= quizData.length - 1) {
+                nextBtn.innerText = "Restart Quiz 🔄";
+                nextBtn.onclick = () => {
+                    currentQuizIndex = 0;
+                    loadQuiz(currentQuizIndex);
+                    nextBtn.onclick = nextQuiz;
+                    nextBtn.innerText = "Next Question ➡️";
+                }
+            }
+        }
+
+        function nextQuiz() {
+            currentQuizIndex++;
+            if(currentQuizIndex < quizData.length) {
+                loadQuiz(currentQuizIndex);
+            }
+        }
+
+        setTimeout(() => loadQuiz(0), 100);
+
+        // --- PROGRESS TRACKER ---
+        function setupCheckboxes() {
             const checkboxes = document.querySelectorAll('.progress-check');
             const total = checkboxes.length;
-            let checked = 0;
-
-            checkboxes.forEach(box => {
-                if(box.checked) checked++;
-            });
-
-            const percentage = (checked / total) * 100;
-            document.getElementById('progress-bar').style.width = percentage + '%';
-
-            if(percentage === 100) {
-                document.getElementById('final-message').style.display = 'block';
-            } else {
-                document.getElementById('final-message').style.display = 'none';
-            }
-        }
-
-        // Mini Game Logic
-        let activeWordBtn = null;
-        let activeWordId = null;
-
-        function selectWord(btn, id) {
-            // Reset previous selections
-            document.querySelectorAll('.word-btn').forEach(b => b.classList.remove('selected'));
             
-            // Set new selection if it isn't already correct
-            if(!btn.classList.contains('correct')) {
-                btn.classList.add('selected');
-                activeWordBtn = btn;
-                activeWordId = id;
-                document.getElementById('game-feedback').innerText = "Now select the definition on the right...";
-                document.getElementById('game-feedback').style.color = "var(--primary)";
-            }
+            checkboxes.forEach(box => {
+                box.addEventListener('change', () => {
+                    const checked = document.querySelectorAll('.progress-check:checked').length;
+                    const percentage = (checked / total) * 100;
+                    document.getElementById('progressBar').style.width = percentage + '%';
+                    
+                    const label = box.parentElement;
+                    if(box.checked) {
+                        label.classList.add('completed');
+                    } else {
+                        label.classList.remove('completed');
+                    }
+                });
+            });
         }
 
-        function selectDef(btn, matchId) {
-            if (!activeWordBtn) {
-                document.getElementById('game-feedback').innerText = "⚠️ Please select a word on the left first!";
-                document.getElementById('game-feedback').style.color = "#F59E0B";
-                return;
-            }
-
-            if (btn.classList.contains('correct')) return;
-
-            if (activeWordId == matchId) {
-                // Correct Match
-                activeWordBtn.classList.remove('selected');
-                activeWordBtn.classList.add('correct');
-                btn.classList.add('correct');
-                document.getElementById('game-feedback').innerText = "Correct! Great job. ✅";
-                document.getElementById('game-feedback').style.color = "#10B981";
+        // --- STAR RATING ---
+        function rateStar(event, questionNum) {
+            if(event.target.classList.contains('star') || event.target.innerText === '★') {
+                const container = event.currentTarget;
+                const rect = container.getBoundingClientRect();
+                const clickX = event.clientX - rect.left;
+                const width = rect.width;
+                const percent = clickX / width;
+                let stars = Math.ceil(percent * 5);
+                if(stars < 1) stars = 1;
+                if(stars > 5) stars = 5;
                 
-                // Reset active state
-                activeWordBtn = null;
-                activeWordId = null;
-            } else {
-                // Wrong Match
-                btn.classList.add('wrong');
-                document.getElementById('game-feedback').innerText = "Incorrect. Try again! ❌";
-                document.getElementById('game-feedback').style.color = "#EF4444";
-                
-                setTimeout(() => {
-                    btn.classList.remove('wrong');
-                }, 400);
+                let html = '';
+                for(let i=0; i<5; i++) {
+                    if(i < stars) html += '<span class="star active">★</span>';
+                    else html += '<span class="star">★</span>';
+                }
+                container.innerHTML = html;
             }
         }
     </script>
