@@ -3,936 +3,1106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESL Speaking Lesson: Time Management & Priorities | Lucero English System</title>
+    <title>Speaking Lesson: Teamwork & Shared Responsibilities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #4338ca;
-            --primary-light: #6366f1;
-            --primary-hover: #3730a3;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --bg-color: #f0fdfa;
+            /* Professional color palette for adults */
+            --primary: #2563eb; /* Royal Blue */
+            --primary-hover: #1d4ed8;
+            --secondary: #0ea5e9; /* Light Blue/Teal */
+            --success: #16a34a; /* Green */
+            --warning: #ea580c; /* Orange */
+            --bg: #f8fafc; /* Slate 50 */
             --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-light: #475569;
-            --border-radius: 20px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --text-main: #1e293b; /* Slate 800 */
+            --text-muted: #64748b; /* Slate 500 */
+            --border: #e2e8f0; /* Slate 200 */
+            --radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 20px 20px;
+            font-family: var(--font);
+            background-color: var(--bg);
             color: var(--text-main);
-            line-height: 1.7;
-            font-size: 19px; /* Increased base font size for better visibility */
-            padding-bottom: 40px;
+            line-height: 1.6;
+            padding-bottom: 80px;
         }
 
-        /* Typography & Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 4rem 1.5rem;
-            text-align: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 25px rgba(67, 56, 202, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-content {
-            max-width: 850px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .brand-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        h1 { 
-            font-size: 3rem; 
-            margin-bottom: 1rem; 
-            font-weight: 800;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        h2 { 
-            color: var(--primary); 
-            margin-bottom: 1.5rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-            font-size: 2rem;
-            font-weight: 700;
-            border-bottom: 3px solid #e0e7ff;
-            padding-bottom: 0.5rem;
-        }
-
-        h3 { 
-            color: #334155; 
-            margin-bottom: 0.8rem; 
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .objectives-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            backdrop-filter: blur(10px);
-            text-align: left;
-            margin-top: 2rem;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        
-        .objectives-card h3 { color: white; }
-        .objectives-card ul { margin-left: 1.5rem; }
-        .objectives-card li { margin-bottom: 0.5rem; font-size: 1.1rem; }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        section { margin-bottom: 4rem; }
-
-        /* Card Styles */
-        .card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-            transform: translateY(-4px);
-            border-color: #e0e7ff;
-        }
-
-        /* Buttons (Fixed for no text wrapping) */
-        .btn {
-            background-color: var(--primary-light);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 0.5rem;
-            text-align: center;
-            word-wrap: break-word;
-            white-space: normal;
-        }
-
-        .btn:hover { background-color: var(--primary-hover); transform: scale(1.02); }
-        .btn:active { transform: scale(0.98); }
-        
-        .btn-outline {
-            background-color: #f8fafc;
-            color: var(--primary);
-            border: 2px solid var(--primary-light);
-        }
-        
-        .btn-outline:hover { background-color: #e0e7ff; color: var(--primary-hover); }
-
-        .btn-audio {
-            background-color: #f1f5f9;
-            color: var(--text-main);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            border: 2px solid transparent;
-        }
-        .btn-audio:hover { background-color: #e0e7ff; border-color: var(--primary-light); }
-
-        /* Hidden Content */
-        .hidden-content {
-            display: none;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px dashed #cbd5e1;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        .hidden-content.show { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Badges */
-        .badge {
-            font-size: 0.85rem;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: inline-block;
-            letter-spacing: 0.5px;
-        }
-        .badge-easy { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-        .badge-medium { background: #fef08a; color: #a16207; border: 1px solid #fde047; }
-        .badge-opinion { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
-
-        /* Idea Bank & Sample Answers */
-        .idea-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1rem;
-        }
-        .idea-list li {
-            background: #f1f5f9;
-            padding: 0.6rem 1rem;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            color: var(--text-main);
-            border: 1px solid #e2e8f0;
-            font-weight: 600;
-        }
-
-        .sample-answer {
-            background: #f8fafc;
-            padding: 1.2rem;
-            border-left: 5px solid var(--primary-light);
-            border-radius: 6px 12px 12px 6px;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .sample-answer span { font-weight: 800; color: var(--primary); display: block; font-size: 0.95rem; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* Flashcards (Fixed size for visibility & no overflow) */
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-        .flashcard {
-            perspective: 1000px;
-            min-height: 160px;
-            cursor: pointer;
-        }
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateX(180deg);
-        }
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            text-align: center;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            font-weight: 700;
-            font-size: 1.2rem;
-            word-wrap: break-word;
-        }
-        .flashcard-front { background-color: var(--card-bg); color: var(--primary); border: 2px solid #e0e7ff; }
-        .flashcard-back { background-color: var(--primary-light); color: white; transform: rotateX(180deg); font-weight: 600; font-size: 1.1rem;}
-        .flashcard:hover .flashcard-front { border-color: var(--primary); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2); }
-
-        /* Quiz Game */
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            margin-bottom: 0.8rem;
-            background: #f8fafc;
-            color: var(--text-main);
-            border: 2px solid #e2e8f0;
-            font-size: 1.1rem;
-            padding: 1rem 1.5rem;
-            justify-content: flex-start;
-        }
-        .quiz-option:hover:not(:disabled) { background: #e0e7ff; border-color: var(--primary-light); color: var(--primary-hover); }
-        .quiz-option.correct { background: #dcfce7; border-color: var(--secondary); color: #14532d; font-weight: bold; }
-        .quiz-option.wrong { background: #fee2e2; border-color: #ef4444; color: #7f1d1d; }
-        .quiz-option:disabled { cursor: not-allowed; opacity: 0.9; }
-
-        /* Progress Bar */
-        .progress-container {
+        #progress-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: #e2e8f0;
+            height: 6px;
+            background: var(--border);
             z-index: 1000;
         }
-        .progress-bar {
+
+        #progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--secondary), #34d399);
             width: 0%;
-            transition: width 0.5s ease-out;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 4px 4px 0;
         }
 
-        /* Checkbox completion */
-        .section-complete {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 1.5rem;
-            padding: 1rem 1.5rem;
-            background: white;
-            border-radius: 12px;
-            color: var(--text-light);
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 50px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .hero * { position: relative; z-index: 1; }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
             font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border: 2px dashed #cbd5e1;
-            transition: var(--transition);
         }
-        .section-complete:hover { background: #f8fafc; border-color: #94a3b8; }
-        .section-complete.completed {
-            background: #f0fdf4;
-            color: #15803d;
-            border: 2px solid #86efac;
-        }
-        .section-complete input { transform: scale(1.6); cursor: pointer; accent-color: var(--secondary); }
 
-        /* Reflection */
-        .reflection-q {
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .objectives-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: var(--radius);
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .objectives-card h3 {
+            color: #f8fafc;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .objectives-card ul { list-style: none; }
+        .objectives-card li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #f1f5f9;
+        }
+
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #e2e8f0;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .reflection-q span { font-weight: 600; font-size: 1.15rem; }
-        .reflection-q:last-child { border-bottom: none; }
-        .rating-stars { display: flex; gap: 8px; cursor: pointer; }
-        .star { color: #e2e8f0; font-size: 2rem; transition: 0.2s; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-        .star.active { color: var(--accent); }
-        
-        input[type="text"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #cbd5e1;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            margin-top: 10px;
-            transition: var(--transition);
-            background: #f8fafc;
-        }
-        input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            margin: 60px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
         }
 
-        /* Footer Copyright */
-        footer {
-            text-align: center;
-            padding: 3rem 1rem 1rem 1rem;
-            margin-top: 4rem;
-            border-top: 2px solid #e2e8f0;
-            color: var(--text-light);
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .mark-complete {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .mark-complete:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .mark-complete input {
+            transform: scale(1.2);
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button.outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        button.outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        details {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-top: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 16px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--text-main);
+            transition: background 0.2s;
+            font-size: 1.05rem;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+        summary:hover { background: var(--bg); }
+        
+        summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 400;
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        details[open] summary::after { transform: rotate(45deg); }
+
+        .details-content {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .details-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .details-content li { margin-bottom: 10px; }
+
+        .answer-box {
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .answer-box span.badge {
+            display: inline-block;
+            background: #e0e7ff; /* indigo 100 */
+            color: #4338ca; /* indigo 700 */
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .vocab-item {
+            text-align: left;
+            padding: 25px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-        }
-        .footer-brand {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Word Class tag */
-        .word-type {
-            display: inline-block;
-            background: #e0e7ff;
-            color: var(--primary-hover);
-            padding: 2px 10px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-left: 10px;
-            vertical-align: middle;
+            justify-content: space-between;
         }
 
-        /* Roleplay layout */
-        .role-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 15px 0;
+        .vocab-word {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-        .role-box {
-            background: #f8fafc;
+
+        .vocab-type {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .vocab-def {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .example-sentence {
+            margin-top: 15px;
             padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            background: #eff6ff; /* blue 50 */
+            border-radius: 8px;
+            color: #1e3a8a; /* blue 900 */
+            font-style: italic;
+            border-left: 3px solid var(--primary);
         }
-        .role-box strong { color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 5px;}
-        
+
+        .hidden { display: none; }
+
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .flashcard:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .flashcard .front {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: opacity 0.3s;
+        }
+
+        .flashcard .back {
+            display: none;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            width: 100%;
+        }
+
+        .flashcard.flipped {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .flashcard.flipped .front { display: none; }
+        .flashcard.flipped .back { display: block; color: white; }
+        .flashcard.flipped strong { color: #fde047; /* yellow 300 */ }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 12px;
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .quiz-option:hover:not(:disabled) {
+            background: var(--bg);
+            border-color: #cbd5e1;
+        }
+        .quiz-option:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+        .feedback {
+            margin-top: 15px;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
-            .role-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.6rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .mark-complete { align-self: stretch; justify-content: center; }
+            .container { padding: 30px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Progress Tracker -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
 
-    <!-- Header Section -->
-    <header>
-        <div class="header-content">
-            <div class="brand-badge">✨ Lucero English System</div>
-            <h1>⏳ Time Management & Priorities</h1>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.9;">Adult ESL Speaking Lesson | Level: A2 - B2 | Duration: 60 mins</p>
+    <div class="container">
+        <header class="hero">
+            <h1>Teamwork & Shared Responsibilities</h1>
+            <p>A professional speaking lesson for adult learners. (Level A2-B2)</p>
             
             <div class="objectives-card">
                 <h3>🎯 Learning Objectives:</h3>
                 <ul>
-                    <li><strong>Vocabulary:</strong> Use terminology related to scheduling, habits, and daily tasks.</li>
-                    <li><strong>Fluency:</strong> Explain personal time management strategies confidently.</li>
-                    <li><strong>Critical Thinking:</strong> Express and defend opinions on work-life balance.</li>
+                    <li>✅ Discuss personal experiences and challenges regarding teamwork in professional or personal settings.</li>
+                    <li>✅ Use relevant vocabulary to describe roles, responsibilities, and collaborative processes.</li>
+                    <li>✅ Negotiate tasks, offer help, and express opinions on effective teamwork strategies.</li>
                 </ul>
             </div>
+        </header>
+
+        <div class="section-header">
+            <h2>1. Warm-Up 🧊</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
+            </label>
         </div>
-    </header>
-
-    <div class="container">
-
-        <!-- SECTION 1: WARM-UP -->
-        <section id="section-1">
-            <h2>🔥 1. Warm-Up</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Answer these quick questions to get started. Click the button if you need ideas!</p>
+        
+        <div class="card">
+            <h3 style="color: var(--text-main);">Let's get the conversation started.</h3>
+            <p style="margin-bottom: 25px; color: var(--text-muted);">Answer the questions below based on your own experience. Click to view a sample response if you need inspiration.</p>
             
             <div id="warmup-container">
-                <!-- Injected via JS -->
+                <!-- Filled by JavaScript -->
             </div>
-            
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="1"> 
-                I have completed the Warm-Up!
+        </div>
+
+        <div class="section-header">
+            <h2>2. Professional Vocabulary 📖</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
             </label>
-        </section>
+        </div>
 
-        <!-- SECTION 2: VOCABULARY -->
-        <section id="section-2">
-            <h2>📚 2. Core Vocabulary</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Learn these key words. Click the audio button to hear the pronunciation, and "Example" to see how they are used in context.</p>
+        <div class="card">
+            <p style="margin-bottom: 25px; color: var(--text-muted);">Familiarize yourself with these terms often used in collaborative environments. Click to reveal contextual examples.</p>
             
-            <div class="card" id="vocab-container" style="padding: 1rem 2rem;">
-                <!-- Injected via JS -->
-            </div>
-
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="2"> 
-                I have reviewed the Vocabulary!
-            </label>
-        </section>
-
-        <!-- SECTION 3: SPEAKING PRACTICE -->
-        <section id="section-3">
-            <h2>🗣️ 3. Speaking Practice</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Read the questions and answer out loud. Use the Idea Bank and Sample Answers if you need inspiration.</p>
-            
-            <div id="speaking-container">
-                <!-- Injected via JS -->
-            </div>
-
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="3"> 
-                I have finished the Speaking Practice!
-            </label>
-        </section>
-
-        <!-- SECTION 4: ROLE-PLAY -->
-        <section id="section-4">
-            <h2>🎭 4. Role-Play Scenarios</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Practice these real-life scenarios with a partner or your teacher.</p>
-            
-            <!-- Scenario 1 -->
-            <div class="card">
-                <h3>Scenario 1: The Deadline Approach</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Situation:</strong> You cannot finish your current project on time and need to ask your boss for an extension.</p>
-                
-                <div class="role-grid">
-                    <div class="role-box">
-                        <strong>🧑‍💼 Role A (Employee)</strong>
-                        Explain why you are running late and politely ask for more time to ensure high quality.
+            <div class="vocab-grid">
+                <!-- Vocab Items -->
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Collaborate</div>
+                        <div class="vocab-type">(verb)</div>
+                        <div class="vocab-def">To work together with someone to produce or achieve something.</div>
                     </div>
-                    <div class="role-box">
-                        <strong>👔 Role B (Manager)</strong>
-                        Ask for specific reasons. Be slightly strict about the schedule, but eventually agree to the new deadline.
-                    </div>
+                    <button class="outline" onclick="toggle('v1')">View Example</button>
+                    <div id="v1" class="hidden example-sentence">"Our department will collaborate with the marketing team on the new product launch."</div>
                 </div>
 
-                <button class="btn btn-outline" onclick="toggleContent('role1-hints')">💡 View Useful Phrases</button>
-                <div id="role1-hints" class="hidden-content">
-                    <ul class="idea-list">
-                        <li>"I apologize for the inconvenience, but..."</li>
-                        <li>"I underestimated how time-consuming this would be."</li>
-                        <li>"Could we possibly push the deadline to Friday?"</li>
-                        <li>"I want to make sure the final result is perfect."</li>
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Delegate</div>
+                        <div class="vocab-type">(verb)</div>
+                        <div class="vocab-def">To give a particular job, duty, or responsibility to someone else.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v2')">View Example</button>
+                    <div id="v2" class="hidden example-sentence">"A good manager knows how to delegate tasks to avoid becoming overwhelmed."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Compromise</div>
+                        <div class="vocab-type">(noun / verb)</div>
+                        <div class="vocab-def">An agreement reached where each side gives up some of what they want.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v3')">View Example</button>
+                    <div id="v3" class="hidden example-sentence">"We couldn't agree on the budget, so we had to reach a compromise."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Reliable</div>
+                        <div class="vocab-type">(adjective)</div>
+                        <div class="vocab-def">Consistently good in quality or performance; able to be trusted.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v4')">View Example</button>
+                    <div id="v4" class="hidden example-sentence">"Sarah is a very reliable team member; she always meets her deadlines."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Micro-manage</div>
+                        <div class="vocab-type">(verb)</div>
+                        <div class="vocab-def">To control every small detail of an operation or project, often annoying employees.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v5')">View Example</button>
+                    <div id="v5" class="hidden example-sentence">"Employees tend to be less creative when their boss tries to micro-manage them."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Accountability</div>
+                        <div class="vocab-type">(noun)</div>
+                        <div class="vocab-def">Being responsible for what you do and able to give a satisfactory reason for it.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v6')">View Example</button>
+                    <div id="v6" class="hidden example-sentence">"There needs to be clear accountability so everyone knows exactly what they are responsible for."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Contribution</div>
+                        <div class="vocab-type">(noun)</div>
+                        <div class="vocab-def">Something that you do or give to help produce or achieve something together.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v7')">View Example</button>
+                    <div id="v7" class="hidden example-sentence">"Thank you for your valuable contribution to the brainstorming session today."</div>
+                </div>
+
+                <div class="card vocab-item" style="margin-bottom: 0;">
+                    <div>
+                        <div class="vocab-word">Overwhelmed</div>
+                        <div class="vocab-type">(adjective)</div>
+                        <div class="vocab-def">Feeling like you have too much to deal with; unable to manage everything.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v8')">View Example</button>
+                    <div id="v8" class="hidden example-sentence">"If you feel overwhelmed by the project size, let's break it down into smaller tasks."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>3. Speaking Practice 🗣️</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
+            </label>
+        </div>
+        <p style="margin-bottom: 30px; font-size: 1.05rem; color: var(--text-muted);">Use the <strong>Idea Bank</strong> to help structure your thoughts. Review the <strong>Sample Answers</strong> to observe natural phrasing and sentence structure.</p>
+
+        <!-- Easy Level -->
+        <h3 style="color: var(--success); margin-bottom: 15px; font-size: 1.4rem;">🟢 Core Questions</h3>
+        
+        <div class="card">
+            <h3>Q1. What are your main responsibilities in your current job or daily life? 📋</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Managing schedules, answering emails, serving clients.</li>
+                        <li>Taking care of the household, grocery shopping, organizing.</li>
+                        <li>Studying, completing assignments, working a part-time job.</li>
                     </ul>
                 </div>
-            </div>
-
-            <!-- Scenario 2 -->
-            <div class="card">
-                <h3>Scenario 2: The Busy Friend</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Situation:</strong> You want to hang out with your friend this weekend, but their schedule is extremely packed.</p>
-                
-                <div class="role-grid">
-                    <div class="role-box">
-                        <strong>👋 Role A (You)</strong>
-                        Suggest a specific time and a quick activity (e.g., grabbing coffee, a short walk).
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>My main responsibility is managing the IT helpdesk and ensuring customer tickets are resolved quickly.</p>
                     </div>
-                    <div class="role-box">
-                        <strong>📅 Role B (Friend)</strong>
-                        Look at your imaginary schedule. Decline the first offer, but try to squeeze them in for 1 hour later.
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>Currently, I work as an office manager. My main responsibilities include organizing meetings, managing the budget, and ordering supplies. Outside of work, I am also responsible for doing the cooking and grocery shopping for my family.</p>
                     </div>
                 </div>
+            </details>
+        </div>
 
-                <button class="btn btn-outline" onclick="toggleContent('role2-hints')">💡 View Useful Phrases</button>
-                <div id="role2-hints" class="hidden-content">
-                    <ul class="idea-list">
-                        <li>"Are you free to catch up on Saturday morning?"</li>
-                        <li>"Let me check my calendar real quick..."</li>
-                        <li>"My schedule is completely booked on Sunday."</li>
-                        <li>"Can we squeeze in a quick coffee break around 3 PM?"</li>
+        <div class="card">
+            <h3>Q2. How do you feel when someone asks you for help with their tasks? 🆘</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Happy to help, because it builds good relationships.</li>
+                        <li>Stressed, if I am already feeling overwhelmed with my own work.</li>
+                        <li>It depends on how polite they are and if they genuinely need help.</li>
                     </ul>
                 </div>
-            </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I usually feel happy to help, provided I have enough free time.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>To be honest, it really depends on my current workload. If I have free time, I am more than happy to collaborate and assist a colleague. However, if I am overwhelmed with my own deadlines, I can feel a bit stressed when someone asks for favors.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
 
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="4"> 
-                I have practiced the Role-Plays!
+        <div class="card">
+            <h3>Q3. Do you consider yourself a good team player? Why or why not? 🏅</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Yes: I am reliable, a good listener, and I meet deadlines.</li>
+                        <li>Yes: I prefer collaborating over working in isolation.</li>
+                        <li>Sometimes: I can be a bit controlling or prefer doing things my own way.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>Yes, I believe I am a good team player because I communicate well and respect others' ideas.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>I definitely consider myself a strong team player. I am very reliable when it comes to deadlines, and I make an effort to listen to everyone's contributions during meetings. I think being open to compromise is my strongest skill in a team setting.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Medium Level -->
+        <h3 style="color: var(--warning); margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem;">🟡 Intermediate Questions</h3>
+
+        <div class="card">
+            <h3>Q4. How do you handle a situation where a team member is not doing their fair share of the work? ⚖️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Talk to them privately to see if they are overwhelmed or need help.</li>
+                        <li>Bring it up gently during a team meeting.</li>
+                        <li>Report the issue to a manager or team leader as a last resort.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I would approach them privately and ask if they are facing any difficulties with their tasks.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>First, I try to assume positive intent. I would schedule a brief one-on-one chat to ask if they are overwhelmed or need any clarification on their role. If they continue to avoid their responsibilities after that conversation, I would eventually have to raise the issue with our manager to ensure the project doesn't fail.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q5. Why is communication so critical in a team setting? 🗣️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>It prevents misunderstandings and duplicated work.</li>
+                        <li>It ensures everyone is aligned on the goals and deadlines.</li>
+                        <li>It builds trust and creates a positive working environment.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>Communication is critical because it prevents misunderstandings and ensures everyone knows their responsibilities.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>In my opinion, communication is the foundation of any successful team. Without it, you risk duplicating work or missing deadlines completely. Clear communication ensures accountability, builds trust among colleagues, and allows the team to solve complex problems much faster.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q6. How do you divide household chores with your family or roommates? 🧹</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>We have a strict schedule or chart on the fridge.</li>
+                        <li>We divide tasks based on what people prefer doing (e.g., I cook, you wash dishes).</li>
+                        <li>It's very casual; whoever has free time takes care of it.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>My partner and I divide chores based on our preferences; I cook, and he cleans.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>In my apartment, my roommates and I use a rotating schedule for shared spaces like the kitchen and bathroom. We decided to delegate tasks this way to ensure fairness. However, for personal things like laundry, everyone is responsible for their own.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q7. Describe an experience where you had to lead a team. What was challenging? 👑</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Leading a university group project or a small committee at work.</li>
+                        <li>Challenge: Trying not to micro-manage people.</li>
+                        <li>Challenge: Motivating team members who were not interested in the project.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I led a marketing campaign last year. The hardest part was delegating tasks instead of doing everything myself.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>Last year, I was promoted to project lead for a software update. The experience was rewarding but highly challenging. The most difficult aspect was learning how to delegate properly. At first, I tried to micro-manage every detail, which exhausted me and annoyed my team. I had to learn to trust their expertise.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Opinion Level -->
+        <h3 style="color: var(--primary); margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem;">🔵 Opinion & Discussion</h3>
+
+        <div class="card">
+            <h3>Q8. Some people say "too many cooks spoil the broth" (too many people working on a task ruins it). Do you agree? 👨‍🍳</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Agree: Too many opinions cause delays and confusion.</li>
+                        <li>Disagree: Diverse perspectives lead to better, more creative results.</li>
+                        <li>Depends: It works only if there is a clear leader to make the final decision.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I partly agree. Having too many people can cause confusion unless there is one clear leader making decisions.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>I definitely agree with this idiom in certain situations. When a project requires a fast decision, having too many people involved just creates endless arguments and delays. However, for creative brainstorming, having a larger group is beneficial. The key is knowing when to collaborate and when to let a small group execute the plan.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q9. Is it possible for a team to be highly successful if the members do not like each other personally? 👥</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Yes, as long as they are professional and respect each other's skills.</li>
+                        <li>No, underlying tension will eventually destroy communication and trust.</li>
+                        <li>It's possible for short-term projects, but not sustainable for long-term work.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>Yes, I think it's possible as long as there is mutual professional respect.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>From my perspective, personal friendship is not a requirement for a successful team. What is absolutely necessary, though, is professional respect. You don't have to like someone to acknowledge that they are highly skilled and reliable. As long as personal feelings are kept out of the office, the team can still perform very well.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q10. How do you think technology (like AI and remote tools) will change teamwork in the next decade? 🤖</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Remote work will become the standard, making global collaboration easier.</li>
+                        <li>AI will take over routine tasks, allowing teams to focus entirely on creative strategy.</li>
+                        <li>It might make people feel more isolated and reduce traditional office culture.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I believe AI will handle the repetitive tasks, so human teams will only focus on creative problem-solving.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
+                        <p>In the next decade, technology will completely redefine collaboration. With advancements in AI, much of the administrative work that teams do today will be automated. This means human teamwork will shift entirely toward strategy, empathy, and creative problem-solving. Furthermore, advanced VR tools might make remote teams feel like they are in the same room, bridging geographical gaps.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="section-header">
+            <h2>6. Workplace & Life Role-Play 🎭</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
             </label>
-        </section>
+        </div>
+        <p style="margin-bottom:25px; color: var(--text-muted);">Work with a partner. Choose your roles and practice navigating these common interpersonal situations.</p>
 
-        <!-- SECTION 5: FLUENCY BUILDER -->
-        <section id="section-5">
-            <h2>⚡ 5. Fluency Builder</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Click the flashcards to reveal sentence starters. Complete the sentence out loud as fast and naturally as you can!</p>
+        <div class="card" style="border-left: 5px solid var(--primary);">
+            <h3>Scenario A: The Unequal Workload 💼</h3>
+            <p style="margin-bottom: 10px;"><strong>Situation:</strong> You and a co-worker are organizing a company event. Student A feels they are doing 80% of the work. Student B thought Student A enjoyed doing it and wanted control.</p>
+            <ul style="margin-bottom: 15px; padding-left: 20px;">
+                <li><strong>🧑‍💻 Student A:</strong> Express your feeling of being overwhelmed politely. Ask to re-delegate some tasks.</li>
+                <li><strong>🧑‍💼 Student B:</strong> Explain your misunderstanding. Offer to take on specific responsibilities immediately.</li>
+            </ul>
             
-            <div class="flashcard-grid" id="flashcard-container">
-                <!-- Injected via JS -->
-            </div>
+            <details>
+                <summary>💬 Dialogue Hints</summary>
+                <div class="details-content">
+                    <p><strong>A:</strong> "Hey, do you have a minute? I wanted to chat about the upcoming event. To be honest, I'm feeling a bit overwhelmed with the catering and logistics."</p>
+                    <p><strong>B:</strong> "Oh, I had no idea! I didn't want to step on your toes because you seemed to have a specific vision for it."</p>
+                    <p><strong>A:</strong> "I appreciate that, but I definitely need to delegate some of this. Could you take over the venue coordination?"</p>
+                    <p><strong>B:</strong> "Absolutely. Send me the contacts and I'll handle it from here."</p>
+                </div>
+            </details>
+        </div>
 
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="5"> 
-                I have completed the Fluency Builder!
-            </label>
-        </section>
-
-        <!-- SECTION 6: REVIEW GAME -->
-        <section id="section-6">
-            <h2>🎮 6. Review Quiz</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Let's test your memory of today's essential vocabulary.</p>
+        <div class="card" style="border-left: 5px solid var(--warning);">
+            <h3>Scenario B: The Household Negotiation 🏠</h3>
+            <p style="margin-bottom: 10px;"><strong>Situation:</strong> Two roommates are discussing the cleanliness of their apartment. Student A wants to create a strict chore schedule. Student B is currently working overtime and has very little free time.</p>
+            <ul style="margin-bottom: 15px; padding-left: 20px;">
+                <li><strong>🧹 Student A:</strong> Bring up the mess in the apartment. Propose a structured cleaning schedule.</li>
+                <li><strong>💼 Student B:</strong> Explain your current work stress. Try to negotiate a compromise (e.g., hiring a cleaner, or doing bulk chores on weekends).</li>
+            </ul>
             
-            <div class="card" id="quiz-container" style="text-align: center; padding: 3rem 2rem;">
-                <h3 id="quiz-question" style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-main);">Loading Question...</h3>
-                <div id="quiz-options" style="max-width: 600px; margin: 0 auto;">
-                    <!-- Injected via JS -->
+            <details>
+                <summary>💬 Dialogue Hints</summary>
+                <div class="details-content">
+                    <p><strong>A:</strong> "Hey, I wanted to talk about the apartment. It's getting pretty messy, and I think we need a formal chore chart."</p>
+                    <p><strong>B:</strong> "I agree it's messy, but I'm working 60 hours a week right now. I just can't commit to daily cleaning."</p>
+                    <p><strong>A:</strong> "I understand you're stressed, but it's not fair for me to do all the upkeep. What's a fair compromise?"</p>
+                    <p><strong>B:</strong> "What if I handle all the deep cleaning on Sunday mornings, or I pay for a cleaning service twice a month?"</p>
                 </div>
-                <div id="quiz-feedback" style="margin-top: 1.5rem; font-weight: 800; font-size: 1.2rem; display: none; padding: 1rem; border-radius: 10px;"></div>
-                <button class="btn" id="next-quiz-btn" style="display:none; margin-top: 20px; font-size: 1.1rem; padding: 1rem 2rem;" onclick="nextQuiz()">Next Question ➡️</button>
-            </div>
+            </details>
+        </div>
 
-            <label class="section-complete">
-                <input type="checkbox" class="progress-check" data-section="6"> 
-                I passed the Review Game!
+        <div class="section-header">
+            <h2>7. Fluency Builder 🏗️</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
             </label>
-        </section>
+        </div>
+        <p style="margin-bottom: 25px; color: var(--text-muted);">Use these sentence starters to express your ideas more professionally and fluently. <strong>Click the cards to flip them and view an example!</strong></p>
 
-        <!-- SECTION 7: SELF-REFLECTION -->
-        <section id="section-7">
-            <h2>🧠 7. Self-Reflection</h2>
-            <p style="margin-bottom:1.5rem; color:var(--text-light); font-size: 1.1rem;">Evaluate your performance today (1 star = Needs Work, 5 stars = Excellent).</p>
+        <div class="flashcard-grid">
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">In my experience...</div>
+                <div class="back">"In my experience, <strong>communication prevents most major errors.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">I firmly believe that...</div>
+                <div class="back">"I firmly believe that <strong>accountability is essential for success.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">From my perspective...</div>
+                <div class="back">"From my perspective, <strong>the timeline is too tight.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">One of the main challenges is...</div>
+                <div class="back">"One of the main challenges is <strong>coordinating different time zones.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">Let's look at it this way...</div>
+                <div class="back">"Let's look at it this way: <strong>if we delay now, we save money later.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">Would you be open to...</div>
+                <div class="back">"Would you be open to <strong>delegating this task to the intern?</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">I understand your point, but...</div>
+                <div class="back">"I understand your point, but <strong>we don't have the budget for that.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">To give you an example...</div>
+                <div class="back">"To give you an example, <strong>last quarter we used the same strategy.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">On the other hand...</div>
+                <div class="back">"On the other hand, <strong>working remotely saves commute time.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">That’s a valid point...</div>
+                <div class="back">"That’s a valid point. <strong>Let's incorporate your idea into the plan.</strong>"</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>8. Knowledge Check 🎯</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
+            </label>
+        </div>
+        <div class="card">
+            <h3 style="margin-bottom: 25px;">Select the most appropriate vocabulary word for each situation.</h3>
             
-            <div class="card">
-                <div class="reflection-q">
-                    <span>1. Did I speak confidently and loudly?</span>
-                    <div class="rating-stars" onclick="rateStar(event, 1)"></div>
-                </div>
-                <div class="reflection-q">
-                    <span>2. Did I actively use the new vocabulary words?</span>
-                    <div class="rating-stars" onclick="rateStar(event, 2)"></div>
-                </div>
-                <div class="reflection-q">
-                    <span>3. Did I speak fluently without overly long pauses?</span>
-                    <div class="rating-stars" onclick="rateStar(event, 3)"></div>
-                </div>
-                <div class="reflection-q" style="flex-direction: column; align-items: flex-start;">
-                    <span style="margin-bottom: 10px;">4. What is one new word, phrase, or idea you want to remember from today's lesson?</span>
-                    <input type="text" placeholder="Type your notes here...">
-                </div>
+            <div style="margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid var(--border);">
+                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>1. You are a manager with too many tasks on your plate. To ensure the project is finished on time, you should ________ some of your responsibilities to your junior staff.</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, false)">A. Micro-manage</button>
+                <button class="quiz-option" onclick="checkGame(this, true)">B. Delegate</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">C. Compromise</button>
+                <div class="feedback" style="display:none;"></div>
             </div>
 
-            <label class="section-complete" style="background: #fffbeb; border-color: #fde68a; color: #b45309;">
-                <input type="checkbox" class="progress-check" data-section="7"> 
-                I have finished the Self-Reflection! Lesson Complete! 🎉
+            <div style="margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid var(--border);">
+                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>2. The design team wants the website to be blue, while the marketing team wants it to be red. After an hour of discussion, they agree to use purple. They have reached a ________.</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, true)">A. Compromise</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">B. Contribution</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">C. Accountability</button>
+                <div class="feedback" style="display:none;"></div>
+            </div>
+            
+            <div>
+                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>3. "I can't work well under these conditions. My boss asks for updates every 15 minutes and checks every single email I send." What is the boss doing?</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, false)">A. Brainstorming</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">B. Collaborating</button>
+                <button class="quiz-option" onclick="checkGame(this, true)">C. Micro-managing</button>
+                <div class="feedback" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>9. Self-Reflection 🪞</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
             </label>
-        </section>
+        </div>
+        <div class="card" style="background: var(--bg);">
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-main);">Take a brief moment to evaluate your speaking performance in today's session:</p>
+            <ul style="list-style-type: none; font-size:1.05rem; line-height:2.2; color: var(--text-main);">
+                <li>🔹 <strong>Fluency:</strong> Was I able to express my opinions without taking overly long pauses?</li>
+                <li>🔹 <strong>Vocabulary:</strong> Did I successfully use terms like <em>delegate</em>, <em>compromise</em>, or <em>overwhelmed</em>?</li>
+                <li>🔹 <strong>Clarity:</strong> Did I articulate my points clearly during the Role-Play scenario?</li>
+                <li>🔹 <strong>Structure:</strong> Did I utilize the "Fluency Builder" sentence starters to construct complex ideas?</li>
+                <li>🔹 <strong>Confidence:</strong> How comfortable did I feel discussing professional interactions?</li>
+            </ul>
+        </div>
+
+        <div class="section-header">
+            <h2>10. Session Complete 🎉</h2>
+        </div>
+        <div class="card" style="text-align: center; padding: 50px 20px;">
+            <h1 style="font-size: 4rem; margin-bottom: 20px;">🏆</h1>
+            <h2 style="color: var(--primary); margin-bottom: 15px;">Excellent work today!</h2>
+            <p style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 20px;">You have successfully navigated complex professional dialogues, practiced delegation and negotiation, and expanded your workplace vocabulary.</p>
+            <div style="display: inline-block; background: #fef3c7; padding: 15px 25px; border-radius: 8px; border: 1px solid #f59e0b;">
+                <p style="color: #b45309; font-size: 0.95rem; font-weight: 500;"><em>Reminder: Please ensure all the 'Mark Complete' checkboxes at the top of each section are ticked to record your progress fully.</em></p>
+            </div>
+        </div>
 
     </div>
 
-    <!-- Copyright Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-brand">LUCERO ENGLISH SYSTEM</div>
-            <p>Copyright © 2026 by Lucero English System. All rights reserved.</p>
-            <p style="font-weight: 600; color: #64748b;">Authored by Mr. Lucero.</p>
-        </div>
-    </footer>
-
     <script>
-        // --- DATA OBJECTS (Academically Reviewed) ---
-
+        // Data for Section 1 Warm-up
         const warmupData = [
-            { q: "What time do you usually wake up and go to bed?", emoji: "⏰", ans: "I usually wake up at 7:00 AM and go to sleep around 11:30 PM." },
-            { q: "Do you use an alarm clock, or do you wake up naturally?", emoji: "🔔", ans: "I definitely need an alarm clock, otherwise I will oversleep!" },
-            { q: "What is the very first thing you do in the morning?", emoji: "☕", ans: "I usually drink a large glass of water and then check my work emails." },
-            { q: "Would you consider yourself a 'morning person' or a 'night owl'?", emoji: "🦉", ans: "I am absolutely a night owl. I feel most productive after dinner." },
-            { q: "Do you generally feel like you have enough time in a day?", emoji: "⏳", ans: "Not really, my schedule is so packed that I always feel rushed!" }
+            { q: "Do you generally prefer working alone or in a team? Why? 🧑‍💻🤝", a: "I prefer a mix. I like working alone when I need deep focus, but I value teamwork for brainstorming and feedback." },
+            { q: "What was the last major project you collaborated on? 📊", a: "Last month, I collaborated with the sales team to design a new presentation pitch for our corporate clients." },
+            { q: "What is the most difficult part of working with a team? 🚧", a: "For me, the hardest part is coordinating schedules and dealing with different communication styles." },
+            { q: "Can you recall a time when a team project was highly successful? 🏆", a: "Yes, when we launched our new app. Everyone knew their roles perfectly and we communicated daily." },
+            { q: "In your household, how are daily chores and responsibilities divided? 🏠", a: "We divide them based on what we hate least. I don't mind doing laundry, but my partner prefers cooking." }
         ];
 
-        const vocabData = [
-            { word: "Schedule", type: "Noun / Verb", def: "A structured plan of activities and when they will happen.", ex: "Let me check my schedule for next week to see if I am available for a meeting." },
-            { word: "Prioritize", type: "Verb", def: "To treat a task as more important than others and do it first.", ex: "I prioritize my work tasks every morning so I can finish the most difficult ones early." },
-            { word: "Procrastinate", type: "Verb", def: "To delay doing something that you should do, often because it is difficult or boring.", ex: "I often procrastinate when I have to write a long, complicated report." },
-            { word: "Deadline", type: "Noun", def: "The specific time or date by which something must be completed.", ex: "The strict deadline for submitting this project is Friday at 5:00 PM." },
-            { word: "Routine", type: "Noun", def: "A usual or fixed way of doing things regularly.", ex: "Establishing a healthy morning routine helps me start the day feeling relaxed." },
-            { word: "Distracted", type: "Adjective", def: "Unable to pay full attention to a task because something else is happening.", ex: "I easily get distracted by social media notifications while I am studying." },
-            { word: "Multitask", type: "Verb", def: "To do more than one activity at the exact same time.", ex: "It is incredibly hard to multitask effectively without making careless mistakes." },
-            { word: "Time-consuming", type: "Adjective", def: "Taking a significant amount of time to complete.", ex: "Commuting in heavy traffic every day is a very time-consuming process." }
-        ];
-
-        const speakingData = [
-            { level: "easy", q: "How do you remember your important appointments?", ideas: ["Calendar app", "Notebook", "Sticky notes", "Alarms"], short: "I strictly use my smartphone's calendar.", ext: "I always log appointments into my Google Calendar. It sends me an automatic notification 30 minutes beforehand, so I never forget." },
-            { level: "easy", q: "Do you like to plan your weekends or just relax?", ideas: ["Make a to-do list", "Go with the flow", "Sleep in", "Visit friends"], short: "I prefer not to plan and just relax.", ext: "During the week my life is very scheduled, so on weekends I like to just go with the flow. If I feel like sleeping in, I do it without feeling guilty." },
-            { level: "easy", q: "What activity takes up the majority of your time every day?", ideas: ["Work", "Studying", "Commuting", "Household chores", "Phone"], short: "Working and commuting take most of my time.", ext: "I work a standard eight hours a day, and my commute takes an hour each way. After that, I spend a significant amount of time preparing dinner." },
-            { level: "medium", q: "How do you handle the situation when you are running late?", ideas: ["Feel stressed", "Get anxious", "Try to rush", "Text the person"], short: "I feel very stressed and anxious.", ext: "I genuinely hate being late. If I'm running late, I feel very stressed, and I usually message the person immediately to apologize and give an ETA." },
-            { level: "medium", q: "What is your strategy when you have too many things to do?", ideas: ["Make a priority list", "Ask for assistance", "Take a deep breath", "Focus on one task"], short: "I make a list and tackle the hardest task first.", ext: "I write down absolutely everything I need to accomplish. Then, I prioritize the top three tasks and focus solely on them until they are fully completed." },
-            { level: "medium", q: "What are the biggest daily distractions for you personally?", ideas: ["Social media apps", "Noisy environments", "Incoming emails", "Television"], short: "My smartphone is definitely my biggest distraction.", ext: "Whenever my phone buzzes, I have a strong urge to check it. Additionally, working from home can be distracting if there is construction noise outside." },
-            { level: "medium", q: "Do you believe multitasking is an effective or ineffective skill?", ideas: ["Saves time", "Causes mistakes", "Lowers work quality", "Good for simple chores"], short: "I think it is generally ineffective because I make mistakes.", ext: "For basic chores like cleaning while listening to a podcast, it is fine. But for professional work, multitasking drastically lowers my focus and overall quality." },
-            { level: "opinion", q: "Is modern technology saving our time, or is it wasting it?", ideas: ["Instant communication", "Mindless scrolling", "Automated daily tasks"], short: "It does both, heavily depending on how we utilize it.", ext: "Technology certainly saves time for things like online banking and emails. However, social media algorithms are designed to hold our attention, causing us to waste hours scrolling." },
-            { level: "opinion", q: "From your perspective, why do people procrastinate so often?", ideas: ["Fear of failing", "Task feels overwhelming", "Lack of motivation", "Perfectionism"], short: "People often procrastinate because a task feels too overwhelming.", ext: "I believe people delay doing things when they feel overwhelmed. If a project is huge or complicated, it feels much easier to watch TV than to take the first step." },
-            { level: "opinion", q: "There is a saying: 'Time is money'. To what extent do you agree?", ideas: ["Health is wealth", "Time is severely limited", "Hard work generates income"], short: "I somewhat agree, but time is ultimately more valuable.", ext: "In the corporate world, time is definitely money. But in personal life, time is significantly more precious than money because you can never earn it back once it is spent." }
-        ];
-
-        const flashcardData = [
-            "I usually make a habit of...", "To be completely honest, I think...", "For instance,...", "One major reason is that...", 
-            "It really depends on...", "On the other hand,...", "In my personal experience,...", "The most effective way to...", 
-            "I frequently find it difficult to...", "Whenever I have free time, I..."
-        ];
-
-        const quizData = [
-            { q: "Which vocabulary word means: 'To delay doing something that you should do'?", options: ["Prioritize", "Procrastinate", "Schedule"], answer: 1 },
-            { q: "Which vocabulary word means: 'A usual or fixed way of doing things regularly'?", options: ["Routine", "Deadline", "Multitask"], answer: 0 },
-            { q: "Which vocabulary word means: 'Taking a significant amount of time to complete'?", options: ["Distracted", "Time-consuming", "Prioritize"], answer: 1 },
-            { q: "Which vocabulary word means: 'Unable to pay full attention to a task'?", options: ["Schedule", "Multitask", "Distracted"], answer: 2 }
-        ];
-
-        // --- INITIALIZATION ---
-
-        window.onload = () => {
-            renderWarmup();
-            renderVocab();
-            renderSpeaking();
-            renderFlashcards();
-            setupCheckboxes();
-            
-            // Initialize rating stars
-            document.querySelectorAll('.rating-stars').forEach(container => {
-                container.innerHTML = '<span class="star active">★</span>'.repeat(5);
-            });
-        };
-
-        // --- RENDER FUNCTIONS ---
-
-        function renderWarmup() {
-            const container = document.getElementById('warmup-container');
-            warmupData.forEach((item, index) => {
-                container.innerHTML += `
-                    <div class="card">
-                        <h3 style="margin-bottom: 12px; font-size: 1.3rem;">${item.emoji} ${item.q}</h3>
-                        <button class="btn btn-outline" onclick="toggleContent('warmup-ans-${index}')">👀 Show Example Answer</button>
-                        <div id="warmup-ans-${index}" class="hidden-content">
-                            <p style="color: var(--text-light); font-style: italic; font-size: 1.15rem; background: #f8fafc; padding: 15px; border-radius: 10px; border-left: 4px solid var(--secondary);">"${item.ans}"</p>
-                        </div>
+        // Generate Warm-up content dynamically
+        const warmupContainer = document.getElementById('warmup-container');
+        warmupData.forEach((item, index) => {
+            const html = `
+                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
+                    <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: var(--text-main);">${item.q}</p>
+                    <button class="outline" onclick="toggle('warmup-ans-${index}')">View Sample Answer</button>
+                    <div id="warmup-ans-${index}" class="hidden" style="margin-top: 15px; padding: 15px; background: #f1f5f9; border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--text-main); font-style: italic;">
+                        "${item.a}"
                     </div>
-                `;
-            });
-        }
+                </div>
+            `;
+            warmupContainer.innerHTML += html;
+        });
 
-        function renderVocab() {
-            const container = document.getElementById('vocab-container');
-            vocabData.forEach((item, index) => {
-                const isLast = index === vocabData.length - 1;
-                const borderStyle = isLast ? 'none' : '1px solid #e2e8f0';
-                
-                container.innerHTML += `
-                    <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: ${borderStyle};">
-                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
-                            <h3 style="color: var(--primary); font-size: 1.4rem; margin: 0;">
-                                ${item.word} <span class="word-type">[${item.type}]</span>
-                            </h3>
-                            <button class="btn btn-audio" onclick="speakText('${item.word}')" title="Listen to pronunciation">🔊</button>
-                        </div>
-                        <p style="margin-bottom: 12px; font-size: 1.1rem;"><strong>Definition:</strong> ${item.def}</p>
-                        <button class="btn btn-outline" style="font-size: 0.95rem; padding: 0.5rem 1rem;" onclick="toggleContent('vocab-ex-${index}')">📖 View Context Example</button>
-                        <div id="vocab-ex-${index}" class="hidden-content">
-                            <p style="color: var(--text-light); font-style: italic; font-size: 1.1rem; background: #f0fdf4; padding: 12px 15px; border-radius: 8px; border-left: 4px solid var(--secondary);">"${item.ex}"</p>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function renderSpeaking() {
-            const container = document.getElementById('speaking-container');
-            speakingData.forEach((item, index) => {
-                let badgeClass = item.level === 'easy' ? 'badge-easy' : (item.level === 'medium' ? 'badge-medium' : 'badge-opinion');
-                let badgeText = item.level === 'opinion' ? 'OPINION / DEBATE' : `LEVEL: ${item.level.toUpperCase()}`;
-                
-                let ideasHtml = item.ideas.map(idea => `<li>💡 ${idea}</li>`).join('');
-
-                container.innerHTML += `
-                    <div class="card">
-                        <span class="badge ${badgeClass}">${badgeText}</span>
-                        <h3 style="margin: 10px 0 15px 0; font-size: 1.35rem; line-height: 1.4;">${index + 1}. ${item.q}</h3>
-                        
-                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                            <button class="btn btn-outline" onclick="toggleContent('ideas-${index}')">🧠 Open Idea Bank</button>
-                            <button class="btn btn-outline" onclick="toggleContent('answers-${index}')">💬 See Sample Answers</button>
-                        </div>
-
-                        <div id="ideas-${index}" class="hidden-content">
-                            <ul class="idea-list">${ideasHtml}</ul>
-                        </div>
-
-                        <div id="answers-${index}" class="hidden-content">
-                            <div class="sample-answer">
-                                <span>🎯 Short & Direct Answer:</span>
-                                "${item.short}"
-                            </div>
-                            <div class="sample-answer" style="border-left-color: var(--secondary); background: #f0fdf4;">
-                                <span>🚀 Extended Answer (Recommended):</span>
-                                "${item.ext}"
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function renderFlashcards() {
-            const container = document.getElementById('flashcard-container');
-            flashcardData.forEach(text => {
-                container.innerHTML += `
-                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                ${text}
-                            </div>
-                            <div class="flashcard-back">
-                                Finish this sentence logically! 🗣️
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // --- UTILITY FUNCTIONS ---
-
-        function toggleContent(id) {
+        // Universal Toggle Function
+        function toggle(id) {
             const el = document.getElementById(id);
-            if (el.classList.contains('show')) {
-                el.classList.remove('show');
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.style.opacity = 0;
+                setTimeout(() => el.style.opacity = 1, 10);
+                el.style.transition = "opacity 0.4s ease";
             } else {
-                el.classList.add('show');
+                el.classList.add('hidden');
             }
         }
 
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
-                // Cancel any ongoing speech
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.85; // Slower for clear ESL listening
-                utterance.pitch = 1;
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("Sorry, your browser does not support the Web Speech API.");
-            }
-        }
+        // Review Game Logic
+        function checkGame(buttonElement, isCorrect) {
+            const parent = buttonElement.parentElement;
+            const allButtons = parent.querySelectorAll('button');
+            const feedbackBox = parent.querySelector('.feedback');
 
-        // --- QUIZ LOGIC ---
-        let currentQuizIndex = 0;
-        
-        function loadQuiz(index) {
-            const qData = quizData[index];
-            document.getElementById('quiz-question').innerText = `Question ${index + 1} of ${quizData.length}:\n\n${qData.q}`;
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = '';
-            
-            const labels = ["A", "B", "C"];
-            qData.options.forEach((opt, i) => {
-                let isCorrect = (i === qData.answer);
-                optionsContainer.innerHTML += `
-                    <button class="btn quiz-option" onclick="checkQuiz(this, ${isCorrect})">
-                        <strong>${labels[i]})</strong> &nbsp; ${opt}
-                    </button>
-                `;
-            });
-            document.getElementById('quiz-feedback').style.display = 'none';
-            document.getElementById('next-quiz-btn').style.display = 'none';
-        }
-
-        function checkQuiz(btnElement, isCorrect) {
-            const buttons = document.querySelectorAll('.quiz-option');
-            buttons.forEach(b => b.disabled = true);
-
-            const feedback = document.getElementById('quiz-feedback');
-            feedback.style.display = 'block';
+            // Disable all buttons in this question group
+            allButtons.forEach(btn => btn.disabled = true);
 
             if (isCorrect) {
-                btnElement.classList.add('correct');
-                feedback.innerText = "✅ Excellent! That is the correct answer.";
-                feedback.style.color = "#14532d";
-                feedback.style.backgroundColor = "#dcfce7";
+                buttonElement.style.backgroundColor = '#ecfdf5'; // light green
+                buttonElement.style.borderColor = 'var(--success)';
+                buttonElement.style.color = '#065f46'; // dark green
+                buttonElement.style.fontWeight = '600';
+                feedbackBox.innerHTML = '✅ Correct! Well done.';
+                feedbackBox.style.color = 'var(--success)';
+                feedbackBox.style.backgroundColor = '#ecfdf5';
             } else {
-                btnElement.classList.add('wrong');
-                feedback.innerText = "❌ Incorrect. Look at the highlighted correct answer.";
-                feedback.style.color = "#7f1d1d";
-                feedback.style.backgroundColor = "#fee2e2";
-                buttons[quizData[currentQuizIndex].answer].classList.add('correct');
-            }
-
-            const nextBtn = document.getElementById('next-quiz-btn');
-            nextBtn.style.display = 'inline-flex';
-
-            if (currentQuizIndex >= quizData.length - 1) {
-                nextBtn.innerText = "Restart Quiz 🔄";
-                nextBtn.onclick = () => {
-                    currentQuizIndex = 0;
-                    loadQuiz(currentQuizIndex);
-                    nextBtn.onclick = nextQuiz;
-                    nextBtn.innerText = "Next Question ➡️";
-                }
-            }
-        }
-
-        function nextQuiz() {
-            currentQuizIndex++;
-            if(currentQuizIndex < quizData.length) {
-                loadQuiz(currentQuizIndex);
-            }
-        }
-
-        setTimeout(() => loadQuiz(0), 100);
-
-        // --- PROGRESS TRACKER ---
-        function setupCheckboxes() {
-            const checkboxes = document.querySelectorAll('.progress-check');
-            const total = checkboxes.length;
-            
-            checkboxes.forEach(box => {
-                box.addEventListener('change', () => {
-                    const checked = document.querySelectorAll('.progress-check:checked').length;
-                    const percentage = (checked / total) * 100;
-                    document.getElementById('progressBar').style.width = percentage + '%';
-                    
-                    const label = box.parentElement;
-                    if(box.checked) {
-                        label.classList.add('completed');
-                    } else {
-                        label.classList.remove('completed');
+                buttonElement.style.backgroundColor = '#fef2f2'; // light red
+                buttonElement.style.borderColor = '#ef4444';
+                buttonElement.style.color = '#991b1b';
+                
+                // Highlight the correct option
+                allButtons.forEach(btn => {
+                    if(btn.getAttribute('onclick').includes('true')) {
+                        btn.style.border = '2px solid var(--success)';
+                        btn.style.color = 'var(--success)';
+                        btn.style.fontWeight = '600';
+                        btn.style.backgroundColor = '#f8fafc';
                     }
                 });
-            });
+
+                feedbackBox.innerHTML = '❌ Incorrect. Review the vocabulary list and try to understand why the highlighted answer is best.';
+                feedbackBox.style.color = '#dc2626';
+                feedbackBox.style.backgroundColor = '#fef2f2';
+            }
+            feedbackBox.style.display = 'block';
         }
 
-        // --- STAR RATING ---
-        function rateStar(event, questionNum) {
-            if(event.target.classList.contains('star') || event.target.innerText === '★') {
-                const container = event.currentTarget;
-                const rect = container.getBoundingClientRect();
-                const clickX = event.clientX - rect.left;
-                const width = rect.width;
-                const percent = clickX / width;
-                let stars = Math.ceil(percent * 5);
-                if(stars < 1) stars = 1;
-                if(stars > 5) stars = 5;
-                
-                let html = '';
-                for(let i=0; i<5; i++) {
-                    if(i < stars) html += '<span class="star active">★</span>';
-                    else html += '<span class="star">★</span>';
+        // Progress Tracker Logic
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.section-tracker');
+            const checkedBoxes = document.querySelectorAll('.section-tracker:checked');
+            
+            const total = checkboxes.length;
+            const checked = checkedBoxes.length;
+            
+            const percentage = (checked / total) * 100;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            
+            // Optional styling update for checked labels
+            checkboxes.forEach(cb => {
+                const label = cb.parentElement;
+                if(cb.checked) {
+                    label.style.borderColor = 'var(--success)';
+                    label.style.color = 'var(--success)';
+                } else {
+                    label.style.borderColor = 'var(--border)';
+                    label.style.color = 'var(--text-muted)';
                 }
-                container.innerHTML = html;
-            }
+            });
         }
     </script>
 </body>
