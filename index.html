@@ -1,1170 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Teamwork & Shared Responsibilities</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Professional color palette for adults */
-            --primary: #2563eb; /* Royal Blue */
-            --primary-hover: #1d4ed8;
-            --secondary: #0ea5e9; /* Light Blue/Teal */
-            --success: #16a34a; /* Green */
-            --warning: #ea580c; /* Orange */
-            --bg: #f8fafc; /* Slate 50 */
-            --card-bg: #ffffff;
-            --text-main: #1e293b; /* Slate 800 */
-            --text-muted: #64748b; /* Slate 500 */
-            --border: #e2e8f0; /* Slate 200 */
-            --radius: 12px;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --font: 'Inter', system-ui, -apple-system, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELS Speaking · Adults B1 · Small Talk at Work and Networking</title>
+<style>
+  :root{
+    --primary:#2563eb; --primary-hover:#1d4ed8; --secondary:#0ea5e9;
+    --success:#16a34a; --warning:#ea580c; --accent:#7c3aed;
+    --bg:#f8fafc; --card-bg:#ffffff; --text-main:#1e293b; --text-muted:#64748b;
+    --border:#e2e8f0; --radius:14px;
+    --shadow-sm:0 1px 2px 0 rgb(0 0 0 / .05);
+    --shadow-md:0 4px 6px -1px rgb(0 0 0 / .1),0 2px 4px -2px rgb(0 0 0 / .1);
+    --shadow-lg:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1);
+    --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--bg);color:var(--text-main);line-height:1.6;padding-bottom:90px}
+  #progress-container{position:fixed;top:0;left:0;width:100%;height:6px;background:var(--border);z-index:1000}
+  #progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--secondary),var(--primary));transition:width .4s cubic-bezier(.4,0,.2,1)}
+  .container{max-width:900px;margin:0 auto;padding:40px 20px}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  .hero{text-align:center;margin-bottom:36px;background:linear-gradient(135deg,#1e293b,#334155);color:#fff;padding:48px 28px;border-radius:var(--radius);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 60%)}
+  .hero *{position:relative;z-index:1}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+  .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.02em}
+  .hero h1{font-size:2.4rem;margin-bottom:10px;letter-spacing:-.02em;line-height:1.15}
+  .hero .sub{font-size:1.1rem;color:#cbd5e1;margin-bottom:24px}
+  .objectives-card{background:rgba(255,255,255,.08);backdrop-filter:blur(8px);padding:22px 24px;border-radius:var(--radius);text-align:left;border:1px solid rgba(255,255,255,.15)}
+  .objectives-card h3{color:#f8fafc;margin-bottom:14px;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+  .objectives-card ul{list-style:none}
+  .objectives-card li{margin-bottom:9px;font-size:1.02rem;display:flex;gap:10px;color:#f1f5f9}
+  .objectives-card li span{color:var(--secondary);font-weight:700}
 
-        body {
-            font-family: var(--font);
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 80px;
-        }
+  .section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:26px;margin-bottom:24px;box-shadow:var(--shadow-sm)}
+  .section-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:8px;padding-bottom:16px;border-bottom:2px solid var(--bg)}
+  .section-header h2{font-size:1.5rem;color:var(--text-main);letter-spacing:-.01em}
+  .mark{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--text-muted);cursor:pointer;user-select:none;white-space:nowrap}
+  .mark input{width:17px;height:17px;accent-color:var(--success);cursor:pointer}
+  .intro{color:var(--text-muted);margin:14px 0 20px;font-size:.98rem}
+  .teacher-note{background:#eff6ff;border-left:4px solid var(--primary);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:.9rem;color:#334155}
+  .teacher-note b{color:var(--primary)}
 
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--border);
-            z-index: 1000;
-        }
+  .reveal-card{border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px;cursor:pointer;transition:.2s;background:#fff}
+  .reveal-card:hover{border-color:var(--primary);box-shadow:var(--shadow-md);transform:translateY(-1px)}
+  .reveal-card .q{font-weight:600;display:flex;gap:10px;align-items:flex-start}
+  .reveal-card .q .em{font-size:1.3rem;line-height:1.3}
+  .answer{max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s ease,padding .35s ease;color:var(--text-muted)}
+  .reveal-card.open .answer{max-height:600px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:12px;text-transform:uppercase;letter-spacing:.04em}
+  .tag.easy{background:#dcfce7;color:#166534}.tag.medium{background:#fef3c7;color:#92400e}.tag.opinion{background:#ede9fe;color:#5b21b6}
 
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 0 4px 4px 0;
-        }
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .vocab{border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:.2s;background:#fff}
+  .vocab:hover{border-color:var(--secondary);box-shadow:var(--shadow-md)}
+  .vocab .top{display:flex;justify-content:space-between;align-items:center}
+  .vocab .word{font-weight:700;font-size:1.1rem;color:var(--primary)}
+  .vocab .pos{font-size:.72rem;color:var(--text-muted);font-style:italic}
+  .vocab .audio{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;font-size:.9rem;cursor:pointer;display:grid;place-items:center}
+  .vocab .def{font-size:.9rem;color:var(--text-main);margin-top:6px}
+  .vocab .ex{max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s;font-size:.9rem;color:var(--text-muted);font-style:italic}
+  .vocab.open .ex{max-height:120px;margin-top:8px}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  .q-idea{background:#f0fdf4;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.9rem}
+  .q-idea b{color:var(--success)}
+  .samples{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .sample-btn{align-self:flex-start;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:6px 15px;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--primary);transition:.2s}
+  .sample-btn:hover{background:var(--primary);color:#fff}
+  .sample-text{display:none;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.92rem;color:var(--text-main)}
+  .sample-text.show{display:block}
+  .sample-text .lvl{font-size:.7rem;font-weight:700;color:var(--secondary);text-transform:uppercase}
 
-        .hero {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-            padding: 50px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
+  .roleplay{border:2px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;background:linear-gradient(135deg,#fff,#f8fafc)}
+  .roleplay h3{color:var(--warning);margin-bottom:8px;font-size:1.15rem}
+  .roleplay .roles{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+  .role-pill{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:600}
+  .hints{margin-top:12px}
+  .hint-toggle{background:var(--warning);color:#fff;border:none;border-radius:20px;padding:8px 18px;font-weight:600;cursor:pointer;font-size:.85rem}
+  .hint-box{display:none;margin-top:12px;background:#fffbeb;border:1px dashed #fbbf24;border-radius:8px;padding:14px}
+  .hint-box.show{display:block}
+  .hint-box li{margin-left:18px;margin-bottom:5px;font-size:.9rem}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-            z-index: 0;
-        }
+  .flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .flash{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border-radius:12px;padding:20px 16px;min-height:96px;display:grid;place-items:center;text-align:center;cursor:pointer;font-weight:600;font-size:1.05rem;box-shadow:var(--shadow-sm);transition:transform .25s;perspective:600px}
+  .flash:hover{transform:scale(1.03)}
+  .flash .back{display:none;font-size:.9rem;font-weight:400;font-style:italic}
+  .flash.flip .front{display:none}.flash.flip .back{display:block}
 
-        .hero * { position: relative; z-index: 1; }
+  .match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:640px){.match-wrap{grid-template-columns:1fr}}
+  .match-col h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:10px}
+  .match-item{border:2px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;cursor:pointer;font-size:.92rem;transition:.15s;background:#fff}
+  .match-item:hover{border-color:var(--primary)}
+  .match-item.selected{border-color:var(--primary);background:#eff6ff}
+  .match-item.done{border-color:var(--success);background:#f0fdf4;cursor:default;opacity:.7}
+  #match-feedback{margin-top:14px;font-weight:600;text-align:center;min-height:24px}
 
-        .hero h1 {
-            font-size: 2.6rem;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-            font-weight: 700;
-        }
+  .reflect label{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:10px;cursor:pointer;transition:.15s}
+  .reflect label:hover{background:var(--bg)}
+  .reflect input{width:18px;height:18px;accent-color:var(--accent);cursor:pointer}
+  .rating{margin-left:auto;display:flex;gap:4px}
+  .star{font-size:1.2rem;cursor:pointer;filter:grayscale(1);opacity:.5;transition:.15s}
+  .star.on{filter:none;opacity:1}
 
-        .hero p {
-            font-size: 1.15rem;
-            color: #cbd5e1;
-            margin-bottom: 25px;
-        }
+  .tracker-list{list-style:none}
+  .tracker-list li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--bg);font-size:.98rem}
+  .tracker-list input{width:19px;height:19px;accent-color:var(--success)}
+  .complete-banner{text-align:center;padding:30px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:var(--radius);border:1px solid #bbf7d0;margin-top:8px}
+  .complete-banner h2{color:var(--success);font-size:1.6rem}
 
-        .objectives-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            padding: 25px;
-            border-radius: var(--radius);
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .objectives-card h3 {
-            color: #f8fafc;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .objectives-card ul { list-style: none; }
-        .objectives-card li {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            color: #f1f5f9;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 60px 0 25px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .mark-complete {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--card-bg);
-            padding: 8px 16px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all 0.2s;
-            border: 1px solid var(--border);
-        }
-
-        .mark-complete:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .mark-complete input {
-            transform: scale(1.2);
-            cursor: pointer;
-            accent-color: var(--primary);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        button:hover {
-            background-color: var(--primary-hover);
-        }
-
-        button.outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        button.outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        details {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-top: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        summary {
-            padding: 16px 20px;
-            font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-bg);
-            color: var(--text-main);
-            transition: background 0.2s;
-            font-size: 1.05rem;
-        }
-
-        summary::-webkit-details-marker { display: none; }
-        summary:hover { background: var(--bg); }
-        
-        summary::after {
-            content: '+';
-            font-size: 1.4rem;
-            font-weight: 400;
-            transition: transform 0.3s;
-            color: var(--primary);
-        }
-
-        details[open] summary::after { transform: rotate(45deg); }
-
-        .details-content {
-            padding: 20px;
-            border-top: 1px solid var(--border);
-            background: var(--bg);
-        }
-
-        .details-content ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .details-content li { margin-bottom: 10px; }
-
-        .answer-box {
-            background: var(--card-bg);
-            border-left: 4px solid var(--primary);
-            padding: 16px;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .answer-box span.badge {
-            display: inline-block;
-            background: #e0e7ff; /* indigo 100 */
-            color: #4338ca; /* indigo 700 */
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .vocab-item {
-            text-align: left;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .vocab-word {
-            font-size: 1.4rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .vocab-type {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .vocab-def {
-            font-size: 1rem;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .example-sentence {
-            margin-top: 15px;
-            padding: 15px;
-            background: #eff6ff; /* blue 50 */
-            border-radius: 8px;
-            color: #1e3a8a; /* blue 900 */
-            font-style: italic;
-            border-left: 3px solid var(--primary);
-        }
-
-        .hidden { display: none; }
-
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .flashcard {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .flashcard:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-
-        .flashcard .front {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--primary);
-            transition: opacity 0.3s;
-        }
-
-        .flashcard .back {
-            display: none;
-            font-size: 1.05rem;
-            color: var(--text-main);
-            width: 100%;
-        }
-
-        .flashcard.flipped {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .flashcard.flipped .front { display: none; }
-        .flashcard.flipped .back { display: block; color: white; }
-        .flashcard.flipped strong { color: #fde047; /* yellow 300 */ }
-
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            margin-bottom: 12px;
-            background: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            padding: 16px 20px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-        .quiz-option:hover:not(:disabled) {
-            background: var(--bg);
-            border-color: #cbd5e1;
-        }
-        .quiz-option:disabled {
-            cursor: not-allowed;
-            opacity: 0.9;
-        }
-        .feedback {
-            margin-top: 15px;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 16px;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .mark-complete { align-self: stretch; justify-content: center; }
-            .container { padding: 30px 15px; }
-        }
-    </style>
+  footer{text-align:center;margin-top:44px;padding-top:22px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.9rem;display:flex;flex-direction:column;gap:5px}
+  footer .cc{font-weight:700;color:var(--primary)}
+  .fab{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;border:none;border-radius:30px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow-lg);cursor:pointer;z-index:1000;font-size:.9rem}
+  @media(max-width:640px){.hero h1{font-size:1.8rem}.section-header h2{font-size:1.25rem}}
+</style>
 </head>
 <body>
+<div id="progress-container"><div id="progress-bar"></div></div>
+<div class="container">
 
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badges">
+      <span class="badge">👤 Adults 18+</span>
+      <span class="badge">🎯 CEFR B1</span>
+      <span class="badge">⏱️ 60 min</span>
+      <span class="badge">💻 Zoom</span>
+      <span class="badge">🗣️ Function: Networking &amp; Small Talk</span>
+    </div>
+    <h1>☕ Small Talk at Work &amp; Networking</h1>
+    <p class="sub">Module 3 · Week 30 — Work, Study, and Personal Development</p>
+    <div class="objectives-card">
+      <h3>🎯 Today you will be able to…</h3>
+      <ul>
+        <li><span>1.</span> Start and keep small talk going with colleagues or people you have just met.</li>
+        <li><span>2.</span> Use networking vocabulary and polite questions to build professional relationships.</li>
+        <li><span>3.</span> Introduce yourself confidently and follow up with new contacts in English.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 1 WARM-UP -->
+  <section class="section">
+    <div class="section-header">
+      <h2>1. Warm-Up 🧊</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">Answer out loud first. Then click a card to compare with an example answer.</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher note:</b> Keep it light and fast-paced. Nominate a student, then open one breakout pair to mirror the exchange.</div>
+
+    <div class="reveal-card" onclick="toggle(this)">
+      <div class="q"><span class="em">☕</span><div>What do you usually say to start a conversation with a colleague at the coffee machine?</div></div>
+      <div class="answer">"Hi! Busy morning, isn't it? Did you get much sleep last night?"</div>
+    </div>
+    <div class="reveal-card" onclick="toggle(this)">
+      <div class="q"><span class="em">🌦️</span><div>What's an easy topic to talk about with someone you've just met at work?</div></div>
+      <div class="answer">"The weather, the traffic, or how the weekend was — safe topics everyone can talk about."</div>
+    </div>
+    <div class="reveal-card" onclick="toggle(this)">
+      <div class="q"><span class="em">🤝</span><div>How do you feel about networking events — comfortable or nervous?</div></div>
+      <div class="answer">"A little nervous at first, but I always try to ask people questions about their work."</div>
+    </div>
+    <div class="reveal-card" onclick="toggle(this)">
+      <div class="q"><span class="em">💻</span><div>Have you ever made small talk in English at work? What happened?</div></div>
+      <div class="answer">"Yes, I talked to a foreign client about football before our meeting started."</div>
+    </div>
+    <div class="reveal-card" onclick="toggle(this)">
+      <div class="q"><span class="em">🎉</span><div>What's a good way to end a conversation and exchange contact details?</div></div>
+      <div class="answer">"It was great chatting with you — here's my card, let's connect on LinkedIn."</div>
+    </div>
+  </section>
+
+  <!-- 2 VOCABULARY -->
+  <section class="section">
+    <div class="section-header">
+      <h2>2. Vocabulary 📖</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">10 useful words &amp; phrases for small talk and networking. Click a card to see an example sentence. (🔊 = say it twice for the class.)</p>
+    <div class="vocab-grid">
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">small talk</span><button class="audio" onclick="say('small talk',event)">🔊</button></div><div class="pos">noun</div><div class="def">Light, friendly conversation about simple topics.</div><div class="ex">"We made small talk about the weather before the meeting started."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">break the ice</span><button class="audio" onclick="say('break the ice',event)">🔊</button></div><div class="pos">phrase</div><div class="def">To start a conversation in a friendly, relaxed way.</div><div class="ex">"A simple question about the weekend can break the ice."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">networking</span><button class="audio" onclick="say('networking',event)">🔊</button></div><div class="pos">noun</div><div class="def">Building relationships with people who could help your career.</div><div class="ex">"She's good at networking — she knows people in every department."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">colleague</span><button class="audio" onclick="say('colleague',event)">🔊</button></div><div class="pos">noun</div><div class="def">A person you work with.</div><div class="ex">"My colleague introduced me to the new client."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">touch base</span><button class="audio" onclick="say('touch base',event)">🔊</button></div><div class="pos">phrasal verb</div><div class="def">To contact someone briefly to share information.</div><div class="ex">"Let's touch base next week about the project."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">approachable</span><button class="audio" onclick="say('approachable',event)">🔊</button></div><div class="pos">adjective</div><div class="def">Easy and pleasant to talk to.</div><div class="ex">"Our new manager is very approachable, so I asked her a few questions."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">follow up</span><button class="audio" onclick="say('follow up',event)">🔊</button></div><div class="pos">phrasal verb</div><div class="def">To contact someone again after a first meeting.</div><div class="ex">"I'll follow up with an email after the conference."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">common ground</span><button class="audio" onclick="say('common ground',event)">🔊</button></div><div class="pos">noun phrase</div><div class="def">Shared interests or opinions between people.</div><div class="ex">"We found some common ground — we both studied in Hanoi."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">elevator pitch</span><button class="audio" onclick="say('elevator pitch',event)">🔊</button></div><div class="pos">noun</div><div class="def">A short description of yourself or your work.</div><div class="ex">"Prepare a 30-second elevator pitch before the networking event."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">catch up</span><button class="audio" onclick="say('catch up',event)">🔊</button></div><div class="pos">phrasal verb</div><div class="def">To talk with someone about recent news.</div><div class="ex">"Let's catch up over coffee sometime this week."</div></div>
+    </div>
+  </section>
+
+  <!-- 3 MAIN SPEAKING QUESTIONS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>3. Speaking Practice 🗣️</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">10 questions from easy → opinion. Try each one first, then open the <b>💡 Ideas</b> and <b>Sample answers</b>.</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher note:</b> Q1–3 quick fire whole-class. Q4–7 in breakout pairs. Q8–10 back as a group for balanced opinions.</div>
+    <div id="questions"></div>
+  </section>
+
+  <!-- 6 ROLE-PLAY -->
+  <section class="section">
+    <div class="section-header">
+      <h2>4. Role-Play 🎭</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">Two real-life work situations. Read your role, then act it out with a partner. Click <b>Show dialogue hints</b> if you need support.</p>
+
+    <div class="roleplay">
+      <h3>🎬 Scenario 1 — Company networking mixer</h3>
+      <p>You are at an after-work networking event for people in your industry. Approach someone you don't know, introduce yourself, and try to find <b>one thing you have in common</b> before exchanging contact details.</p>
+      <div class="roles">
+        <span class="role-pill">👤 Student A — Guest at the event</span>
+        <span class="role-pill">👤 Student B — Another guest, different company</span>
+      </div>
+      <div class="hints">
+        <button class="hint-toggle" onclick="toggleHint(this)">Show dialogue hints 💬</button>
+        <div class="hint-box">
+          <ul>
+            <li><b>A:</b> "Hi there! I don't think we've met — I'm ___ from ___."</li>
+            <li><b>B:</b> "Nice to meet you, ___! I'm ___. I work at ___ as a ___."</li>
+            <li><b>A:</b> "Oh, interesting! What made you come to this event tonight?"</li>
+            <li><b>B:</b> "I'm hoping to meet people in ___. How about you?"</li>
+            <li><b>A:</b> "Same here! It seems we have something in common — we're both interested in ___."</li>
+            <li><b>B:</b> "That's great. Here's my card — let's connect on LinkedIn and keep in touch."</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <header class="hero">
-            <h1>Teamwork & Shared Responsibilities</h1>
-            <p>A professional speaking lesson for adult learners. (Level A2-B2)</p>
-            
-            <div class="objectives-card">
-                <h3>🎯 Learning Objectives:</h3>
-                <ul>
-                    <li>✅ Discuss personal experiences and challenges regarding teamwork in professional or personal settings.</li>
-                    <li>✅ Use relevant vocabulary to describe roles, responsibilities, and collaborative processes.</li>
-                    <li>✅ Negotiate tasks, offer help, and express opinions on effective teamwork strategies.</li>
-                </ul>
-            </div>
-        </header>
-
-        <div class="section-header">
-            <h2>1. Warm-Up 🧊</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
+    <div class="roleplay">
+      <h3>🎬 Scenario 2 — Coffee break with a new colleague</h3>
+      <p>It's your coffee break. You notice a colleague from another department sitting alone. Start a friendly conversation, ask about their work, and find a topic you can both talk about.</p>
+      <div class="roles">
+        <span class="role-pill">👤 Student A — Employee from Marketing</span>
+        <span class="role-pill">👤 Student B — New colleague from IT</span>
+      </div>
+      <div class="hints">
+        <button class="hint-toggle" onclick="toggleHint(this)">Show dialogue hints 💬</button>
+        <div class="hint-box">
+          <ul>
+            <li><b>A:</b> "Hi, mind if I join you? I don't think we've officially met."</li>
+            <li><b>B:</b> "Not at all! I'm ___ from the IT department. I just joined last month."</li>
+            <li><b>A:</b> "Welcome to the company! How's everything going so far?"</li>
+            <li><b>B:</b> "Pretty good, thanks. Everyone's been really approachable and helpful."</li>
+            <li><b>A:</b> "That's great to hear. What do you do exactly in IT?"</li>
+            <li><b>B:</b> "I mostly work on ___. What about you — what's your role in Marketing?"</li>
+          </ul>
         </div>
-        
-        <div class="card">
-            <h3 style="color: var(--text-main);">Let's get the conversation started.</h3>
-            <p style="margin-bottom: 25px; color: var(--text-muted);">Answer the questions below based on your own experience. Click to view a sample response if you need inspiration.</p>
-            
-            <div id="warmup-container">
-                <!-- Filled by JavaScript -->
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>2. Professional Vocabulary 📖</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-
-        <div class="card">
-            <p style="margin-bottom: 25px; color: var(--text-muted);">Familiarize yourself with these terms often used in collaborative environments. Click to reveal contextual examples.</p>
-            
-            <div class="vocab-grid">
-                <!-- Vocab Items -->
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Collaborate</div>
-                        <div class="vocab-type">(verb)</div>
-                        <div class="vocab-def">To work together with someone to produce or achieve something.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v1')">View Example</button>
-                    <div id="v1" class="hidden example-sentence">"Our department will collaborate with the marketing team on the new product launch."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Delegate</div>
-                        <div class="vocab-type">(verb)</div>
-                        <div class="vocab-def">To give a particular job, duty, or responsibility to someone else.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v2')">View Example</button>
-                    <div id="v2" class="hidden example-sentence">"A good manager knows how to delegate tasks to avoid becoming overwhelmed."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Compromise</div>
-                        <div class="vocab-type">(noun / verb)</div>
-                        <div class="vocab-def">An agreement reached where each side gives up some of what they want.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v3')">View Example</button>
-                    <div id="v3" class="hidden example-sentence">"We couldn't agree on the budget, so we had to reach a compromise."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Reliable</div>
-                        <div class="vocab-type">(adjective)</div>
-                        <div class="vocab-def">Consistently good in quality or performance; able to be trusted.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v4')">View Example</button>
-                    <div id="v4" class="hidden example-sentence">"Sarah is a very reliable team member; she always meets her deadlines."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Micro-manage</div>
-                        <div class="vocab-type">(verb)</div>
-                        <div class="vocab-def">To control every small detail of an operation or project, often annoying employees.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v5')">View Example</button>
-                    <div id="v5" class="hidden example-sentence">"Employees tend to be less creative when their boss tries to micro-manage them."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Accountability</div>
-                        <div class="vocab-type">(noun)</div>
-                        <div class="vocab-def">Being responsible for what you do and able to give a satisfactory reason for it.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v6')">View Example</button>
-                    <div id="v6" class="hidden example-sentence">"There needs to be clear accountability so everyone knows exactly what they are responsible for."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Contribution</div>
-                        <div class="vocab-type">(noun)</div>
-                        <div class="vocab-def">Something that you do or give to help produce or achieve something together.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v7')">View Example</button>
-                    <div id="v7" class="hidden example-sentence">"Thank you for your valuable contribution to the brainstorming session today."</div>
-                </div>
-
-                <div class="card vocab-item" style="margin-bottom: 0;">
-                    <div>
-                        <div class="vocab-word">Overwhelmed</div>
-                        <div class="vocab-type">(adjective)</div>
-                        <div class="vocab-def">Feeling like you have too much to deal with; unable to manage everything.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v8')">View Example</button>
-                    <div id="v8" class="hidden example-sentence">"If you feel overwhelmed by the project size, let's break it down into smaller tasks."</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="background: #f8fafc; border: 1px dashed var(--primary);">
-            <h3>🔍 Concept Check: Delegate vs. Micro-manage</h3>
-            <p style="margin-bottom: 15px; color: var(--text-main);">Understanding the difference between healthy leadership and over-controlling is crucial in a professional setting.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--success); box-shadow: var(--shadow-sm);">
-                    <h4 style="color: var(--success); margin-bottom: 8px; font-size: 1.1rem;">✅ Delegate (Empowerment)</h4>
-                    <p style="font-size: 0.95rem; color: var(--text-muted);">Giving someone a task, setting the goal, and <strong>trusting</strong> them to complete it using their own methods.</p>
-                </div>
-                <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid var(--warning); box-shadow: var(--shadow-sm);">
-                    <h4 style="color: var(--warning); margin-bottom: 8px; font-size: 1.1rem;">⚠️ Micro-manage (Controlling)</h4>
-                    <p style="font-size: 0.95rem; color: var(--text-muted);">Giving someone a task but <strong>monitoring</strong> and criticizing every single step they take.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>3. Speaking Practice 🗣️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-        <p style="margin-bottom: 30px; font-size: 1.05rem; color: var(--text-muted);">Use the <strong>Idea Bank</strong> to help structure your thoughts. Review the <strong>Sample Answers</strong> to observe natural phrasing and sentence structure.</p>
-
-        <div class="card" style="border: 1px solid var(--secondary); background: #f0f9ff;">
-            <h3 style="justify-content: center; color: var(--secondary);">🧠 The "STAR" Speaking Strategy</h3>
-            <p style="color: var(--text-main); margin-bottom: 15px;">For Extended Answers (Level B1-B2), use this logical flowchart to structure your response fluently:</p>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
-                <div style="background: white; padding: 12px 20px; border-radius: 8px; font-weight: 600; box-shadow: var(--shadow-sm); border-left: 3px solid var(--primary);">1. State your main point</div>
-                <div style="color: var(--primary); font-weight: bold; font-size: 1.5rem;">➔</div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px; font-weight: 600; box-shadow: var(--shadow-sm); border-left: 3px solid var(--secondary);">2. Give a clear reason</div>
-                <div style="color: var(--primary); font-weight: bold; font-size: 1.5rem;">➔</div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px; font-weight: 600; box-shadow: var(--shadow-sm); border-left: 3px solid var(--success);">3. Provide an example</div>
-            </div>
-        </div>
-
-        <!-- Easy Level -->
-        <h3 style="color: var(--success); margin-bottom: 15px; font-size: 1.4rem;">🟢 Core Questions</h3>
-        
-        <div class="card">
-            <h3>Q1. What are your main responsibilities in your current job or daily life? 📋</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Managing schedules, answering emails, serving clients.</li>
-                        <li>Taking care of the household, grocery shopping, organizing.</li>
-                        <li>Studying, completing assignments, working a part-time job.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>My main responsibility is managing the IT helpdesk and ensuring customer tickets are resolved quickly.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>Currently, I work as an office manager. My main responsibilities include organizing meetings, managing the budget, and ordering supplies. Outside of work, I am also responsible for doing the cooking and grocery shopping for my family.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q2. How do you feel when someone asks you for help with their tasks? 🆘</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Happy to help, because it builds good relationships.</li>
-                        <li>Stressed, if I am already feeling overwhelmed with my own work.</li>
-                        <li>It depends on how polite they are and if they genuinely need help.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I usually feel happy to help, provided I have enough free time.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>To be honest, it really depends on my current workload. If I have free time, I am more than happy to collaborate and assist a colleague. However, if I am overwhelmed with my own deadlines, I can feel a bit stressed when someone asks for favors.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q3. Do you consider yourself a good team player? Why or why not? 🏅</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Yes: I am reliable, a good listener, and I meet deadlines.</li>
-                        <li>Yes: I prefer collaborating over working in isolation.</li>
-                        <li>Sometimes: I can be a bit controlling or prefer doing things my own way.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>Yes, I believe I am a good team player because I communicate well and respect others' ideas.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>I definitely consider myself a strong team player. I am very reliable when it comes to deadlines, and I make an effort to listen to everyone's contributions during meetings. I think being open to compromise is my strongest skill in a team setting.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Medium Level -->
-        <h3 style="color: var(--warning); margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem;">🟡 Intermediate Questions</h3>
-
-        <div class="card">
-            <h3>Q4. How do you handle a situation where a team member is not doing their fair share of the work? ⚖️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Talk to them privately to see if they are overwhelmed or need help.</li>
-                        <li>Bring it up gently during a team meeting.</li>
-                        <li>Report the issue to a manager or team leader as a last resort.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I would approach them privately and ask if they are facing any difficulties with their tasks.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>First, I try to assume positive intent. I would schedule a brief one-on-one chat to ask if they are overwhelmed or need any clarification on their role. If they continue to avoid their responsibilities after that conversation, I would eventually have to raise the issue with our manager to ensure the project doesn't fail.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q5. Why is communication so critical in a team setting? 🗣️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>It prevents misunderstandings and duplicated work.</li>
-                        <li>It ensures everyone is aligned on the goals and deadlines.</li>
-                        <li>It builds trust and creates a positive working environment.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>Communication is critical because it prevents misunderstandings and ensures everyone knows their responsibilities.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>In my opinion, communication is the foundation of any successful team. Without it, you risk duplicating work or missing deadlines completely. Clear communication ensures accountability, builds trust among colleagues, and allows the team to solve complex problems much faster.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q6. How do you divide household chores with your family or roommates? 🧹</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>We have a strict schedule or chart on the fridge.</li>
-                        <li>We divide tasks based on what people prefer doing (e.g., I cook, you wash dishes).</li>
-                        <li>It's very casual; whoever has free time takes care of it.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>My partner and I divide chores based on our preferences; I cook, and he cleans.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>In my apartment, my roommates and I use a rotating schedule for shared spaces like the kitchen and bathroom. We decided to delegate tasks this way to ensure fairness. However, for personal things like laundry, everyone is responsible for their own.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q7. Describe an experience where you had to lead a team. What was challenging? 👑</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Leading a university group project or a small committee at work.</li>
-                        <li>Challenge: Trying not to micro-manage people.</li>
-                        <li>Challenge: Motivating team members who were not interested in the project.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I led a marketing campaign last year. The hardest part was delegating tasks instead of doing everything myself.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>Last year, I was promoted to project lead for a software update. The experience was rewarding but highly challenging. The most difficult aspect was learning how to delegate properly. At first, I tried to micro-manage every detail, which exhausted me and annoyed my team. I had to learn to trust their expertise.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Opinion Level -->
-        <h3 style="color: var(--primary); margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem;">🔵 Opinion & Discussion</h3>
-
-        <div class="card">
-            <h3>Q8. Some people say "too many cooks spoil the broth" (too many people working on a task ruins it). Do you agree? 👨‍🍳</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Agree: Too many opinions cause delays and confusion.</li>
-                        <li>Disagree: Diverse perspectives lead to better, more creative results.</li>
-                        <li>Depends: It works only if there is a clear leader to make the final decision.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I partly agree. Having too many people can cause confusion unless there is one clear leader making decisions.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>I definitely agree with this idiom in certain situations. When a project requires a fast decision, having too many people involved just creates endless arguments and delays. However, for creative brainstorming, having a larger group is beneficial. The key is knowing when to collaborate and when to let a small group execute the plan.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q9. Is it possible for a team to be highly successful if the members do not like each other personally? 👥</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Yes, as long as they are professional and respect each other's skills.</li>
-                        <li>No, underlying tension will eventually destroy communication and trust.</li>
-                        <li>It's possible for short-term projects, but not sustainable for long-term work.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>Yes, I think it's possible as long as there is mutual professional respect.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>From my perspective, personal friendship is not a requirement for a successful team. What is absolutely necessary, though, is professional respect. You don't have to like someone to acknowledge that they are highly skilled and reliable. As long as personal feelings are kept out of the office, the team can still perform very well.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q10. How do you think technology (like AI and remote tools) will change teamwork in the next decade? 🤖</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Remote work will become the standard, making global collaboration easier.</li>
-                        <li>AI will take over routine tasks, allowing teams to focus entirely on creative strategy.</li>
-                        <li>It might make people feel more isolated and reduce traditional office culture.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I believe AI will handle the repetitive tasks, so human teams will only focus on creative problem-solving.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #e0e7ff; color: #4338ca;">Extended</span>
-                        <p>In the next decade, technology will completely redefine collaboration. With advancements in AI, much of the administrative work that teams do today will be automated. This means human teamwork will shift entirely toward strategy, empathy, and creative problem-solving. Furthermore, advanced VR tools might make remote teams feel like they are in the same room, bridging geographical gaps.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="section-header">
-            <h2>6. Workplace & Life Role-Play 🎭</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-        <p style="margin-bottom:25px; color: var(--text-muted);">Work with a partner. Choose your roles and practice navigating these common interpersonal situations.</p>
-
-        <div class="card">
-            <h3 style="margin-bottom: 15px; color: var(--text-main);">🗣️ Useful Phrases for Negotiation</h3>
-            <p style="color: var(--text-muted); margin-bottom: 15px;">Use these professional structures to handle workplace conflicts politely.</p>
-            <div style="overflow-x: auto; border-radius: 8px; border: 1px solid var(--border);">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                    <thead>
-                        <tr style="background: var(--bg); border-bottom: 2px solid var(--border);">
-                            <th style="padding: 15px; color: var(--text-main);">Expressing Overwhelm / Concern</th>
-                            <th style="padding: 15px; color: var(--text-main);">Proposing a Compromise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 15px; color: var(--text-main);">"I'm feeling a bit overwhelmed with..."</td>
-                            <td style="padding: 15px; color: var(--text-main);">"What if we tried to..."</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border);">
-                            <td style="padding: 15px; color: var(--text-main);">"I currently have too much on my plate."</td>
-                            <td style="padding: 15px; color: var(--text-main);">"Would you be open to..."</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 15px; color: var(--text-main);">"I might need some assistance with..."</td>
-                            <td style="padding: 15px; color: var(--text-main);">"Let's find a middle ground."</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="card" style="border-left: 5px solid var(--primary);">
-            <h3>Scenario A: The Unequal Workload 💼</h3>
-            <p style="margin-bottom: 10px;"><strong>Situation:</strong> You and a co-worker are organizing a company event. Student A feels they are doing 80% of the work. Student B thought Student A enjoyed doing it and wanted control.</p>
-            <ul style="margin-bottom: 15px; padding-left: 20px;">
-                <li><strong>🧑‍💻 Student A:</strong> Express your feeling of being overwhelmed politely. Ask to re-delegate some tasks.</li>
-                <li><strong>🧑‍💼 Student B:</strong> Explain your misunderstanding. Offer to take on specific responsibilities immediately.</li>
-            </ul>
-            
-            <details>
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> "Hey, do you have a minute? I wanted to chat about the upcoming event. To be honest, I'm feeling a bit overwhelmed with the catering and logistics."</p>
-                    <p><strong>B:</strong> "Oh, I had no idea! I didn't want to step on your toes because you seemed to have a specific vision for it."</p>
-                    <p><strong>A:</strong> "I appreciate that, but I definitely need to delegate some of this. Could you take over the venue coordination?"</p>
-                    <p><strong>B:</strong> "Absolutely. Send me the contacts and I'll handle it from here."</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="card" style="border-left: 5px solid var(--warning);">
-            <h3>Scenario B: The Household Negotiation 🏠</h3>
-            <p style="margin-bottom: 10px;"><strong>Situation:</strong> Two roommates are discussing the cleanliness of their apartment. Student A wants to create a strict chore schedule. Student B is currently working overtime and has very little free time.</p>
-            <ul style="margin-bottom: 15px; padding-left: 20px;">
-                <li><strong>🧹 Student A:</strong> Bring up the mess in the apartment. Propose a structured cleaning schedule.</li>
-                <li><strong>💼 Student B:</strong> Explain your current work stress. Try to negotiate a compromise (e.g., hiring a cleaner, or doing bulk chores on weekends).</li>
-            </ul>
-            
-            <details>
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> "Hey, I wanted to talk about the apartment. It's getting pretty messy, and I think we need a formal chore chart."</p>
-                    <p><strong>B:</strong> "I agree it's messy, but I'm working 60 hours a week right now. I just can't commit to daily cleaning."</p>
-                    <p><strong>A:</strong> "I understand you're stressed, but it's not fair for me to do all the upkeep. What's a fair compromise?"</p>
-                    <p><strong>B:</strong> "What if I handle all the deep cleaning on Sunday mornings, or I pay for a cleaning service twice a month?"</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="section-header">
-            <h2>7. Fluency Builder 🏗️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-        <p style="margin-bottom: 25px; color: var(--text-muted);">Use these sentence starters to express your ideas more professionally and fluently. <strong>Click the cards to flip them and view an example!</strong></p>
-
-        <div class="flashcard-grid">
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">In my experience...</div>
-                <div class="back">"In my experience, <strong>communication prevents most major errors.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I firmly believe that...</div>
-                <div class="back">"I firmly believe that <strong>accountability is essential for success.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">From my perspective...</div>
-                <div class="back">"From my perspective, <strong>the timeline is too tight.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">One of the main challenges is...</div>
-                <div class="back">"One of the main challenges is <strong>coordinating different time zones.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Let's look at it this way...</div>
-                <div class="back">"Let's look at it this way: <strong>if we delay now, we save money later.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Would you be open to...</div>
-                <div class="back">"Would you be open to <strong>delegating this task to the intern?</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I understand your point, but...</div>
-                <div class="back">"I understand your point, but <strong>we don't have the budget for that.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">To give you an example...</div>
-                <div class="back">"To give you an example, <strong>last quarter we used the same strategy.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">On the other hand...</div>
-                <div class="back">"On the other hand, <strong>working remotely saves commute time.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">That’s a valid point...</div>
-                <div class="back">"That’s a valid point. <strong>Let's incorporate your idea into the plan.</strong>"</div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>8. Knowledge Check 🎯</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-        <div class="card">
-            <h3 style="margin-bottom: 25px;">Select the most appropriate vocabulary word for each situation.</h3>
-            
-            <div style="margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid var(--border);">
-                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>1. You are a manager with too many tasks on your plate. To ensure the project is finished on time, you should ________ some of your responsibilities to your junior staff.</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. Micro-manage</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">B. Delegate</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. Compromise</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-
-            <div style="margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid var(--border);">
-                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>2. The design team wants the website to be blue, while the marketing team wants it to be red. After an hour of discussion, they agree to use purple. They have reached a ________.</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, true)">A. Compromise</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. Contribution</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. Accountability</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-            
-            <div>
-                <p style="font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main);"><strong>3. "I can't work well under these conditions. My boss asks for updates every 15 minutes and checks every single email I send." What is the boss doing?</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. Brainstorming</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. Collaborating</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">C. Micro-managing</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>9. Self-Reflection 🪞</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Mark Complete
-            </label>
-        </div>
-        <div class="card" style="background: var(--bg);">
-            <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-main);">Take a brief moment to evaluate your speaking performance in today's session:</p>
-            <ul style="list-style-type: none; font-size:1.05rem; line-height:2.2; color: var(--text-main);">
-                <li>🔹 <strong>Fluency:</strong> Was I able to express my opinions without taking overly long pauses?</li>
-                <li>🔹 <strong>Vocabulary:</strong> Did I successfully use terms like <em>delegate</em>, <em>compromise</em>, or <em>overwhelmed</em>?</li>
-                <li>🔹 <strong>Clarity:</strong> Did I articulate my points clearly during the Role-Play scenario?</li>
-                <li>🔹 <strong>Structure:</strong> Did I utilize the "Fluency Builder" sentence starters to construct complex ideas?</li>
-                <li>🔹 <strong>Confidence:</strong> How comfortable did I feel discussing professional interactions?</li>
-            </ul>
-        </div>
-
-        <div class="section-header">
-            <h2>10. Session Complete 🎉</h2>
-        </div>
-        <div class="card" style="text-align: center; padding: 50px 20px;">
-            <h1 style="font-size: 4rem; margin-bottom: 20px;">🏆</h1>
-            <h2 style="color: var(--primary); margin-bottom: 15px;">Excellent work today!</h2>
-            <p style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 20px;">You have successfully navigated complex professional dialogues, practiced delegation and negotiation, and expanded your workplace vocabulary.</p>
-            <div style="display: inline-block; background: #fef3c7; padding: 15px 25px; border-radius: 8px; border: 1px solid #f59e0b;">
-                <p style="color: #b45309; font-size: 0.95rem; font-weight: 500;"><em>Reminder: Please ensure all the 'Mark Complete' checkboxes at the top of each section are ticked to record your progress fully.</em></p>
-            </div>
-        </div>
-
-        <footer style="text-align: center; margin-top: 50px; padding-top: 25px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.95rem; display: flex; flex-direction: column; gap: 5px;">
-            <p style="font-weight: 700; color: var(--primary); font-size: 1.05rem;">Copyright © ELS = English Lucero System</p>
-            <p style="font-weight: 500;">Mr. Đinh Văn Nam</p>
-        </footer>
-
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Data for Section 1 Warm-up
-        const warmupData = [
-            { q: "Do you generally prefer working alone or in a team? Why? 🧑‍💻🤝", a: "I prefer a mix. I like working alone when I need deep focus, but I value teamwork for brainstorming and feedback." },
-            { q: "What was the last major project you collaborated on? 📊", a: "Last month, I collaborated with the sales team to design a new presentation pitch for our corporate clients." },
-            { q: "What is the most difficult part of working with a team? 🚧", a: "For me, the hardest part is coordinating schedules and dealing with different communication styles." },
-            { q: "Can you recall a time when a team project was highly successful? 🏆", a: "Yes, when we launched our new app. Everyone knew their roles perfectly and we communicated daily." },
-            { q: "In your household, how are daily chores and responsibilities divided? 🏠", a: "We divide them based on what we hate least. I don't mind doing laundry, but my partner prefers cooking." }
-        ];
+  <!-- 7 FLUENCY BUILDER -->
+  <section class="section">
+    <div class="section-header">
+      <h2>5. Fluency Builder 🏗️</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">Sentence starters for smooth small talk and networking. Click a card to see a full example, then make your own.</p>
+    <div class="flash-grid" id="flash-grid"></div>
+  </section>
 
-        // Generate Warm-up content dynamically
-        const warmupContainer = document.getElementById('warmup-container');
-        warmupData.forEach((item, index) => {
-            const html = `
-                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
-                    <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: var(--text-main);">${item.q}</p>
-                    <button class="outline" onclick="toggle('warmup-ans-${index}')">View Sample Answer</button>
-                    <div id="warmup-ans-${index}" class="hidden" style="margin-top: 15px; padding: 15px; background: #f1f5f9; border-radius: 8px; border-left: 3px solid var(--secondary); color: var(--text-main); font-style: italic;">
-                        "${item.a}"
-                    </div>
-                </div>
-            `;
-            warmupContainer.innerHTML += html;
-        });
+  <!-- 8 REVIEW GAME -->
+  <section class="section">
+    <div class="section-header">
+      <h2>6. Review Game — Match it! 🎯</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">Click a phrase on the left, then its meaning on the right.</p>
+    <div class="match-wrap">
+      <div class="match-col"><h4>Phrase</h4><div id="match-left"></div></div>
+      <div class="match-col"><h4>Meaning</h4><div id="match-right"></div></div>
+    </div>
+    <div id="match-feedback"></div>
+  </section>
 
-        // Universal Toggle Function
-        function toggle(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                el.style.opacity = 0;
-                setTimeout(() => el.style.opacity = 1, 10);
-                el.style.transition = "opacity 0.4s ease";
-            } else {
-                el.classList.add('hidden');
-            }
-        }
+  <!-- 9 REFLECTION -->
+  <section class="section">
+    <div class="section-header">
+      <h2>7. Self-Reflection 🪞</h2>
+      <label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label>
+    </div>
+    <p class="intro">Rate yourself honestly. This is just for you.</p>
+    <div class="reflect">
+      <label>Was I confident when I started small talk with someone new? <span class="rating" data-r></span></label>
+      <label>Did I use new networking vocabulary from today? <span class="rating" data-r></span></label>
+      <label>Did I ask follow-up questions to keep the conversation going? <span class="rating" data-r></span></label>
+      <label>Did I find common ground with my partner? <span class="rating" data-r></span></label>
+      <label>Did I practise both role-plays politely and clearly? <span class="rating" data-r></span></label>
+    </div>
+  </section>
 
-        // Review Game Logic
-        function checkGame(buttonElement, isCorrect) {
-            const parent = buttonElement.parentElement;
-            const allButtons = parent.querySelectorAll('button');
-            const feedbackBox = parent.querySelector('.feedback');
+  <!-- 10 PROGRESS / COMPLETE -->
+  <section class="section">
+    <div class="section-header"><h2>8. Session Complete 🎉</h2></div>
+    <ul class="tracker-list">
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I practised small talk in the warm-up.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I learned and used new networking vocabulary.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I answered the speaking questions.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I completed both role-plays.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I finished the review game.</li>
+    </ul>
+    <div class="complete-banner">
+      <h2 id="done-title">Keep going — you're almost there!</h2>
+      <p id="done-msg" style="color:var(--text-muted);margin-top:8px">Tick the boxes above as you complete each part.</p>
+    </div>
+  </section>
 
-            // Disable all buttons in this question group
-            allButtons.forEach(btn => btn.disabled = true);
+  <footer>
+    <p class="cc">Copyright © ELS — English Lucero System</p>
+    <p>Biên soạn bởi Mr. Lucero - Adults B1 - Small Talk at Work and Networking</p>
+    <p style="font-size:.8rem;opacity:.8">For classroom use with ELS learners.</p>
+  </footer>
+</div>
 
-            if (isCorrect) {
-                buttonElement.style.backgroundColor = '#ecfdf5'; // light green
-                buttonElement.style.borderColor = 'var(--success)';
-                buttonElement.style.color = '#065f46'; // dark green
-                buttonElement.style.fontWeight = '600';
-                feedbackBox.innerHTML = '✅ Correct! Well done.';
-                feedbackBox.style.color = 'var(--success)';
-                feedbackBox.style.backgroundColor = '#ecfdf5';
-            } else {
-                buttonElement.style.backgroundColor = '#fef2f2'; // light red
-                buttonElement.style.borderColor = '#ef4444';
-                buttonElement.style.color = '#991b1b';
-                
-                // Highlight the correct option
-                allButtons.forEach(btn => {
-                    if(btn.getAttribute('onclick').includes('true')) {
-                        btn.style.border = '2px solid var(--success)';
-                        btn.style.color = 'var(--success)';
-                        btn.style.fontWeight = '600';
-                        btn.style.backgroundColor = '#f8fafc';
-                    }
-                });
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
 
-                feedbackBox.innerHTML = '❌ Incorrect. Review the vocabulary list and try to understand why the highlighted answer is best.';
-                feedbackBox.style.color = '#dc2626';
-                feedbackBox.style.backgroundColor = '#fef2f2';
-            }
-            feedbackBox.style.display = 'block';
-        }
+<script>
+/* ---------- speaking questions data ---------- */
+const QUESTIONS=[
+ {lvl:'easy',em:'👋',q:"What do you usually talk about with a new colleague on your first day?",
+  ideas:["your job role","where you sit","ask about the team","a simple question"],
+  a1:"I usually ask about their job and tell them a bit about mine.",
+  a2:"On my first day, I usually ask new colleagues what their job is and how long they've worked there. I also mention my own role so they know what I do. It's a good way to start a friendly relationship right away."},
+ {lvl:'easy',em:'☕',q:"What's your favourite small talk topic at work — weather, food, or the weekend?",
+  ideas:["choose one topic","give a reason","give an example question"],
+  a1:"I like talking about food because everyone has an opinion about it.",
+  a2:"My favourite small talk topic is food, because everyone in Vietnam loves talking about what to eat for lunch. It's an easy, safe topic and it always makes people smile. I often ask colleagues, \"Where did you get lunch today?\" to start a chat."},
+ {lvl:'easy',em:'📇',q:"How do you introduce yourself at a networking event?",
+  ideas:["name + job","company or field","a friendly opening line","offer your hand or card"],
+  a1:"I say my name and my job, then I smile and shake hands.",
+  a2:"I usually say my name, my job, and the company I work for. Then I ask the other person a simple question, like what brought them to the event. I try to smile and sound relaxed, because first impressions matter a lot."},
+ {lvl:'medium',em:'🤝',q:"Tell me about a time you met someone new at a work event. What did you talk about?",
+  ideas:["where and when","how you started the conversation","what topic you discussed","how it ended"],
+  a1:"I met a client at a conference last year. We talked about the weather.",
+  a2:"Last year, I met a client from Ho Chi Minh City at a business conference in Da Nang. We started by talking about the traffic and the weather, which broke the ice quickly. Then we moved on to our jobs and found out we had studied at the same university. In the end, we exchanged business cards and agreed to keep in touch."},
+ {lvl:'medium',em:'💬',q:"What questions do you ask to keep a conversation going with someone you've just met?",
+  ideas:["ask about their work","ask follow-up questions","show interest","find common ground"],
+  a1:"I ask what they do and how long they've worked there.",
+  a2:"After the first hello, I usually ask what someone does for work and how they got into that field. If they mention a hobby or a place, I ask a follow-up question to show real interest. This helps us find common ground, so the conversation feels natural instead of forced."},
+ {lvl:'medium',em:'😅',q:"Do you find small talk easy or difficult? Why?",
+  ideas:["easy/difficult","give a reason","a real example","how you improve"],
+  a1:"It's a bit difficult for me because I don't know what to say first.",
+  a2:"Honestly, I find small talk a little difficult, especially in English, because I sometimes worry about making mistakes. For example, at a recent networking event I stayed quiet for the first few minutes. However, I've learned that asking simple questions about someone's weekend really helps me relax and keep talking."},
+ {lvl:'medium',em:'📧',q:"How do you usually follow up with someone after meeting them at a conference or event?",
+  ideas:["send an email or message","mention where you met","suggest meeting again","add them on LinkedIn"],
+  a1:"I usually send them a short email or add them on LinkedIn.",
+  a2:"After a conference, I usually send a short email within a day or two, thanking them for the conversation and mentioning something we discussed. I often connect with them on LinkedIn as well, so we don't lose contact. Sometimes I suggest meeting for coffee if we work in a similar field."},
+ {lvl:'opinion',em:'💭',q:"Do you think small talk is important for your career? Why or why not?",
+  ideas:["yes/no + reason","give an example","'It depends…'","mention networking"],
+  a1:"Yes, I think small talk is important because it helps you make connections.",
+  a2:"I believe small talk is quite important for a career, because it helps you build relationships before you even talk about business. On the other hand, some people think it's just wasted time and prefer to get straight to the point. Personally, I think a good balance works best — a few friendly minutes, then move on to the main topic."},
+ {lvl:'opinion',em:'🌐',q:"Is it easier to network online or in person? Compare the two.",
+  ideas:["compare both","one advantage each","one disadvantage each","your preference"],
+  a1:"I think in-person networking is easier because you can read body language.",
+  a2:"Both ways have their advantages. Online networking, like LinkedIn, lets you contact many more people and it's less stressful for shy people like me. In person, though, you can read body language and build trust more quickly, which I think creates stronger connections. Overall, I'd say a mix of both works better than relying on just one."},
+ {lvl:'opinion',em:'🌏',q:"How is small talk at work different between Vietnam and other countries?",
+  ideas:["topics that are common/uncommon","personal questions","formality","compare with Vietnam"],
+  a1:"In Vietnam, people often ask personal questions like your age or salary.",
+  a2:"In Vietnam, small talk often includes personal questions such as your age, marital status, or even your salary, which people ask to be friendly. In many Western countries, however, these questions are considered too private, and people prefer safer topics like sport or travel. I think it's useful to know these differences before meeting international colleagues, so you don't cause any misunderstanding."}
+];
 
-        // Progress Tracker Logic
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.section-tracker');
-            const checkedBoxes = document.querySelectorAll('.section-tracker:checked');
-            
-            const total = checkboxes.length;
-            const checked = checkedBoxes.length;
-            
-            const percentage = (checked / total) * 100;
-            document.getElementById('progress-bar').style.width = percentage + '%';
-            
-            // Optional styling update for checked labels
-            checkboxes.forEach(cb => {
-                const label = cb.parentElement;
-                if(cb.checked) {
-                    label.style.borderColor = 'var(--success)';
-                    label.style.color = 'var(--success)';
-                } else {
-                    label.style.borderColor = 'var(--border)';
-                    label.style.color = 'var(--text-muted)';
-                }
-            });
-        }
-    </script>
+/* ---------- fluency starters ---------- */
+const STARTERS=[
+ {f:"Busy day, isn't it?",b:"Busy day, isn't it? I've barely had time for lunch."},
+ {f:"I don't think we've met…",b:"I don't think we've met — I'm Trang from the design team."},
+ {f:"What brings you to…?",b:"What brings you to this conference today?"},
+ {f:"How long have you been…?",b:"How long have you been working here at the company?"},
+ {f:"I couldn't help noticing…",b:"I couldn't help noticing your name badge — are you with the sales team?"},
+ {f:"That sounds interesting because…",b:"That sounds interesting because I've always wanted to work in that field."},
+ {f:"We seem to have… in common.",b:"We seem to have a lot in common — we both studied abroad."},
+ {f:"Do you happen to know…?",b:"Do you happen to know if there's coffee somewhere nearby?"},
+ {f:"It was great chatting with you…",b:"It was great chatting with you — let's touch base again soon."},
+ {f:"Here's my card…",b:"Here's my card — feel free to connect with me on LinkedIn."}
+];
+
+/* ---------- match game ---------- */
+const PAIRS=[
+ {l:"break the ice",r:"start a conversation in a friendly way"},
+ {l:"touch base",r:"contact someone briefly"},
+ {l:"common ground",r:"shared interests or opinions"},
+ {l:"elevator pitch",r:"a short description of yourself or your work"},
+ {l:"approachable",r:"easy and pleasant to talk to"}
+];
+
+/* ---------- render questions ---------- */
+const tagLabel={easy:'Easy',medium:'Medium',opinion:'Opinion'};
+document.getElementById('questions').innerHTML=QUESTIONS.map((it,i)=>`
+ <div class="reveal-card" onclick="toggle(this)">
+   <div class="q"><span class="em">${it.em}</span>
+     <div><span class="tag ${it.lvl}">${tagLabel[it.lvl]}</span> &nbsp; <b>Q${i+1}.</b> ${it.q}</div></div>
+   <div class="answer" onclick="event.stopPropagation()">
+     <div class="q-idea"><b>💡 Ideas:</b> ${it.ideas.join(" · ")}</div>
+     <div class="samples">
+       <button class="sample-btn" onclick="showSample(this)">▸ Short answer</button>
+       <div class="sample-text"><span class="lvl">Short (A2)</span><br>${it.a1}</div>
+       <button class="sample-btn" onclick="showSample(this)">▸ Extended answer</button>
+       <div class="sample-text"><span class="lvl">Extended (B1)</span><br>${it.a2}</div>
+     </div>
+   </div>
+ </div>`).join('');
+
+/* ---------- render flashcards ---------- */
+document.getElementById('flash-grid').innerHTML=STARTERS.map(s=>`
+ <div class="flash" onclick="this.classList.toggle('flip')">
+   <div class="front">${s.f}</div>
+   <div class="back">${s.b}</div>
+ </div>`).join('');
+
+/* ---------- render match ---------- */
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+const rights=shuffle(PAIRS.map((p,i)=>({...p,i})));
+const L=document.getElementById('match-left'), R=document.getElementById('match-right');
+L.innerHTML=PAIRS.map((p,i)=>`<div class="match-item" data-l="${i}" onclick="pickL(this)">${p.l}</div>`).join('');
+R.innerHTML=rights.map(p=>`<div class="match-item" data-r="${p.i}" onclick="pickR(this)">${p.r}</div>`).join('');
+let selL=null, matched=0;
+function pickL(el){if(el.classList.contains('done'))return;document.querySelectorAll('#match-left .match-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');selL=el;}
+function pickR(el){if(!selL||el.classList.contains('done'))return;
+  if(selL.dataset.l===el.dataset.r){selL.classList.add('done');el.classList.add('done');selL.classList.remove('selected');matched++;
+    fb(matched===PAIRS.length?"🎉 Perfect! All matched!":"✅ Correct!","var(--success)");selL=null;}
+  else{fb("❌ Not quite — try again!","var(--warning)");}}
+function fb(t,c){const f=document.getElementById('match-feedback');f.textContent=t;f.style.color=c;}
+
+/* ---------- interactions ---------- */
+function toggle(el){el.classList.toggle('open');}
+function toggleVocab(el){el.classList.toggle('open');}
+function showSample(btn){const t=btn.nextElementSibling;t.classList.toggle('show');btn.style.opacity=t.classList.contains('show')?.6:1;}
+function toggleHint(btn){btn.nextElementSibling.classList.toggle('show');}
+function say(t,e){e.stopPropagation();if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u);}}
+
+/* stars */
+document.querySelectorAll('[data-r]').forEach(box=>{for(let i=1;i<=5;i++){const s=document.createElement('span');s.className='star';s.textContent='⭐';s.onclick=()=>{[...box.children].forEach((st,idx)=>st.classList.toggle('on',idx<i));};box.appendChild(s);}});
+
+/* progress */
+function updateProgress(){
+  const all=document.querySelectorAll('.tracker');
+  const done=[...all].filter(c=>c.checked).length;
+  const pct=Math.round(done/all.length*100);
+  document.getElementById('progress-bar').style.width=pct+'%';
+  const t=document.getElementById('done-title'), m=document.getElementById('done-msg');
+  if(pct===100){t.textContent="🎉 Excellent networking skills!";m.textContent="You've completed the whole lesson. Try starting a real small-talk conversation in English this week!";}
+  else if(pct>=60){t.textContent="👏 Great progress!";m.textContent="Almost finished — keep going!";}
+  else{t.textContent="Keep going — you're doing well!";m.textContent="Tick the boxes above as you complete each part.";}
+}
+updateProgress();
+</script>
 </body>
 </html>
